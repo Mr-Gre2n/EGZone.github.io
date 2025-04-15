@@ -35,5 +35,122 @@
             <button type="submit" class="button">Submit</button>
         </form>
     </section>
+
+    <script>
+        function createProductsInLocalStorage() {
+            // Sample data for 5 products
+            const products = [
+                {
+                    ID: 1,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 1',
+                    Category: 'Category A',
+                    Brand: 'Brand A',
+                    Price: 100,
+                    Discount: 10,
+                    Quantity: 50,
+                    Status: 'in stock',
+                    Description: 'Description of Product 1'
+                },
+                {
+                    ID: 2,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 2',
+                    Category: 'Category B',
+                    Brand: 'Brand B',
+                    Price: 200,
+                    Discount: 20,
+                    Quantity: 0,
+                    Status: 'out of stock',
+                    Description: 'Description of Product 2'
+                },
+                {
+                    ID: 3,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 3',
+                    Category: 'Category C',
+                    Brand: 'Brand C',
+                    Price: 150,
+                    Discount: 15,
+                    Quantity: 70,
+                    Status: 'in stock',
+                    Description: 'Description of Product 3'
+                },
+                {
+                    ID: 4,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 4',
+                    Category: 'Category D',
+                    Brand: 'Brand D',
+                    Price: 250,
+                    Discount: 25,
+                    Quantity: 0,
+                    Status: 'out of stock',
+                    Description: 'Description of Product 4'
+                },
+                {
+                    ID: 5,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 5',
+                    Category: 'Category E',
+                    Brand: 'Brand E',
+                    Price: 300,
+                    Discount: 30,
+                    Quantity: 0,
+                    Status: 'out of stock',
+                    Description: 'Description of Product 5'
+                }
+            ];
+
+            // Save to localStorage under the name 'Products'
+            localStorage.setItem('Products', JSON.stringify(products));
+
+            console.log('5 product entries have been added to localStorage.');
+        }
+
+        function createUsersInLocalStorage() {
+            // Sample data for 2 users
+            const users = [
+                {
+                    ID: 1,
+                    name: 'Admin',
+                    Username: 'admin',
+                    Password: '123',
+                },
+                {
+                    ID: 2,
+                    name: 'User',
+                    Username: 'testuser',
+                    Password: '123',
+                },
+            ];
+
+            // Save to localStorage under the name 'Users'
+            localStorage.setItem('Users', JSON.stringify(users));
+
+            console.log('2 Users entries have been added to localStorage.');
+
+
+            /*  logged In User
+            That we will use in home page*/
+            const loggedInUser = [
+                {
+                    ID: 1,
+                    name: 'Admin',
+                    Username: 'admin',
+                    Password: '123',
+                },
+            ];
+
+            // Save to localStorage under the name 'LoggedInUser'
+            localStorage.setItem('LoggedInUser', JSON.stringify(loggedInUser));
+
+            console.log('loggedInUser entrie have been added to localStorage.');
+        }
+
+        // Call the function to add products & users
+        createProductsInLocalStorage();
+        createUsersInLocalStorage()
+    </script>
 </body>
 </html>
