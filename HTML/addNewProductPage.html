@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/mainStyle.css">
+    <link rel="stylesheet" href="/CSS/addNewProductPageStyle.css">
+    <title>Manage Products</title>
+</head>
+<body>
+    <div class="container">
+
+        <section class="header">
+            <h1>Add New Product</h1>
+            <p>Fill in the details to add a product to your inventory </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="form-section">
+            <form id="product-form">
+                <div class="form-header">Basic Information</div>
+
+                <div class="divider"></div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productId">Product ID</label>
+                        <input type="text" id="productId" placeholder="Auto-generated" readonly>
+                        <div class="form-tip">ID will be auto-generated on submission</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productTitle" class="required">Title</label>
+                        <input type="text" id="productTitle" placeholder="Enter product title" required>
+                    </div>
+                </div>
+
+                    
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory" class="required">Category</label>
+                        <select id="productCategory" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="computer">Computer</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productBrand" class="required">Brand</label>
+                        <input type="text" id="productBrand" placeholder="Enter brand name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage" class="required">Product Image</label>
+                    <button  type="button" class="button">Choose Image</button>
+            
+                    <div class="image-preview">
+                        <img id="imagePreview" src="" alt="Product Image Preview">
+                    </div>
+                    <div class="form-tip">Recommended size: 600 x 600 pixels, Max: 2MB</div>
+                </div>
+                
+                <div class="form-header">Pricing & Inventory</div>
+
+                <div class="divider"></div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice" class="required">Price</label>
+                        <div class="price-input-group">
+                            <input type="number" id="productPrice" step="1" min="0" placeholder="0.00" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productDiscount">Discount</label>
+                        <div class="price-input-group">
+                            <input type="number" id="productDiscount" step="1" min="0" placeholder="0.00">
+                        </div>
+                        <div class="form-tip">Leave empty for no discount</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productQuantity" class="required">Quantity</label>
+                        <input type="number" id="productQuantity" min="0" placeholder="Enter available quantity" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        
+                        <div class="status-option In-Stock active">In Stock</div>
+                        <div class="status-option Out-of-Stock">Out of Stock</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="6" placeholder="Enter product description, features, and other details..."></textarea>
+                    <div class="form-tip">Provide a detailed description to help customers understand your product better</div>
+                </div>
+                
+                <div class="buttons">
+                    <button type="button" class="button btn-clear">Clear Form</button>
+                    <button type="submit" class="button">Add Product</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

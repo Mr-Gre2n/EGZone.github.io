@@ -1,0 +1,212 @@
+/* ===================== */
+/*       VARIABLES       */
+/* ===================== */
+
+:root {
+    /* Colors */
+    --color-secondary-text: #7f8c8d;
+    --color-background:  #f5f7fb;
+
+    /* Fonts */
+    --font-size-vsm: 12px;
+
+    /* shadows */
+    --page-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ===================== */
+/*       BASE STYLES     */
+/* ===================== */
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    background-color: var(--color-background)
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    margin: 0px 20px;
+    padding: 0px 20px;
+    box-shadow: var(--page-shadow);
+}
+
+.divider{
+    background-color: var(--color-gray-100);
+    height: 1.5px;
+    margin-top: 7px;
+}
+
+.header p{
+    margin-top: -15px;
+    color: var(--color-secondary-text);
+}
+
+.header h1{
+    font-size: 28px;
+}
+
+.form-header{
+    font-weight: 600;
+    color: var(--color-primary-text);
+    text-align: left;
+    margin-top: 25px;
+}
+
+.form-row{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.form-tip{
+    color: var(--color-secondary-text);
+    font-size: var( --font-size-vsm);
+    margin-top: 4px;
+}
+
+#productId{
+    background-color: var(--color-gray-100);
+}
+
+.required::after {
+    content: '*';
+    color: #e74c3c;
+    margin-left: 3px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-preview{
+    height: 200px;
+    background-color: var(--color-gray-100);
+    border: 3px dashed var(--color-gray-200);
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.image-preview:hover{
+    border-color: var(--color-primary);
+}
+
+
+
+.price-input-group {
+    position: relative;
+}
+
+.price-input-group input {
+    padding-left: 25px;
+}
+
+.price-input-group::before {
+    content: '$';
+    position: absolute;
+    left: 12px;
+    top: 45%;
+    transform: translateY(-50%);
+    color: var(--color-secondary-text);
+    font-weight: 600;
+}
+
+.form-group button{
+    height: 50px;
+}
+
+
+.buttons{
+    margin: 30px 0px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.buttons .button{
+    width: 150px;
+    height: 44px;
+}
+
+.btn-clear {
+    background-color: transparent;
+    color: var(--color-secondary-text);
+    border: 1px solid #e0e0e0;
+}
+
+.btn-clear:hover {
+    background-color: #f8f9fa;
+    color: #34495e;
+}
+
+.status-option{
+    display: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    margin-top: 3px;
+    width: fit-content;
+    max-height: 25px;
+    font-weight: 500;
+}
+
+.In-Stock{
+    background-color: var(--color-primary);
+}
+
+.Out-of-Stock{
+    background-color: #ff6b6b;
+}
+
+.active{
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .form-row{
+        flex-wrap: wrap;
+    }
+}
+button{
+    font-weight: 600;
+}
+/* ===================== */
+/*        Forms        */
+/* ===================== */
+
+input, select, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.04);
+}
+
+label{
+    font-size: var(--font-size-sm);
+}
