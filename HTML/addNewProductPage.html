@@ -32,6 +32,7 @@
                     <div class="form-group">
                         <label for="productTitle" class="required">Title</label>
                         <input type="text" id="productTitle" placeholder="Enter product title" required>
+                        <div class="error-tip">The product title must be provided </div>
                     </div>
                 </div>
 
@@ -44,11 +45,13 @@
                             <option value="computer">Computer</option>
                             <option value="accessories">Accessories</option>
                         </select>
+                        <div class="error-tip">The product category must be provided </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="productBrand" class="required">Brand</label>
                         <input type="text" id="productBrand" placeholder="Enter brand name" required>
+                        <div class="error-tip">The product brand name must be provided </div>
                     </div>
                 </div>
 
@@ -60,6 +63,7 @@
                         <img id="imagePreview" src="" alt="Product Image Preview">
                     </div>
                     <div class="form-tip">Recommended size: 600 x 600 pixels, Max: 2MB</div>
+                    <div class="error-tip">At least one Image should be provided </div>
                 </div>
                 
                 <div class="form-header">Pricing & Inventory</div>
@@ -72,6 +76,7 @@
                         <div class="price-input-group">
                             <input type="number" id="productPrice" step="1" min="0" placeholder="0.00" required>
                         </div>
+                        <div class="error-tip">The product price must be provided </div>
                     </div>
                     
                     <div class="form-group">
@@ -87,6 +92,7 @@
                     <div class="form-group">
                         <label for="productQuantity" class="required">Quantity</label>
                         <input type="number" id="productQuantity" min="0" placeholder="Enter available quantity" required>
+                        <div class="error-tip">The product quantity must be provided </div>
                     </div>
                     
                     <div class="form-group">
