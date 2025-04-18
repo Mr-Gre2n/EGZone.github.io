@@ -39,12 +39,6 @@ body {
     box-shadow: var(--page-shadow);
 }
 
-.divider{
-    background-color: var(--color-gray-100);
-    height: 1.5px;
-    margin-top: 7px;
-}
-
 .header p{
     margin-top: -15px;
     color: var(--color-secondary-text);
@@ -52,6 +46,12 @@ body {
 
 .header h1{
     font-size: 28px;
+}
+
+.divider{
+    background-color: var(--color-gray-100);
+    height: 1.5px;
+    margin-top: 7px;
 }
 
 .form-header{
@@ -136,30 +136,6 @@ body {
     height: 50px;
 }
 
-
-.buttons{
-    margin: 30px 0px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-}
-
-.buttons .button{
-    width: 150px;
-    height: 44px;
-}
-
-.btn-clear {
-    background-color: transparent;
-    color: var(--color-secondary-text);
-    border: 1px solid #e0e0e0;
-}
-
-.btn-clear:hover {
-    background-color: #f8f9fa;
-    color: #34495e;
-}
-
 .status-option{
     display: none;
     padding: 8px 12px;
@@ -184,16 +160,35 @@ body {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .form-row{
-        flex-wrap: wrap;
-    }
+.buttons{
+    margin: 30px 0px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }
+
+.buttons .button{
+    width: 150px;
+    height: 44px;
+}
+
+.btn-clear {
+    background-color: transparent;
+    color: var(--color-secondary-text);
+    border: 1px solid #e0e0e0;
+}
+
+.btn-clear:hover {
+    background-color: #f8f9fa;
+    color: #34495e;
+}
+
 button{
     font-weight: 600;
 }
+
 /* ===================== */
-/*        Forms        */
+/*         Forms         */
 /* ===================== */
 
 input, select, textarea {
@@ -209,4 +204,10 @@ input:focus, select:focus, textarea:focus {
 
 label{
     font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+    .form-row{
+        flex-wrap: wrap;
+    }
 }
