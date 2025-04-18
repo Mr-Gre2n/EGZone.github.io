@@ -56,12 +56,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="required">Product Image</label>
-                    <button id="btnChooseImage" type="button" class="button">Choose Image</button>
-            
-                    <div class="image-preview">
-                        <img id="imagePreview" src="" alt="Product Image Preview">
+                    <label class="required">Product Image</label>            
+                    <div class="image-preview" id="imageUploadBox">
+                        <img id="imagePreview" src="placeholder.png" >
+                        <p>Click to upload product image</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
                     </div>
+
                     <div class="form-tip">Recommended size: 600 x 600 pixels, Max: 2MB</div>
                     <div class="error-tip">At least one Image should be provided </div>
                 </div>
