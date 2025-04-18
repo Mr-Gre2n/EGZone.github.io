@@ -141,6 +141,27 @@ function saveProduct(index = null) {
 
   // put back the Products list in localStorage
   localStorage.setItem("Products", JSON.stringify(products));
+
+  PRO_TITLE.focus({ preventScroll: true ,focusVisible: true});
+
+  // show alert
+  if (index == null) {
+    Swal.fire({
+      title: "Product added successfully!",
+      icon: "success",
+      confirmButtonColor: getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-primary')
+        .trim()
+    });
+  }else{
+    Swal.fire({
+      title: "Product updated successfully!",
+      icon: "success",
+      confirmButtonColor: getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-primary')
+        .trim()
+    });
+  }
 }
 
 function clearForm() {
@@ -180,6 +201,11 @@ function clearForm() {
     toggleErrorTipVisibility(false,element)
   });
   toggleErrorTipVisibility(false,IMAGE_UPLOAD_BOX);
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 function layout(){
