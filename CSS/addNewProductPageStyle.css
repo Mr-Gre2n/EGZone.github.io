@@ -209,6 +209,10 @@ label{
     font-size: var(--font-size-sm);
 }
 
+.filled {
+    background-color: var(--color-white);
+}
+
 @media (max-width: 768px) {
     .form-row{
         flex-wrap: wrap;
