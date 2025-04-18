@@ -202,6 +202,11 @@ function clearForm() {
   });
   toggleErrorTipVisibility(false,IMAGE_UPLOAD_BOX);
 
+  // apply Default colors
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    checkFilled(el); 
+  });
+
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
