@@ -90,6 +90,16 @@ body {
     margin-top: 4px;
 }
 
+.error-tip{
+    display: none;
+    color: var(--color-red);
+    font-size: var( --font-size-vsm);
+    margin-top: 4px;
+}
+.error-tip.show{
+    display: block;
+}
+
 /*    we use --color-gray-200 
 because productId(input) is read-only field*/
 #productId{
