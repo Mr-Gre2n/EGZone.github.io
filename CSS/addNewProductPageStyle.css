@@ -202,6 +202,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.04);
+    background-color: var(--color-white);
 }
 
 label{
