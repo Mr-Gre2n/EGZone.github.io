@@ -154,7 +154,7 @@ function clearForm() {
   PRO_ID.value = "";
   PRO_DISCOUNT.value = "";
   PRO_DESCRIPTION.value = "";
-  IMAGE_PREVIEW.src = "";
+  IMAGE_PREVIEW.src = DEFAULT_IMAGE_SRC;
   UPLOAD_TEXT.style.display = "block"; 
 
   // update the header 
