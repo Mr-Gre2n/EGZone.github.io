@@ -82,7 +82,7 @@ body {
 }
 
 #productId{
-    background-color: var(--color-gray-100);
+    background-color: var(--color-gray-200);
 }
 
 .required::after {
