@@ -29,7 +29,6 @@ body {
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
     width: 100%;
     max-width: 800px;
