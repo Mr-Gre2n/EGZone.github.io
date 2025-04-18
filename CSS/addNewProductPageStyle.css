@@ -139,7 +139,7 @@ body {
 .status-option{
     display: none;
     padding: 8px 12px;
-    color: white;
+    color: var(--color-white);
     border-radius: 4px;
     font-size: var(--font-size-sm);
     margin-top: 3px;
