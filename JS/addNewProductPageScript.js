@@ -1,6 +1,8 @@
 /***********************
 *      Elements
 ***********************/
+const PRO_ID = document.getElementById("productId");
+const PRO_TIP_ID = document.getElementById("productTipId");
 const PRO_TITLE = document.getElementById("productTitle");
 const PRO_CATEGORY = document.getElementById("productCategory");
 const PRO_BRAND = document.getElementById("productBrand");
@@ -23,6 +25,10 @@ const DEFAULT_IMAGE_SRC = "placeholder.png";
 ***********************/
 const REQUIRE_ELEMENTS = [PRO_TITLE,PRO_CATEGORY,PRO_BRAND,PRO_PRICE,PRO_QUANTITY]
 
+let operationType = "Adding";
+
+// that will be used for updating product
+let proIndex;
 /***********************
 *      Methods
 ***********************/
@@ -82,23 +88,34 @@ function checkFilled(element) {
   }
 }
 
-function createNewProduct() {
+
+// Create and update products
+// if index == null add new product
+// else update current product
+function saveProduct(index = null) {
+  let id = 1;
+
   // Read products from localStorage
   let products = JSON.parse(localStorage.getItem("Products")) || [];
-
-  // Find the maximum ID
-  let maxID = 1; // Default value if no products exist
-  if (products.length > 0) {
-    for (let i = 0; i < products.length; i++) {
-      if (products[i].ID > maxID) {
-        maxID = products[i].ID;
+  
+  if (index == null) {
+    // Find the maximum ID
+    let maxID = 1; // Default value if no products exist
+    if (products.length > 0) {
+      for (let i = 0; i < products.length; i++) {
+        if (products[i].ID > maxID) {
+          maxID = products[i].ID;
+        }
       }
     }
+    id = maxID + 1;
+  }else{
+    id = products[index].ID;
   }
 
   // Create new PRODUCT
   const PRODUCT ={
-    ID: maxID + 1,
+    ID: id,
     Title: PRO_TITLE.value,
     Category: PRO_CATEGORY.value,
     Brand:  PRO_BRAND.value,
@@ -110,23 +127,45 @@ function createNewProduct() {
     Description:  PRO_DESCRIPTION.value,
   }
 
-  // Add new PRODUCT to the products list
-  products.push(PRODUCT);
+  if (index == null) {
+    // Add new PRODUCT to the products list
+    products.push(PRODUCT);
+  }else{
+    products[index] = PRODUCT;
+  }
 
   // put back the Products list in localStorage
   localStorage.setItem("Products", JSON.stringify(products));
 }
 
 function clearForm() {
+  // set operationType to Adding
+  operationType = "Adding";
+
   // Clear all data
   for (const ELEMENT of REQUIRE_ELEMENTS) {
     ELEMENT.value = "";
   }
+  PRO_ID.value = "";
   PRO_DISCOUNT.value = "";
   PRO_DESCRIPTION.value = "";
   IMAGE_PREVIEW.src = "";
   UPLOAD_TEXT.style.display = "block"; 
 
+  // update the header 
+  document.querySelector(".header").innerHTML = 
+  `
+  <h1>Add New Product</h1>
+  <p>Fill in the details to add a product to your inventory</p>
+  `;
+  
+  // show PRO_TIP_ID and UPLOAD_TEXT
+  PRO_TIP_ID.style.display = "block";
+  UPLOAD_TEXT.style.display = "block"; 
+  // change btns textContent
+  BTN_ADD_PRODUCT.textContent = "Add Product";
+  BTN_CLEAR_FORM.textContent = "Clear Form";
+    
   // show outOfStock box
   IN_STOCK.classList.toggle("active",PRO_QUANTITY.value > 0);
   OUT_OF_STOCK.classList.toggle("active",PRO_QUANTITY.value <= 0);
@@ -139,21 +178,89 @@ function clearForm() {
   toggleErrorTipVisibility(false,IMAGE_UPLOAD_BOX);
 }
 
+function layout(){
+  // Get ID parameter
+  const ID = new URLSearchParams(window.location.search).get("id");
+  // Read products from localStorage
+  let products = JSON.parse(localStorage.getItem("Products"));
+
+  // check ID & products are available
+  if (!ID || !products) {
+    show404Page();
+    return;
+  }
+
+  // search for the specific PRODUCT
+  proIndex = products.findIndex(product => product.ID == ID);
+  const PRODUCT = products[proIndex];
+
+  // check PRODUCT are available
+  if (!PRODUCT){
+    show404Page();
+    return;
+  }
+
+  // set operationType to Updating
+  operationType = "Updating";
+
+  // update the header 
+  document.querySelector(".header").innerHTML = 
+  `
+    <h1>Update Product</h1>
+    <p>Modify the details of the product in your inventory</p>
+  `;
+
+  // show all product data
+  PRO_ID.value = ID;
+  PRO_TITLE.value = PRODUCT.Title;
+  PRO_CATEGORY.value = PRODUCT.Category;
+  PRO_BRAND.value = PRODUCT.Brand;
+  IMAGE_PREVIEW.src = PRODUCT.Image;
+  PRO_PRICE.value = PRODUCT.Price;
+  PRO_DISCOUNT.value = PRODUCT.Discount;
+  PRO_QUANTITY.value = PRODUCT.Quantity;
+  PRO_DESCRIPTION.value = PRODUCT.Description;
+  updateStatus();
+
+  // hide PRO_TIP_ID and UPLOAD_TEXT
+  PRO_TIP_ID.style.display = "none";
+  UPLOAD_TEXT.style.display = "none"; 
+  // change btns textContent
+  BTN_ADD_PRODUCT.textContent = "Update";
+  BTN_CLEAR_FORM.textContent = "Cancel";
+}
+
+function show404Page(){
+  
+}
 /***********************
 *     Data Events
 ***********************/
 BTN_ADD_PRODUCT.addEventListener("click", function () {
   if (checkIsAllDataValid() == true) {
-    createNewProduct();
+    if (operationType == "Adding") {
+      saveProduct();
+    }else if (operationType == "Updating") {
+      saveProduct(proIndex);
+    }
     clearForm();
   }
 });
 
-BTN_CLEAR_FORM.addEventListener("click", clearForm);
+BTN_CLEAR_FORM.addEventListener("click", function () {
+  if (operationType == "Adding") {
+    clearForm();
+  }else if (operationType == "Updating") {
+    // open home page
+    window.location.href = 'homePage.html';
+  }
+});
 
 /***********************
 *     UI Events
 ***********************/
+document.addEventListener('DOMContentLoaded',layout);
+
 // Select all inputs, selects, and textareas
 document.querySelectorAll('input, select, textarea').forEach(el => {
     el.addEventListener('input', () => checkFilled(el));
