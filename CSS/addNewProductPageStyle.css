@@ -212,7 +212,7 @@ button{
 input, select, textarea {
     padding: 12px;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     background-color: var(--color-gray-50);
 }
 
