@@ -39,6 +39,16 @@ body {
     box-shadow: var(--page-shadow);
 }
 
+.divider{
+    background-color: var(--color-gray-100);
+    height: 1.5px;
+    margin-top: 7px;
+}
+
+/* ===================== */
+/*     Header Section    */
+/* ===================== */
+
 .header p{
     margin-top: -15px;
     color: var(--color-secondary-text);
@@ -48,11 +58,9 @@ body {
     font-size: 28px;
 }
 
-.divider{
-    background-color: var(--color-gray-100);
-    height: 1.5px;
-    margin-top: 7px;
-}
+/* ===================== */
+/*         Form          */
+/* ===================== */
 
 .form-header{
     font-weight: 600;
@@ -80,16 +88,20 @@ body {
     margin-top: 4px;
 }
 
+/*    we use --color-gray-200 
+because productId(input) is read-only field*/
 #productId{
     background-color: var(--color-gray-200);
 }
 
+/* star * That shows the field is necessary */
 .required::after {
     content: '*';
     color: #e74c3c;
     margin-left: 3px;
 }
 
+/* Product Image */
 .image-preview img {
     max-width: 100%;
     max-height: 100%;
@@ -113,7 +125,7 @@ body {
 }
 
 
-
+/* ---- input price fields ----*/
 .price-input-group {
     position: relative;
 }
@@ -132,10 +144,7 @@ body {
     font-weight: 600;
 }
 
-.form-group button{
-    height: 50px;
-}
-
+/* --- status ---*/
 .status-option{
     display: none;
     padding: 8px 12px;
@@ -158,6 +167,15 @@ body {
 
 .active{
     display: block;
+}
+
+/* ===================== */
+/*        BUTTONS        */
+/* ===================== */
+
+/* ChooseImage btn */
+.form-group button{
+    height: 50px;
 }
 
 .buttons{
@@ -211,6 +229,10 @@ label{
 .filled {
     background-color: var(--color-white);
 }
+
+/* ===================== */
+/*  Medias (responsive)  */
+/* ===================== */
 
 @media (max-width: 768px) {
     .form-row{
