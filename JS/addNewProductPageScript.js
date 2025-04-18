@@ -263,7 +263,7 @@ BTN_CLEAR_FORM.addEventListener("click", function () {
 /***********************
 *     UI Events
 ***********************/
-document.addEventListener('DOMContentLoaded',layout);
+layout();
 
 // Select all inputs, selects, and textareas
 document.querySelectorAll('input, select, textarea').forEach(el => {
