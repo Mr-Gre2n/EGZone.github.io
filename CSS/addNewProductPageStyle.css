@@ -6,6 +6,7 @@
     /* Colors */
     --color-secondary-text: #7f8c8d;
     --color-background:  #f5f7fb;
+    --color-gray-50: rgb(250, 250, 250);
 
     /* Fonts */
     --font-size-vsm: 12px;
@@ -195,6 +196,7 @@ input, select, textarea {
     padding: 12px;
     border-radius: 6px;
     font-size: 14px;
+    background-color: var(--color-gray-50);
 }
 
 input:focus, select:focus, textarea:focus {
