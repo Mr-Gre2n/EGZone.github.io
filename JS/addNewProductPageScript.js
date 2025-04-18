@@ -88,6 +88,11 @@ function checkFilled(element) {
   }
 }
 
+// show and hide "IN_STOCK" "OUT_OF_STOCK" based on PRO_QUANTITY.value 
+function updateStatus() {
+  IN_STOCK.classList.toggle("active",PRO_QUANTITY.value > 0);
+  OUT_OF_STOCK.classList.toggle("active",PRO_QUANTITY.value <= 0);
+}
 
 // Create and update products
 // if index == null add new product
@@ -167,8 +172,7 @@ function clearForm() {
   BTN_CLEAR_FORM.textContent = "Clear Form";
     
   // show outOfStock box
-  IN_STOCK.classList.toggle("active",PRO_QUANTITY.value > 0);
-  OUT_OF_STOCK.classList.toggle("active",PRO_QUANTITY.value <= 0);
+  updateStatus();
 
   // hide all errors
   document.querySelectorAll(".missing").forEach(element =>{
@@ -269,10 +273,7 @@ document.querySelectorAll('input, select, textarea').forEach(el => {
 });
 
 // change Status based on PRO_QUANTITY.value
-PRO_QUANTITY.addEventListener("change",function(){
-    IN_STOCK.classList.toggle("active",PRO_QUANTITY.value > 0);
-    OUT_OF_STOCK.classList.toggle("active",PRO_QUANTITY.value <= 0);
-});
+PRO_QUANTITY.addEventListener("change",updateStatus);
 
 /********** Handle image **********/
 IMAGE_UPLOAD_BOX.addEventListener("click", () => {
