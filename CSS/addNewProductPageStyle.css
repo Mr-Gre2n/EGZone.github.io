@@ -121,6 +121,8 @@ because productId(input) is read-only field*/
 }
 
 .image-preview{
+    display: flex;
+    flex-direction: column;
     height: 200px;
     background-color: var(--color-gray-100);
     border: 3px dashed var(--color-gray-200);
@@ -130,6 +132,7 @@ because productId(input) is read-only field*/
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .image-preview:hover{
