@@ -145,6 +145,7 @@ function clearForm() {
 BTN_ADD_PRODUCT.addEventListener("click", function () {
   if (checkIsAllDataValid() == true) {
     createNewProduct();
+    clearForm();
   }
 });
 
