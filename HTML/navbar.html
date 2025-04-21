@@ -2,54 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>navbar</title>
-    <link rel="stylesheet" href="C:\EGZone\EGZone\CSS\navbarStyle.css" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+    <link rel="stylesheet" href="/CSS/mainStyle.css">
+    <link rel="stylesheet" href="/CSS/navbarStyle.css">
+    <title>EG Zone</title>
 </head>
 <body>
-    <nav>
-        <div class="first-row">
-                <div class="logo">  
-                    <img class="logo" src="C:\EGZone\EGZone\Materials\Images\360_F_169988915_3nOYKQwLYQctUlRb30RIIevSIRV5HrnA.jpg" alt="logo picture"> <a class="button" href="#">EGZone</a>
+    <nav class="navbar">
+        <div class="top-nav">
+            <div>
+                <a href="#" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    EG Zone
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input id="searchBar" type="text" placeholder="Search here...">
+                <label for="searchBar" class="search-icon">🔍</label>
+            </div>
+            
+            <div class="right-items">
+                <div class="cart">
+                    🛒
+                    <span id="cartCount" class="cart-count">4</span>
                 </div>
                 
-                <div class="search">
-                <button class="button"><i class="fa-solid fa-magnifying-glass"></i> </button>
-                <input class="search-input" type="text" placeholder="search here...">
-
-                </div>
-
-                <div class="cart-icon">
-                 <button class="button"><i class="fa-solid fa-cart-shopping"></i> </button>
-                </div>
-
-                <div id="login" >
-                <button class="button"><i class="fa-solid fa-user"></i>  Login</button>
-                </div>
-        </div>  
-        <div class="second-row">
-            <ul class="categories">
-                <li class="button"><a href="#"> All categories </a></li>
-                <li class="button"><a href="#"> Smart phones </a></li>
-                <li class="button"><a href="#">Accessories</a></li>
-                <li class="button"><a href="#">Computer</a></li>
-            </ul>
-
-        </div>  
+                <button class="button btn-nav">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span>
+                    <span id="btnAccount">Login</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <a href="/HTML/searchPage.html" class="category">All Categories</a>
+            <a href="/HTML/searchPage.html?category=accessories" class="category">Accessories</a>
+            <a href="/HTML/searchPage.html?category=smartphone" class="category">Smartphone</a>
+            <a href="/HTML/searchPage.html?category=computer" class="category">Computer</a>
+        </div>
     </nav>
-    <!-- <div class="dropdown-menu">
-        <ul>
-            <li class="button">sign out</li>
-            <li class="button">profile</li>
-        </ul>
-    </div> -->
-
-
-
-    <script>
-    // 1- add the number that appears on the cart to tell the product that you added 
-    // 2- drop down menu that appears after you signed in 
-    </script>
 </body>
 </html>
