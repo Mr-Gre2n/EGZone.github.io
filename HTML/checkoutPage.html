@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="billing-details">
+        <h1>CHECKOUT</h1>
+        <h3>Billing Details</h3>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="first-name">First Name <span>*</span></label>
+            <input type="text" id="first-name" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name <span>*</span></label>
+            <input type="text" id="last-name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company-name">Company Name (Optional)</label>
+          <input type="text" id="company-name" />
+        </div>
+        <div class="form-group">
+          <label for="country">Country / Region <span>*</span></label>
+          <select id="country" required>
+            <option value="EG">Egypt</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="street-address">Street Address <span>*</span></label>
+          <input
+            type="text"
+            id="street-address"
+            placeholder="House number and street name..."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="apartment">Apartment, suite, unit, etc. (Optional)</label>
+          <input type="text" id="apartment" />
+        </div>
+        <div class="form-group">
+          <label for="town-city">Town / City <span>*</span></label>
+          <input type="text" id="town-city" required />
+        </div>
+        <div class="form-group">
+          <label for="state">State / County <span>*</span></label>
+          <select id="state" required>
+            <option value="Cairo">Cairo</option>
+            <option value="Helwan">Helwan</option>
+            <option value="Giza">Giza</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span>*</span></label>
+          <input type="tel" id="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address <span>*</span></label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label>
+            <a href="#">Create an account?</a>
+          </label>
+        </div>
+        <h2>ADDITIONAL INFORMATION</h2>
+        <div class="form-group">
+          <label for="order-notes">Order Notes (Optional)</label>
+          <textarea
+            id="order-notes"
+            placeholder="Notes about your order, e.g. special note for delivery"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h2>YOUR ORDER</h2>
+        <div class="order-item">
+          <p>PRODUCT</p>
+          <p>SUB TOTAL</p>
+        </div>
+
+        <div class="order-item">
+          <p>Sample Product x 1</p>
+          <p>$50.00</p>
+        </div>
+
+        <div class="order-total">
+          <p>ORDER TOTAL</p>
+          <p>$50.00</p>
+        </div>
+        <div class="payment-methods">
+          <label>
+            <input
+              type="radio"
+              name="payment-method"
+              value="direct-bank-transfer"
+              checked
+            />
+            Direct Bank Transfer
+          </label>
+          <div class="direct-bank-transfer">
+            <p>
+              Make your payment directly into our bank account. Please use your
+              Order ID as the payment reference. Your order will not be shipped
+              until the funds have cleared in our account.
+            </p>
+          </div>
+          <label>
+            <input
+              type="radio"
+              name="payment-method"
+              value="cash-on-delivery"
+            />
+            <!-- Cash on Delivery <img src="images (1).png" alt="COD" /> -->
+          </label>
+          <label class="paypal">
+            <input type="radio" name="payment-method" value="paypal" />
+            PayPal <img src="download.jpg" alt="PayPal" />
+          </label>
+        </div>
+        <button class="place-order-btn">PLACE ORDER</button>
+      </div>
+    </div>
+  </body>
+</html>
