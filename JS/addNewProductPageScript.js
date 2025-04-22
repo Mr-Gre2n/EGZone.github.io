@@ -219,8 +219,13 @@ function layout(){
   // Read products from localStorage
   let products = JSON.parse(localStorage.getItem("Products"));
 
-  // check ID & products are available
-  if (!ID || !products) {
+  // check ID is available
+  if (!ID) {
+    return;
+  }
+
+  // check products are available
+  if (!products) {
     show404Page();
     return;
   }
@@ -266,7 +271,7 @@ function layout(){
 }
 
 function show404Page(){
-  
+    window.location.href = '404ErrorPage.html';
 }
 /***********************
 *     Data Events
