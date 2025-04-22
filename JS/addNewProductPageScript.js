@@ -13,6 +13,7 @@ const PRO_DESCRIPTION = document.getElementById("productDescription");
 const IN_STOCK = document.getElementById("inStock");
 const OUT_OF_STOCK = document.getElementById("outOfStock");
 const BTN_CLEAR_FORM = document.getElementById("btn-clearForm");
+const BTN_DELETE_PRODUCT = document.getElementById("btn-deleteProduct");
 const BTN_ADD_PRODUCT = document.getElementById("btn-addProduct");
 const IMAGE_PREVIEW = document.getElementById("imagePreview");
 const IMAGE_INPUT = document.getElementById("imageInput");
@@ -28,7 +29,7 @@ const REQUIRE_ELEMENTS = [PRO_TITLE,PRO_CATEGORY,PRO_BRAND,PRO_PRICE,PRO_QUANTIT
 let operationType = "Adding";
 
 // that will be used for updating product
-let proIndex;
+let proIndex = null;
 /***********************
 *      Methods
 ***********************/
@@ -164,6 +165,54 @@ function saveProduct(index = null) {
   }
 }
 
+function deleteProduct() {
+  // Read products from localStorage
+  let products = JSON.parse(localStorage.getItem("Products"));
+  
+  console.log(products,proIndex,operationType)
+  if (!products || proIndex == null || operationType != "Updating"  || proIndex > products.length) {
+    // show alert
+    Swal.fire({
+      title: "Sorry, we encountered a problem when trying to delete the product. Please refresh the page and try again.",
+      icon: "error",
+      confirmButtonColor: getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-red')
+        .trim()
+    });
+    return;
+  }
+
+  Swal.fire({
+    title: `Are you sure you want to delete the product ${products[proIndex].Title}?`,
+    showDenyButton: true,
+    confirmButtonText: "Yes",
+    confirmButtonColor: getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-primary')
+    .trim(),
+    denyButtonText: `No`
+  }).then((result) => {
+    if (result.isConfirmed) {
+      products.splice(proIndex, 1);
+
+      // put back the Products list in localStorage
+      localStorage.setItem("Products", JSON.stringify(products));
+    
+      PRO_TITLE.focus({ preventScroll: true ,focusVisible: true});
+    
+      // show alert
+      Swal.fire({
+        title: "Product deleted successfully!",
+        icon: "success",
+        confirmButtonColor: getComputedStyle(document.documentElement)
+          .getPropertyValue('--color-primary')
+          .trim()
+      });
+    
+      clearForm();
+    } 
+  });
+}
+
 function clearForm() {
   // set operationType to Adding
   operationType = "Adding";
@@ -177,6 +226,7 @@ function clearForm() {
   PRO_DESCRIPTION.value = "";
   IMAGE_PREVIEW.src = DEFAULT_IMAGE_SRC;
   UPLOAD_TEXT.style.display = "block"; 
+  proIndex = null
 
   // update the header 
   document.querySelector(".header").innerHTML = 
@@ -191,7 +241,9 @@ function clearForm() {
   // change btns textContent
   BTN_ADD_PRODUCT.textContent = "Add Product";
   BTN_CLEAR_FORM.textContent = "Clear Form";
-    
+  // hide delete btn
+  BTN_DELETE_PRODUCT.style.display = "inline-block"; 
+
   // show outOfStock box
   updateStatus();
 
@@ -268,6 +320,8 @@ function layout(){
   // change btns textContent
   BTN_ADD_PRODUCT.textContent = "Update";
   BTN_CLEAR_FORM.textContent = "Cancel";
+  // show delete btn
+  BTN_DELETE_PRODUCT.style.display = "block"; 
 }
 
 function show404Page(){
@@ -286,6 +340,8 @@ BTN_ADD_PRODUCT.addEventListener("click", function () {
     clearForm();
   }
 });
+
+BTN_DELETE_PRODUCT.addEventListener("click",deleteProduct)
 
 BTN_CLEAR_FORM.addEventListener("click", function () {
   if (operationType == "Adding") {
