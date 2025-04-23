@@ -103,7 +103,10 @@ body {
     gap: 7px;
 }
 
-
+#login-btn{
+    text-decoration: none;
+    color: var(--color-secondary-text);
+}
 /* ===================== */
 /*      categories       */
 /* ===================== */

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-    <link rel="stylesheet" href="/CSS/mainStyle.css">
-    <link rel="stylesheet" href="/CSS/navbarStyle.css">
+    <link rel="stylesheet" href="CSS\mainStyle.css">
+    <link rel="stylesheet" href="CSS\navbarStyle.css">
+    <script src="/JS/navbarScript.js"></script>
     <title>EG Zone</title>
 </head>
 <body>
@@ -21,20 +22,23 @@
             <div class="search-bar">
                 <input id="searchBar" type="text" placeholder="Search here...">
                 <label for="searchBar" class="search-icon">🔍</label>
+                <ul id="results"></ul>
             </div>
             
             <div class="right-items">
                 <div class="cart">
                     🛒
-                    <span id="cartCount" class="cart-count">4</span>
+                    <span id="cartCount" class="cart-count">0</span>
                 </div>
                 
-                <button class="button btn-nav">
-                    <span class="material-symbols-outlined">
-                        account_circle
-                    </span>
-                    <span id="btnAccount">Login</span>
-                </button>
+                <a id="login-btn" href="/HTML/loginPage.html">
+                    <button class="button btn-nav">
+                        <span class="material-symbols-outlined">
+                            account_circle
+                        </span>
+                        <span id="btnAccount">Login</span></a>
+                    </button>
+                </a>
             </div>
         </div>
         
@@ -46,6 +50,5 @@
         </div>
     </nav>
 
-    <script src="/JS/navbarScript.js"></script>
 </body>
 </html>
