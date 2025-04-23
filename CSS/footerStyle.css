@@ -1,0 +1,241 @@
+* {                                                                                                     /*راجع */
+    margin: 0;
+    padding: 0;                                                                                         
+    box-sizing: border-box;                                                                             /*راجع */
+    font-family: Arial;
+}
+body {
+    font-size: 15px;
+    line-height: 1.6; 
+                                                                                             /*راجع */
+}    
+.footer {
+   
+    padding: 45px;
+    
+}
+.top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.site {
+    flex-basis: 25%;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+.site .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.site .logo .text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #050000;
+}
+.description {
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.social-media {
+    display: flex;
+    gap: 25px;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    transition: all 0.3s ease;                                                                           /*راجع */
+    text-decoration: none;
+}
+.youtube-icon {
+    
+    
+    
+    object-fit: contain;
+    width: 65px;
+    height: 65px;
+}
+.in-icon {
+   
+    object-fit: contain;
+    width: 47px;
+    height: 47px;
+}
+.x-icon {
+    
+    object-fit: contain;
+    width: 47px;
+    height: 47px;
+}
+.facebook-icon {
+  
+    object-fit: contain;
+    width: 500px;
+    height: 50px;
+}
+.social-link:hover {
+    background-color: #1aba1a;
+}
+.quick-links {
+    flex-basis: 20%;
+    margin-bottom: 30px;
+}
+.quick-links h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+.quick-links ul {
+    list-style: none;
+    text-decoration: none;
+}
+.quick-links li {
+    margin-bottom: 10px;
+}
+.quick-links a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.quick-links a:hover {
+    color: #1ABA1A;
+}
+.contact {
+    flex-basis: 30%;
+    margin-bottom: 30px;
+}
+.contact p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.contact-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-img {
+    width: 60px;
+    height: 60px;
+}
+.tel {
+    color: #1ABA1A;
+    font-weight: bold;
+    text-decoration: none;
+}
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.app-button {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.app-img {
+    width: 30px;
+    height: 28px;
+}
+.app-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-text small {
+    font-size: 9px;
+}
+
+.app-text span {
+    font-weight: bold;
+}
+.live-chat {
+    border: 2px solid #1ABA1A; 
+    color: #1ABA1A; 
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+.live-chat:hover {
+    background-color:#1ABA1A;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bottom {
+    margin-top: 7px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.copyright {
+    color: #777;
+    font-size: 14px;
+    font-family: ;
+}
+.payment {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.payment span {
+    
+    margin-right: 10px;
+}
+
+.payment img {
+    height: 30px;
+}
+.g1 {
+    color: blue;
+}
+.g2 {
+    color: rgb(226, 4, 4);
+}
+.g3 {
+    color: rgb(224, 97, 5);
+}
+.g4 {
+    color: aqua;
+}
+.g5 {
+    color: chocolate;
+}
