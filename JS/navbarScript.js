@@ -3,7 +3,7 @@
 ***********************/
 const CART_COUNT = document.getElementById("cartCount");
 const BTN_ACCOUNT = document.getElementById("btnAccount");
-
+const DROPDOWN = document.getElementById("dropdown-menu")
 /***********************
 *      Variables
 ***********************/
@@ -13,9 +13,11 @@ let cartItems = [
     { id: 3, name: "Item 3", quantity: 4 }
 ];
 
-/***********************
-* Check logged in user
-************************/
+let loggedUser = checkUser();
+
+/************************/
+/* Check logged in user */
+/************************/
 
 function checkUser() {
     let LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser")) || [];
@@ -60,3 +62,9 @@ function updateCartCountDisplay(cart) {
         console.log(totalItems)
 }
 updateCartCountDisplay(cartItems);
+
+/************************/
+/*    Drop down menu    */
+/************************/
+
+
