@@ -96,6 +96,11 @@ body {
     font-size: var(--font-size-vsm);
 }
 
+#cart-page{
+    text-decoration: none;
+    color: var(--color-primary-text);
+}
+
 .btn-nav {
     font-weight: bold;
     display: flex;
@@ -105,6 +110,8 @@ body {
 
 #login-btn{
     text-decoration: none;
+    display: flex;
+    align-items: center;
     color: var(--color-secondary-text);
 }
 /* ===================== */
