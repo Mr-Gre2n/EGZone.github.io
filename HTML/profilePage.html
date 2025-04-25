@@ -4,11 +4,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your profile</title>
+    <link rel="stylesheet" href="../CSS/mainStyle.css">
+    <link rel="stylesheet" href="../CSS/profilePageStyle.css">
 </head>
 
 <body>
-
+    <aside>
+        <img src="../Materials/Images/Default_avatar_profile.png" alt="Profile Photo">
+        <p id="sidebar-name">Mark Cole</p>
+        <p id="sidebar-email">name@example.com</p>
+        <button class="button">Account info <span class="arrow">→</span></button>
+        <button class="button">Edit info <span class="arrow">→</span></button>  
+    </aside>
+    <main>
+        <h1>Account info</h1>
+        <!-- change info -->
+        <form>
+            <!-- name -->
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" readonly required>
+            <label for="lastName">Last Name <span class="required">*</span></label>                
+            <input type="text" id="lastName" readonly required>
+            
+            <!-- email -->
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" readonly required>
+            
+            <!-- Phone number -->
+            <label for="phoneNum">Phone Number <span class="Optional">(Optional)</span></label>
+            <input type="tel" id="phoneNum" readonly >
+            
+            <!-- Save -->
+            <input type="submit" class="button actionButtons" name="save" id="save">
+            <!-- cancel -->
+            <button class="button actionButtons" id="cancel">Cancel</button> 
+        </form>
+    </main>
+    <script src="../JS/profilePageScript.js"></script>
 </body>
 
 </html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <style>
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .save-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .save-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-pic">
+                <img src="/api/placeholder/200/200" alt="Profile avatar">
+            </div>
+            <div class="user-name" id="sidebar-name">Mark Cole</div>
+            <div class="user-email" id="sidebar-email">swoo@gmail.com</div>
+            
+            <div class="menu-item active">
+                Account info <span>→</span>
+            </div>
+            
+            <div class="menu-item">
+                Change password <span>→</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <h1>Account Info</h1>
+            
+            <div class="form-group">
+                <label for="firstName" class="required">First Name</label>
+                <input type="text" id="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName" class="required">Last Name</label>
+                <input type="text" id="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone">
+            </div>
+            
+            <button class="save-btn" id="saveButton">SAVE</button>
+        </div>
+    </div>
+
+    <script>
+        // Check if there's existing data in localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load data from localStorage if it exists
+            const firstName = localStorage.getItem('firstName') || '';
+            const lastName = localStorage.getItem('lastName') || '';
+            const email = localStorage.getItem('email') || '';
+            const phone = localStorage.getItem('phone') || '';
+            
+            // Fill the form with the data
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('lastName').value = lastName;
+            document.getElementById('email').value = email;
+            document.getElementById('phone').value = phone;
+            
+            // Update sidebar info
+            if (firstName && lastName) {
+                document.getElementById('sidebar-name').textContent = `${firstName} ${lastName}`;
+            }
+            if (email) {
+                document.getElementById('sidebar-email').textContent = email;
+            }
+            
+            // Save button click handler
+            document.getElementById('saveButton').addEventListener('click', function() {
+                // Get form values
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                
+                // Basic validation
+                if (!firstName || !lastName || !email) {
+                    alert('Please fill out all required fields');
+                    return;
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('firstName', firstName);
+                localStorage.setItem('lastName', lastName);
+                localStorage.setItem('email', email);
+                localStorage.setItem('phone', phone);
+                
+                // Update sidebar info
+                document.getElementById('sidebar-name').textContent = `${firstName} ${lastName}`;
+                document.getElementById('sidebar-email').textContent = email;
+                
+                alert('Account information saved successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
+-->
