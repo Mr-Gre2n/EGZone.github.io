@@ -7,13 +7,13 @@ const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phoneNum');
 const sidebarName = document.getElementById('sidebar-name');
 const sidebarEmail = document.getElementById('sidebar-email');
-const edit = document.getElementById('edit');
+// const edit = document.getElementById('edit');
 const save = document.getElementById('save');
-const cancel = document.getElementById('cancel');
-const actionButtons = document.getElementById('actionButtons');
+// const cancel = document.getElementById('cancel');
+// const actionButtons = document.getElementById('actionButtons');
 
 // to store original values for cancelling
-let originalValues = {};
+// let originalValues = {};
 
 function dataFromStorage() {
     const firstName = localStorage.getItem('firstName') || "Mark" ;
@@ -28,62 +28,62 @@ function dataFromStorage() {
     phoneInput.value = phone;
     
     // Update sidebar info
-    sidebarName.innerText = firstName + lastName;
-    sidebarEmail.innerText = email;
+    sidebarName.textContent = firstName + ' ' + lastName;
+    sidebarEmail.textContent = email;
     
     // Store original values
-    originalValues = {
-        firstName,
-        lastName,
-        email,
-        phone
-    };
+    // originalValues = {
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     phone
+    // };
 }
 
 dataFromStorage();
 
-edit.onclick = editInfo;
+// edit.onclick = editInfo;
 
-function editInfo(){
-    originalValues = {
-        firstName: firstNameInput.value,
-        lastName: lastNameInput.value,
-        email: emailInput.value,
-        phone: phoneInput.value
-    };
+// function editInfo(){
+//     originalValues = {
+//         firstName: firstNameInput.value,
+//         lastName: lastNameInput.value,
+//         email: emailInput.value,
+//         phone: phoneInput.value
+//     };
     
-    // Make fields editable
-    firstNameInput.removeAttribute('readonly');
-    lastNameInput.removeAttribute('readonly');
-    emailInput.removeAttribute('readonly');
-    phoneInput.removeAttribute('readonly');
+//     // Make fields editable
+//     firstNameInput.removeAttribute('readonly');
+//     lastNameInput.removeAttribute('readonly');
+//     emailInput.removeAttribute('readonly');
+//     phoneInput.removeAttribute('readonly');
     
-    // Show action buttons
-    actionButtons.style.display = 'block';
+//     // Show action buttons
+//     actionButtons.style.display = 'block';
     
-    // Focus on first field
-    firstNameInput.focus();
-};
+//     // Focus on first field
+//     firstNameInput.focus();
+// };
 
 // Cancel editing
-cancel.onclick = cancelling;
+// cancel.onclick = cancelling;
 
-function cancelling() {
-    // Restore original values
-    firstNameInput.value = originalValues.firstName;
-    lastNameInput.value = originalValues.lastName;
-    emailInput.value = originalValues.email;
-    phoneInput.value = originalValues.phone;
+// function cancelling() {
+//     // Restore original values
+//     firstNameInput.value = originalValues.firstName;
+//     lastNameInput.value = originalValues.lastName;
+//     emailInput.value = originalValues.email;
+//     phoneInput.value = originalValues.phone;
 
-    // Make fields readonly again
-    firstNameInput.setAttribute('readonly', true);
-    lastNameInput.setAttribute('readonly', true);
-    emailInput.setAttribute('readonly', true);
-    phoneInput.setAttribute('readonly', true);
+//     // Make fields readonly again
+//     firstNameInput.setAttribute('readonly', true);
+//     lastNameInput.setAttribute('readonly', true);
+//     emailInput.setAttribute('readonly', true);
+//     phoneInput.setAttribute('readonly', true);
     
-    // Hide action buttons
-    actionButtons.style.display = 'none';
-};
+//     // Hide action buttons
+//     actionButtons.style.display = 'none';
+// };
 
 // Save changes
 save.onclick = saveInfo;
@@ -102,17 +102,17 @@ function saveInfo() {
     localStorage.setItem('phone', phoneInput.value);
     
     // Update sidebar info
-    sidebarName.innerText = firstNameInput.value + lastNameInput.value;
-    sidebarEmail.innerText = emailInput.value;
+    sidebarName.textContent = firstNameInput.value + lastNameInput.value;
+    sidebarEmail.textContent = emailInput.value;
     
     // Make fields readonly again
-    firstNameInput.setAttribute('readonly', true);
-    lastNameInput.setAttribute('readonly', true);
-    emailInput.setAttribute('readonly', true);
-    phoneInput.setAttribute('readonly', true);
+    // firstNameInput.setAttribute('readonly', true);
+    // lastNameInput.setAttribute('readonly', true);
+    // emailInput.setAttribute('readonly', true);
+    // phoneInput.setAttribute('readonly', true);
     
     // Hide action buttons
-    actionButtons.style.display = 'none';
+    // actionButtons.style.display = 'none';
     
     alert('Account information saved successfully!');
 };

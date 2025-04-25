@@ -2,14 +2,14 @@ body{
     display: flex;
     max-width: 1200px;
     padding: 20px;
-    background-color: rgb(245, 245, 245);
+    /* background-color: rgb(245, 245, 245); */
 }
 
 /*********************
 * main profile style *
 **********************/
 aside{
-    background-color: #edebeb;
+    background-color: var(--color-gray-200);
     padding: 20px;
     width: 200px;
     border-radius:8px;
@@ -24,7 +24,7 @@ img{
     object-fit: cover ;
 }
 
-#name{
+#sidebar-name{
     font-size: 24px;
     font-weight: bold;
     margin-top: 10px;
@@ -32,7 +32,7 @@ img{
     text-align: center;
 }
 
-#email{
+#sidebar-email{
     font-weight:lighter;
     text-align: center;
 }
@@ -59,12 +59,12 @@ main{
 }
 
 h1{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
-.actionButton{
+/* .actionButton{
     display:none;
-}
+} */
 
 /* the '*' character of required inputs */
 .required{
@@ -76,14 +76,14 @@ h1{
     font-weight:lighter;
 }
 
-/* save & cancel buttons */
-#save,#cancel{
+/* save button */
+#save{
     border-radius: 40px;
     width: 100px;
     margin-top: 10px;
 }
 
-#cancel{
+/* #cancel{
     background-color: transparent;
     color: var(--color-secondary-text);
     border-color: var(--color-secondary-text);
@@ -93,4 +93,4 @@ h1{
 #cancel:hover{
     background-color: #f8f9fa;
     color: #34495e
-}
+} */
