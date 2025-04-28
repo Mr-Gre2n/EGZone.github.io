@@ -44,7 +44,19 @@ body {
     font-weight: bold;
     font-size: var(--font-size-Xlg);
     color: var(--color-primary-text);
+    text-decoration: none;  
+    display: flex;
+    align-items: center;
+}
+
+.logo a{
     text-decoration: none;
+    color: var(--color-primary-text);
+}
+
+.search-bar{
+    width: 700px;
+
 }
 
 /* mid section */
@@ -53,7 +65,8 @@ body {
     flex-grow: 1;
     margin: 0 40px;
     position: relative;
-    width: 800px;
+    top: 50%;
+    transform: translateY(-40%);
 }
 
 .search-bar input {
