@@ -48,11 +48,12 @@ body {
 }
 
 /* mid section */
-.search-bar {
+.search-bar-input {
     display: flex;
     flex-grow: 1;
     margin: 0 40px;
     position: relative;
+    width: 800px;
 }
 
 .search-bar input {
