@@ -101,6 +101,15 @@ button:hover {
     transform: translateY(-35%);
 }
 
+.forgot-password a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
 .sign-up-link {
     display: flex;
     justify-content: center;
