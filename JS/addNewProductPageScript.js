@@ -266,6 +266,9 @@ function clearForm() {
 }
 
 function layout(){
+
+  applyTheme();
+
   // Get ID parameter
   const ID = new URLSearchParams(window.location.search).get("id");
   // Read products from localStorage
@@ -326,6 +329,12 @@ function layout(){
 
 function show404Page(){
     window.location.href = '404ErrorPage.html';
+}
+
+function applyTheme() {
+  // localStorage.setItem("Theme", "blue");
+  let theme = localStorage.getItem("Theme");  
+  document.documentElement.setAttribute("data-theme", theme);
 }
 /***********************
 *     Data Events

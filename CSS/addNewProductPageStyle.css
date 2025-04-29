@@ -266,3 +266,14 @@ label{
         flex-wrap: wrap;
     }
 }
+
+
+/* ===================== */
+/*       Themes          */
+/* ===================== */
+
+[data-theme="blue"]:root {
+    /* Colors */
+    --color-primary: #388bff;
+    --color-primary-hover: #3180ee;
+}
