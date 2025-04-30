@@ -104,12 +104,6 @@ body {
     color: var(--color-dark);
 }
 
-/* .member-description {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 20px;
-} */
-
 .contributions {
     margin-top: 20px;
 }
@@ -144,19 +138,3 @@ body {
     font-weight: bold;
     margin-right: 10px;
 }
-
-/* Responsive */
-/* @media (max-width: 768px) {
-    .member-card {
-        flex-direction: column;
-        max-width: 380px;
-    }
-
-    .member-photo, .member-info {
-        width: 100%;
-    }
-
-    .member-photo {
-        height: 240px;
-    }
-} */
