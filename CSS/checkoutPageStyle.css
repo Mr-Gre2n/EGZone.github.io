@@ -12,12 +12,14 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+
 .container {
   display: flex;
   width: 100%;
   max-width: 1200px;
   gap: 20px;
 }
+
 .billing-details {
   flex: 2;
   background-color: #fff;
@@ -52,9 +54,11 @@ h2 {
   font-size: 14px;
   margin-bottom: 5px;
 }
+
 .form-group label span {
   color: red;
 }
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -64,68 +68,189 @@ h2 {
   border-radius: 5px;
   font-size: 14px;
 }
+
 .form-group textarea {
   resize: vertical;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
+
+.form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
 .form-group-row {
   display: flex;
   gap: 15px;
 }
+
 .form-group-row .form-group {
   flex: 1;
 }
-.order-item p {
-  color: #1fad0f;
+
+.order-header p {
+  color: #000;
+  font-weight: 600;
 }
-.order-item {
+
+.order-item p {
+  color: #000;
+  font-weight: 400;
+}
+
+.order-total p {
+  color: #000;
+  font-weight: 700;
+}
+
+.order-item,
+.order-header,
+.order-discount,
+.order-total {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
-.order-item p {
+
+.order-item p,
+.order-header p,
+.order-discount p,
+.order-total p {
   margin: 0;
   font-size: 14px;
 }
-.order-total p {
+
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.confirmation-box h2 {
+  margin-bottom: 20px;
   color: #1fad0f;
 }
-.order-total {
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
+
+.confirmation-box p {
+  margin-bottom: 15px;
 }
-.payment-methods {
-  margin-top: 20px;
+
+.confirmation-box div {
+  margin-bottom: 20px;
 }
-.payment-methods label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 14px;
+
+.confirmation-box button {
+  background-color: #1fad0f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
-.payment-methods input[type="radio"] {
-  margin-right: 10px;
-}
-.payment-methods .direct-bank-transfer {
-  background-color: skyblue;
+
+.cash-on-delivery-details {
+  background-color: lightgreen;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
-.payment-methods .paypal {
+
+.paypal-details {
+  background-color: #003087;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.character-counter {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.price {
+  color: #23a514;
+}
+
+.order-total {
+  font-size: 18px;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.payment-methods {
+  margin-top: 20px;
+}
+
+.payment-option {
   display: flex;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
 }
-.payment-methods .paypal img {
+
+.payment-option:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.payment-methods input[type="radio"] {
+  margin-right: 10px;
+}
+
+.payment-logo {
+  width: auto;
   height: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
 }
-/* .payment-methods .cash-on-delivery img { */
- 
+
+.payment-details {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.direct-bank-transfer {
+  background-color: skyblue;
+}
+
+.cash-on-delivery-details {
+  background-color: lightgreen;
+}
+
+.paypal-details {
+  background-color: #003087;
+  color: white;
+}
+
 .place-order-btn {
   background-color: #1fad0f;
   color: #fff;
@@ -140,4 +265,50 @@ h2 {
 
 .place-order-btn:hover {
   background-color: rgb(3, 110, 3);
+}
+
+input.error,
+select.error,
+textarea.error {
+  border: 1px solid red !important;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1fad0f !important;
+  box-shadow: 0 0 5px rgba(31, 173, 15, 0.3) !important;
+  outline: none;
+}
+
+label span {
+  color: red;
+  margin-left: 2px;
+}
+
+/* Mobile responsiveness 
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  } */
+
+.order-summary {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.form-group-row {
+  flex-direction: column;
+}
+
+.form-group-row .form-group {
+  width: 100%;
 }
