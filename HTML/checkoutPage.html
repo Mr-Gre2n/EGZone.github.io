@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout Page</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="checkoutPageStyle.css" />
   </head>
   <body>
     <div class="container">
@@ -81,22 +81,22 @@
 
       <div class="order-summary">
         <h2>YOUR ORDER</h2>
-        <div class="order-item">
+        <div class="order-item order-header">
           <p>PRODUCT</p>
           <p>SUB TOTAL</p>
         </div>
 
         <div class="order-item">
           <p>Sample Product x 1</p>
-          <p>$50.00</p>
+          <p class="price">$50.00</p>
         </div>
 
         <div class="order-total">
           <p>ORDER TOTAL</p>
-          <p>$50.00</p>
+          <p class="price">$50.00</p>
         </div>
         <div class="payment-methods">
-          <label>
+          <label class="payment-option">
             <input
               type="radio"
               name="payment-method"
@@ -104,29 +104,40 @@
               checked
             />
             Direct Bank Transfer
+            <img
+              src="Master-Card-Logo.png"
+              alt="Bank Transfer"
+              class="payment-logo"
+            />
           </label>
-          <div class="direct-bank-transfer">
+          <div class="direct-bank-transfer payment-details">
             <p>
               Make your payment directly into our bank account. Please use your
               Order ID as the payment reference. Your order will not be shipped
               until the funds have cleared in our account.
             </p>
           </div>
-          <label>
+
+          <label class="payment-option">
             <input
               type="radio"
               name="payment-method"
               value="cash-on-delivery"
             />
-            <!-- Cash on Delivery <img src="images (1).png" alt="COD" /> -->
+            Cash on Delivery
+            <img src="cash.png" alt="COD" class="payment-logo" />
           </label>
-          <label class="paypal">
+
+          <label class="payment-option">
             <input type="radio" name="payment-method" value="paypal" />
-            PayPal <img src="download.jpg" alt="PayPal" />
+            PayPal
+            <img src="PayPal.png" alt="PayPal" class="payment-logo" />
           </label>
         </div>
         <button class="place-order-btn">PLACE ORDER</button>
       </div>
     </div>
+
+    <script src="checkoutPageScript.js"></script>
   </body>
 </html>
