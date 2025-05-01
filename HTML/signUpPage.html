@@ -4,27 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register Page</title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="signUpPageStyle.css" />
   </head>
   <body>
     <div class="container">
       <div class="image-section">
-        <img src="" alt="Register Illustration" />
+        <img src="sidePhoto.jpg" alt="Register Illustration" />
       </div>
       <div class="form-section">
         <h3>Register</h3>
         <p>Join To Us</p>
+
         <div class="form-container">
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="User Name" required />
+          <div class="name-row">
+            <input class="user" type="text" placeholder="First Name" required />
+            <input class="user" type="text" placeholder="Last Name" required />
+          </div>
+          <input type="text" placeholder="User Name" required />
           <input type="password" placeholder="Password" required />
           <input type="password" placeholder="Confirm Password" required />
           <button>REGISTER</button>
         </div>
         <div class="login-link">
-          <p>Already user? <a href="">Login</a></p>
+          <p>Already user? <a href="#">Login</a></p>
         </div>
       </div>
     </div>
+    <script src="signUpPageScript.js"></script>
   </body>
 </html>
