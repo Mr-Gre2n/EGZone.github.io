@@ -147,21 +147,9 @@ function saveProduct(index = null) {
 
   // show alert
   if (index == null) {
-    Swal.fire({
-      title: "Product added successfully!",
-      icon: "success",
-      confirmButtonColor: getComputedStyle(document.documentElement)
-        .getPropertyValue('--color-primary')
-        .trim()
-    });
+    alert("Product added successfully!");
   }else{
-    Swal.fire({
-      title: "Product updated successfully!",
-      icon: "success",
-      confirmButtonColor: getComputedStyle(document.documentElement)
-        .getPropertyValue('--color-primary')
-        .trim()
-    });
+    alert("Product updated successfully!");
   }
 }
 
@@ -172,45 +160,23 @@ function deleteProduct() {
   console.log(products,proIndex,operationType)
   if (!products || proIndex == null || operationType != "Updating"  || proIndex > products.length) {
     // show alert
-    Swal.fire({
-      title: "Sorry, we encountered a problem when trying to delete the product. Please refresh the page and try again.",
-      icon: "error",
-      confirmButtonColor: getComputedStyle(document.documentElement)
-        .getPropertyValue('--color-red')
-        .trim()
-    });
+    alert("Sorry, we encountered a problem when trying to delete the product. Please refresh the page and try again.");
     return;
   }
+  const confirmed = confirm(`Are you sure you want to delete the product ${products[proIndex].Title}?`);
+  
+  if (confirmed) {
+    products.splice(proIndex, 1);
 
-  Swal.fire({
-    title: `Are you sure you want to delete the product ${products[proIndex].Title}?`,
-    showDenyButton: true,
-    confirmButtonText: "Yes",
-    confirmButtonColor: getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-primary')
-    .trim(),
-    denyButtonText: `No`
-  }).then((result) => {
-    if (result.isConfirmed) {
-      products.splice(proIndex, 1);
+    // put back the Products list in localStorage
+    localStorage.setItem("Products", JSON.stringify(products));
+  
+    PRO_TITLE.focus({ preventScroll: true ,focusVisible: true});
+    
+    alert("Product deleted successfully!");
 
-      // put back the Products list in localStorage
-      localStorage.setItem("Products", JSON.stringify(products));
-    
-      PRO_TITLE.focus({ preventScroll: true ,focusVisible: true});
-    
-      // show alert
-      Swal.fire({
-        title: "Product deleted successfully!",
-        icon: "success",
-        confirmButtonColor: getComputedStyle(document.documentElement)
-          .getPropertyValue('--color-primary')
-          .trim()
-      });
-    
-      clearForm();
-    } 
-  });
+    clearForm();
+  }
 }
 
 function clearForm() {
