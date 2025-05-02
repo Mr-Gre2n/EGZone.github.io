@@ -278,7 +278,7 @@ justify-content: flex-end;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 10px 0;
+    margin:0;
     border-radius: 15px;
     /* position: fixed;
     justify-content: center;
