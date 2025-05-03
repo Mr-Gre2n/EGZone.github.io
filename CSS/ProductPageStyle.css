@@ -61,10 +61,11 @@
 }
 
 .selected-img{
-    width: 750px;    
+    width: 700px;    
     height: 530px;   
     object-fit: cover; 
     transform: translateY(-35px); 
+    border-radius: 16px;
    
 }
 
