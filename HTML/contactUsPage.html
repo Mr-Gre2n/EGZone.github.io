@@ -4,12 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <!-- main style -->
+    <!-- main style  -->
     <link rel="stylesheet" href="../CSS/mainStyle.css">
-    <!-- contact us style -->
+    <!-- page style -->
     <link rel="stylesheet" href="../CSS/contactUsPageStyle.css">
 </head>
 <body>
-    
+  <div class="container">
+    <div class="form-container">
+            <h1>READY TO WORK WITH US</h1>
+            <P class="subtitle">Contact us for all questions and opinions</P>
+        <form id="ContactForm" action="" method="get">
+        <div class="form-row">
+            <div class="form-group">
+                     <label for="first-name" class="required">First Name</label>
+                     <input type="text" id="firstName" name="firstName">
+                     <div class="error-message" id="firstNameError">Please enter your first name</div>
+             </div>
+            <div class="form-group">
+                     <label for="last-name" class="required">Last Name</label>
+                     <input type="text" id="lastName" name="lastName">
+                     <div class="error-message" id="lastNameError">Please enter your last name</div>
+             </div>
+        </div>
+        <div class="form-group">
+          <label class="required">Gender</label>
+          <div class="gender-options">
+            <label class="gender-option">
+              <input type="radio" name="gender" value="male" checked> Male
+            </label>
+            <label class="gender-option">
+              <input type="radio" name="gender" value="female"> Female
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="required">Email Address</label>
+            <input type="email" id="email" name="email">
+            <div class="error-message" id="emailError">Please enter a valid email address</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number (Optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 123 456 7890">
+            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="country" class="required">Country / Region</label>
+            <select id="country" name="country">
+              <option value="">Select a country</option>
+              <option value="EG">Egypt (EG)</option>
+              <option value="US">United States (US)</option>
+              <option value="UK">United Kingdom (UK)</option>
+              <option value="CA">Canada (CA)</option>
+              <option value="AU">Australia (AU)</option>
+              <option value="DE">Germany (DE)</option>
+              <option value="FR">France (FR)</option>
+              <option value="JP">Japan (JP)</option>
+              <option value="CN">China (CN)</option>
+              <option value="IN">India (IN)</option>
+              <option value="BR">Brazil (BR)</option>
+            </select>
+            <div class="error-message" id="countryError">Please select your country</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject (Optional)</label>
+            <input type="text" id="subject" name="subject">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Note about your order, e.g. special note for delivery"></textarea>
+          </div>
+          <div class="rating-container">
+            <div class="rating-title">How would you rate our service?</div>
+            <div class="stars" id="rating">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+            </div>
+          </div>
+          <div class="checkbox-container"><label for="newsCheck">
+            <input type="checkbox" id="newsCheck" name="newsCheck">
+            I want to receive news and updates once in a while. By submitting, I'm agreed to the <span class="terms-link" id="termsLink">Terms & Conditions</span></label>
+          </div>
+          <div>
+            <button type="submit" class="button" id="submit" title="be with us in one click">SEND MESSAGE</button>
+          </div>
+        </form>
+      </div>
+        <div class="info-container">
+            <div class="address-info">
+              <h3>UNITED STATES (HEAD QUATER)</h3>
+              <p>152 Thatcher Road St, Mahattan, 10463, US</p>
+              <p>(+025) 3886 25 16</p>
+              <p><a href="mailto:hello@swattechmart.com">hello@swattechmart.com</a></p>
+            </div>
+            
+            <div class="address-info">
+              <h3>UNITED KINGDOM (BRANCH)</h3>
+              <p>12 Buckingham Rd, Thornthwaite, HG3 4TY, UK</p>
+              <p>(+718) 895-5350</p>
+              <p><a href="mailto:contact@swattechmart.co.uk">contact@swattechmart.co.uk</a></p>
+            </div>
+            
+            <div class="social-links">
+              <a href="#" class="social-link"><img src="../Materials/Images/facebook.jpeg"></a>
+              <a href="#" class="social-link"><img src="../Materials/Images/x.avif"></a>
+              <a href="#" class="social-link"><img src="../Materials/Images/insta.jpeg"></a>
+              <a href="#" class="social-link"><img src="../Materials/Images/whatsapp.png"></a>
+              <a href="#" class="social-link"><img src="../Materials/Images/snapchat.webp"></a>
+            </div>
+            <div class="id-card-container">
+              <div class="id-card" id="idCard">
+                <div class="card-face card-front">
+                  <div class="card-header">
+                    <div class="card-title">CONTACT CARD</div>
+                    <div class="card-country">
+                      <span id="card-country-name"></span>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-photo" id="card-photo">
+                      <!-- Gender-specific image will be inserted here by JS -->
+                       <img id="photo" />
+                    </div>
+                    <div class="card-info">
+                      <p id="card-name">Your Name</p>
+                      <p id="card-email">your.email@example.com</p>
+                      <p id="card-phone">+1 234 567 890</p>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    Click to flip for additional information
+                  </div>
+                </div>
+                <div class="card-face card-back">
+                  <div class="card-header">
+                    <div class="card-title">ADDITIONAL INFO</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-info">
+                      <p><strong>Subject:</strong> <span id="card-subject">Not specified</span></p>
+                      <p><strong>Message:</strong></p>
+                      <p id="card-message">Your message will appear here...</p>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    Click to flip back
+                  </div>
+                </div>
+              </div>
+              <p class="flip-hint">Click the card to flip it</p>
+            </div>
+            <div class="laptop">
+              <img src="../Materials/Images/laptop.avif" alt="photo">
+            </div>
+          </div>
+        </div> 
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+          <span class="close-modal" id="closeModal">&times;</span>
+          <h2>Terms & Conditions</h2>
+          <div>
+            <h3>1. Introduction</h3>
+            <p>Welcome to EGzone Tech Mart. These terms and conditions outline the rules and regulations for the use of our website and services.</p>
+            
+            <h3>2. Privacy Policy</h3>
+            <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you.</p>
+            
+            <h3>3. Cookies</h3>
+            <p>We employ the use of cookies. By accessing our website, you agreed to use cookies in agreement with our Privacy Policy.</p>
+            
+            <h3>4. License</h3>
+            <p>Unless otherwise stated, we own the intellectual property rights for all material on our website.</p>
+            
+            <h3>5. User Comments</h3>
+            <p>Parts of this website offer an opportunity for users to post comments. We do not filter, edit, publish or review comments.</p>
+            
+            <h3>6. Disclaimer</h3>
+            <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website.</p>
+          </div>
+        </div>
+      </div>
+      <script src="../JS/contactUsScript.js"></script>
 </body>
 </html>
