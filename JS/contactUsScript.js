@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const message = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
     const genderRadios = document.getElementsByName('gender');
+    const checkBox = document.getElementById('checkBox');
     
     // Error message elements
     const firstNameError = document.getElementById('firstNameError');
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = document.getElementById('emailError');
     const phoneError = document.getElementById('phoneError');
     const countryError = document.getElementById('countryError');
+    const massageError= document.getElementById('massageError')
+    const checkBoxError= document.getElementById('checkBoxError')
     
     // ID Card elements
     const idCard = document.getElementById('idCard');
@@ -50,8 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     subject.addEventListener('input', () => updateCard());
     message.addEventListener('input', () => updateCard());
     country.addEventListener('change', () => {
-      updateCountryFlag();
-      updateCard();
+    updateCard();
     });
     
     // Gender change event
@@ -134,11 +136,22 @@ document.addEventListener('DOMContentLoaded', function() {
           showError(phone, phoneError);
           isValid = false;
         }
+      }else{
+        let isValid = false;
+        showError(phone, phoneError);
       }
       
       // Validate Country
       if (country.value === '') {
         showError(country, countryError);
+        isValid = false;
+      }
+      if (message.value.trim() === '') {
+        showError(message, massageError);
+        isValid = false;
+      }
+      if (!checkBox.checked){
+        showError(checkBox,checkBoxError);
         isValid = false;
       }
       
@@ -214,5 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
           star.classList.remove('active');
         }
       });
+    }
+    function check (checkBox){
+      if(checkBox === false){
+
+      }
     }
   });

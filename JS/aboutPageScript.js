@@ -20,6 +20,11 @@
                         item.style.opacity = '1';
                         item.style.transform = 'translateY(0)';
                     }
+                    else if (itemTop > windowHeight - 200) {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(0)';
+                    }
+                    
                 });
             }
 
