@@ -1,0 +1,30 @@
+body { 
+    text-align: center;
+    overflow: hidden;
+}
+
+.headline{
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.image {
+    height: 450px;
+    display: flex;
+    justify-self: center;           
+}
+
+.content {
+    margin-top: -100px;
+}
+
+.content p {
+    margin-top: -10px;
+    color: var( --color-secondary-text);
+}
+
+.link_404 {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: 500;
+}
