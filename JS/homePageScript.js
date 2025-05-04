@@ -19,7 +19,7 @@ let slideInterval = setInterval(nextSlide, 7000);
 // Categories data
 const categories = [
     {
-        title: "LAPTOPS",
+        title: "Computer",
         image: "../Materials/laptop.jpg",
         items: [
             { name: "Gaming Laptop", image:"../Materials/Images/product1.jpg"},
