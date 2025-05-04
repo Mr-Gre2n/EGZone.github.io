@@ -40,14 +40,14 @@ ToErrorPage(PRODUCTS);
 let TARGET_PRODUCT
 
 for (let i = 0; i < PRODUCTS.length; i++) {
-    if (PRODUCTS[i].ID === PRODUCT_ID) {
+    if (PRODUCTS[i].ID == PRODUCT_ID) {
         TARGET_PRODUCT = PRODUCTS[i]; 
   }
 }
 
-ToErrorPage(TARGET_PRODUCT);
+// ToErrorPage(TARGET_PRODUCT);
 
-// console.log(TARGET_PRODUCT);
+console.log(TARGET_PRODUCT);
 
 //                                                                                    
 
