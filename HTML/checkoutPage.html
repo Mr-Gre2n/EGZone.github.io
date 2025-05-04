@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout Page</title>
-    <link rel="stylesheet" href="checkoutPageStyle.css" />
+    <link rel="stylesheet" href="CSS/checkoutPageStyle.css" />
+    <link rel="stylesheet" href="" />
   </head>
   <body>
     <div class="container">
@@ -66,7 +67,7 @@
         </div>
         <div class="form-group">
           <label>
-            <a href="#">Create an account?</a>
+            <a href="..\HTML\signUpPage.html">Create an account?</a>
           </label>
         </div>
         <h2>ADDITIONAL INFORMATION</h2>
@@ -105,7 +106,7 @@
             />
             Direct Bank Transfer
             <img
-              src="Master-Card-Logo.png"
+              src="Materials/Images/Master-Card-Logo.png"
               alt="Bank Transfer"
               class="payment-logo"
             />
@@ -125,19 +126,26 @@
               value="cash-on-delivery"
             />
             Cash on Delivery
-            <img src="cash.png" alt="COD" class="payment-logo" />
+            <img
+              src="Materials/Images/cash.png"
+              alt="COD"
+              class="payment-logo"
+            />
           </label>
 
           <label class="payment-option">
             <input type="radio" name="payment-method" value="paypal" />
             PayPal
-            <img src="PayPal.png" alt="PayPal" class="payment-logo" />
+            <img
+              src="Materials/Images/PayPal.png"
+              alt="PayPal"
+              class="payment-logo"
+            />
           </label>
         </div>
         <button class="place-order-btn">PLACE ORDER</button>
       </div>
     </div>
-
-    <script src="checkoutPageScript.js"></script>
+    <script src="JS/signUpPageScript.js"></script>
   </body>
 </html>
