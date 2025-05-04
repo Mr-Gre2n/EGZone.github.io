@@ -1,314 +1,367 @@
+/* دي قواعد أساسية عشان نضبط شكل كل حاجة في الصفحة من الأول */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;  /* شلنا الهوامش بره خالص */
+  padding: 0;  /* شلنا الهوامش جوه خالص */
+  box-sizing: border-box;  /* عشان لو حددنا عرض، يبقى العرض الكلي متضمن البادينج والبوردر */
 }
+
+/* ده شكل الصفحة كلها */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  font-family: Arial, sans-serif;  /* نوع الخط بتاع الصفحة كلها */
+  background-color: #f5f5f5;  /* لون خلفية الصفحة رمادي فاتح */
+  margin: 0;  /* مفيش هوامش برة */
+  padding: 20px;  /* هوامش داخلية 20 بكسل */
+  display: flex;  /* هنستخدم نظام فلكس بوكس للتنسيق */
+  justify-content: center;  /* المحتوى هيكون في النص أفقيا */
+  align-items: flex-start;  /* المحتوى هيبدأ من فوق رأسيا */
 }
 
+/* دي الحاوية الرئيسية اللي هتشيل كل المحتوى */
 .container {
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  gap: 20px;
+  display: flex;  /* هنستخدم فلكس بوكس برضه جوه الكونتينر */
+  width: 100%;  /* العرض هياخد 100% من المساحة المتاحة */
+  max-width: 1200px;  /* بس مش هيزيد عن 1200 بكسل */
+  gap: 30px;  /* هنسيب مسافة 30 بكسل بين الأقسام جنب بعض */
 }
 
+/* ده الجزء اللي فيه الفورم بتاع بيانات العميل والفاتورة */
 .billing-details {
-  flex: 2;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 2;  /* هياخد مساحة ضعف الجزء التاني */
+  background-color: #fff;  /* خلفية بيضة */
+  padding: 30px;  /* هوامش داخلية 30 بكسل */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* ضل خفيف عشان يطلع الديف شيك */
 }
 
+/* ده الجزء اللي فيه ملخص الطلب والسعر */
 .order-summary {
-  position: sticky;
-  top: 0;
-  flex: 0.7;
-  background-color: rgb(204, 224, 232);
-  padding: 25px;
-  margin-bottom: auto;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;  /* هيفضل ملزق في مكانه لما تسكرول */
+  top: 20px;  /* على بعد 20 بكسل من فوق */
+  flex: 0.8;  /* هياخد مساحة أقل من النص التاني */
+  background-color: rgb(204, 224, 232);  /* لون خلفية أزرق فاتح */
+  padding: 25px;  /* هوامش داخلية 25 بكسل */
+  height: fit-content;  /* الطول على قد المحتوى بالظبط */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* ضل خفيف برضه زي التاني */
 }
+
+/* ده العنوان الكبير الرئيسي */
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 24px;  /* حجم الخط 24 بكسل */
+  margin-bottom: 25px;  /* مسافة تحته 25 بكسل */
+  color: #333;  /* لون رمادي غامق */
 }
+
+/* ده العنوان الفرعي */
 h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 18px;  /* حجم الخط 18 بكسل */
+  margin-bottom: 20px;  /* مسافة تحته 20 بكسل */
+  color: #444;  /* لون رمادي أفتح شوية */
 }
+
+/* ده العنوان الأصغر تالت مستوى */
+h3 {
+  font-size: 16px;  /* حجم الخط 16 بكسل */
+  margin-bottom: 15px;  /* مسافة تحته 15 بكسل */
+  color: #555;  /* لون رمادي أكتر فتح */
+}
+
+/* دي مجموعة الحقول مع بعض */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;  /* مسافة تحت كل مجموعة 20 بكسل */
 }
+
+/* ده الليبل اللي فوق كل حقل */
 .form-group label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
+  display: block;  /* بياخد سطر لوحده */
+  font-size: 14px;  /* حجم الخط 14 بكسل */
+  margin-bottom: 8px;  /* مسافة تحته 8 بكسل */
+  font-weight: 500;  /* سمك الخط متوسط عشان يبان كويس */
 }
 
+/* دي النجمة الحمرا اللي جنب الحقول الإلزامية */
 .form-group label span {
-  color: red;
+  color: red;  /* لونها أحمر عشان الناس تاخد بالها */
+  margin-left: 2px;  /* مسافة شمالها 2 بكسل */
 }
 
+/* دي قواعد عامة للإنبوت والسيلكت والتكست ايريا */
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
+  width: 100%;  /* العرض 100% من المساحة المتاحة */
+  padding: 12px;  /* هوامش داخلية 12 بكسل */
+  border: 1px solid #ddd;  /* إطار رمادي فاتح بسمك 1 بكسل */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  font-size: 14px;  /* حجم الخط 14 بكسل */
+  transition: all 0.3s ease;  /* تأثير انتقالي ناعم */
 }
 
+/* دي قواعد خاصة بالتكست ايريا (اللي بيكتب فيها كلام كتير) */
 .form-group textarea {
-  resize: vertical;
-  font-family: "Arial", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  resize: vertical;  /* ممكن يتمدد لتحت بس مش لجنب */
+  min-height: 100px;  /* أقل ارتفاع 100 بكسل */
+  font-family: "Arial", sans-serif;  /* نوع الخط */
+  font-size: 14px;  /* حجم الخط */
+  line-height: 1.5;  /* المسافة بين السطور */
+  background-color: #f9f9f9;  /* لون خلفية فاتح */
+  border: 1px solid #ccc;  /* إطار رمادي */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);  /* ضل داخلي خفيف */
 }
 
+/* ده الكلام اللي بيظهر كإرشاد جوه التكست ايريا */
 .form-group textarea::placeholder {
-  color: #999;
-  font-style: italic;
+  color: #999;  /* لون رمادي متوسط */
+  font-style: italic;  /* خط مايل */
 }
 
+/* دي الصفوف اللي فيها حقول جنب بعض زي الاسم الأول والأخير */
 .form-group-row {
-  display: flex;
-  gap: 15px;
+  display: flex;  /* هنستخدم فلكس عشان نرتب الحقول جنب بعض */
+  gap: 20px;  /* مسافة 20 بكسل بين الحقول */
+  margin-bottom: 20px;  /* مسافة 20 بكسل تحت الصف */
 }
 
+/* دي القواعد بتاعة الحقول جوه الصف */
 .form-group-row .form-group {
-  flex: 1;
+  flex: 1;  /* كل حقل هياخد نفس المساحة */
+  margin-bottom: 0;  /* مفيش مسافة تحت الحقل عشان الصف نفسه فيه مسافة */
 }
 
+/* ده راس الجدول بتاع الطلب */
 .order-header p {
-  color: #000;
-  font-weight: 600;
+  color: #000;  /* لون أسود */
+  font-weight: 600;  /* خط سميك شوية */
 }
 
+/* دي القواعد بتاعة العناصر في الطلب */
 .order-item p {
-  color: #000;
-  font-weight: 400;
+  color: #000;  /* لون أسود */
+  font-weight: 400;  /* خط عادي */
 }
 
+/* دي قواعد إجمالي الطلب */
 .order-total p {
-  color: #000;
-  font-weight: 700;
+  color: #000;  /* لون أسود */
+  font-weight: 700;  /* خط سميك أكتر */
 }
 
+/* دي قواعد عناصر ملخص الطلب */
 .order-item,
 .order-header,
 .order-discount,
 .order-total {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+  display: flex;  /* هنستخدم فلكس عشان نخلي الاسم في جنب والسعر في جنب */
+  justify-content: space-between;  /* الاسم في أقصى اليمين والسعر في أقصى الشمال */
+  margin-bottom: 15px;  /* مسافة 15 بكسل تحت كل عنصر */
+  padding-bottom: 10px;  /* بادينج 10 بكسل تحت كل عنصر */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);  /* خط رفيع تحت كل عنصر */
 }
 
+/* إزالة الخط من تحت آخر عنصر (الإجمالي) */
+.order-total {
+  border-bottom: none;  /* شلنا الخط ده من الإجمالي بس */
+}
+
+/* دي قواعد النصوص في ملخص الطلب */
 .order-item p,
 .order-header p,
 .order-discount p,
 .order-total p {
-  margin: 0;
-  font-size: 14px;
+  margin: 0;  /* مفيش هوامش */
+  font-size: 14px;  /* حجم الخط 14 بكسل */
 }
 
+/* دي طبقة شفافة بتظهر فوق الصفحة كلها لما بيطلع تأكيد الطلب */
 .confirmation-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  position: fixed;  /* هتتثبت فوق الصفحة كلها */
+  top: 0;  /* من أعلى الصفحة */
+  left: 0;  /* من أقصى اليمين */
+  width: 100%;  /* هتاخد عرض الشاشة كلها */
+  height: 100%;  /* هتاخد طول الشاشة كلها */
+  background-color: rgba(0, 0, 0, 0.7);  /* لون أسود شفاف */
+  display: flex;  /* هنستخدم فلكس عشان نحط الصندوق في النص */
+  justify-content: center;  /* الصندوق في النص أفقيا */
+  align-items: center;  /* الصندوق في النص رأسيا */
+  z-index: 1000;  /* هيطلع فوق كل العناصر التانية */
 }
 
+/* دي القواعد بتاعة صندوق التأكيد */
 .confirmation-box {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: #fff;  /* خلفية بيضة */
+  padding: 30px;  /* هوامش داخلية 30 بكسل */
+  border-radius: 10px;  /* زوايا مدورة 10 بكسل */
+  max-width: 500px;  /* أقصى عرض 500 بكسل */
+  width: 90%;  /* هياخد 90% من عرض الشاشة بحد أقصى 500 بكسل */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  /* ضل عميق شوية */
 }
 
+/* ده العنوان اللي جوه صندوق التأكيد */
 .confirmation-box h2 {
-  margin-bottom: 20px;
-  color: #1fad0f;
+  margin-bottom: 20px;  /* مسافة 20 بكسل تحته */
+  color: #1fad0f;  /* لون أخضر */
 }
 
+/* دي الفقرات اللي جوه صندوق التأكيد */
 .confirmation-box p {
-  margin-bottom: 15px;
+  margin-bottom: 15px;  /* مسافة 15 بكسل تحتها */
 }
 
+/* دي الأقسام اللي جوه صندوق التأكيد */
 .confirmation-box div {
-  margin-bottom: 20px;
+  margin-bottom: 20px;  /* مسافة 20 بكسل تحتها */
 }
 
+/* ده الزرار اللي جوه صندوق التأكيد */
 .confirmation-box button {
-  background-color: #1fad0f;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: #1fad0f;  /* خلفية خضراء */
+  color: #fff;  /* لون النص أبيض */
+  padding: 10px 20px;  /* هوامش داخلية 10 فوق وتحت و 20 يمين وشمال */
+  border: none;  /* مفيش إطار */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  cursor: pointer;  /* شكل المؤشر يد لما يقف عليه */
+  font-size: 16px;  /* حجم الخط 16 بكسل */
 }
 
+/* دي قواعد بتاعة طريقة الدفع عند الاستلام */
 .cash-on-delivery-details {
-  background-color: lightgreen;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: lightgreen;  /* خلفية خضراء فاتح */
+  padding: 10px;  /* هوامش داخلية 10 بكسل */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  margin-bottom: 10px;  /* مسافة 10 بكسل تحتها */
 }
 
+/* دي قواعد بتاعة طريقة الدفع بباي بال */
 .paypal-details {
-  background-color: #003087;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #003087;  /* خلفية زرقاء غامقة زي لون باي بال */
+  color: white;  /* لون النص أبيض */
+  padding: 10px;  /* هوامش داخلية 10 بكسل */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  margin-bottom: 10px;  /* مسافة 10 بكسل تحتها */
 }
 
+/* ده عداد الأحرف اللي بيظهر تحت التكست ايريا */
 .character-counter {
-  font-size: 12px;
-  color: #666;
-  text-align: right;
-  margin-top: 5px;
+  font-size: 12px;  /* حجم الخط 12 بكسل */
+  color: #666;  /* لون رمادي */
+  text-align: right;  /* محاذاة النص للشمال */
+  margin-top: 5px;  /* مسافة 5 بكسل فوقه */
 }
 
+/* ده لون وشكل السعر */
 .price {
-  color: #23a514;
+  color: #23a514;  /* لون أخضر */
+  font-weight: bold;  /* خط سميك */
 }
 
+/* دي قواعد إجمالي الطلب في الآخر */
 .order-total {
-  font-size: 18px;
-  margin-top: 20px;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
+  font-size: 18px;  /* حجم الخط 18 بكسل */
+  margin-top: 20px;  /* مسافة 20 بكسل فوقه */
+  border-top: 1px solid #ddd;  /* خط فوقه */
+  padding-top: 15px;  /* بادينج 15 بكسل فوقه */
 }
 
+/* ده قسم طرق الدفع */
 .payment-methods {
-  margin-top: 20px;
+  margin-top: 25px;  /* مسافة 25 بكسل فوقه */
+  border: 1px solid rgba(0, 0, 0, 0.1);  /* إطار شفاف */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  padding: 15px;  /* هوامش داخلية 15 بكسل */
+  background-color: rgba(255, 255, 255, 0.3);  /* خلفية بيضة شفافة */
 }
 
+/* دي قواعد خيارات الدفع زي كل طريقة دفع */
 .payment-option {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 5px;
-  border-radius: 5px;
+  display: flex;  /* هنستخدم فلكس عشان نحط الراديو بتن والنص جنب بعض */
+  align-items: center;  /* المحتوى في النص رأسيا */
+  margin-bottom: 12px;  /* مسافة 12 بكسل تحتها */
+  padding: 8px;  /* هوامش داخلية 8 بكسل */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  cursor: pointer;  /* شكل المؤشر يد لما يقف عليها */
 }
 
+/* دي قواعد لما حد يحط الماوس على أي خيار */
 .payment-option:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);  /* خلفية تفتح شوية */
 }
 
+/* دي قواعد أزرار الراديو في طرق الدفع */
 .payment-methods input[type="radio"] {
-  margin-right: 10px;
+  margin-right: 10px;  /* مسافة 10 بكسل على يمينه */
+  cursor: pointer;  /* شكل المؤشر يد لما يقف عليه */
 }
 
+/* دي قواعد الشعارات اللي جنب طرق الدفع */
 .payment-logo {
-  width: auto;
-  height: 20px;
-  margin-left: 8px;
-  vertical-align: middle;
+  width: auto;  /* العرض تلقائي */
+  height: 20px;  /* الطول 20 بكسل */
+  margin-left: 8px;  /* مسافة 8 بكسل على شماله */
+  vertical-align: middle;  /* محاذاة في النص عموديا */
 }
 
+/* دي قواعد عامة لتفاصيل طرق الدفع */
 .payment-details {
-  margin-bottom: 15px;
-  border-radius: 5px;
-  padding: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  margin-bottom: 15px;  /* مسافة 15 بكسل تحتها */
+  border-radius: 5px;  /* زوايا مدورة 5 بكسل */
+  padding: 12px;  /* هوامش داخلية 12 بكسل */
+  overflow: hidden;  /* أي محتوى زايد مش هيظهر */
+  transition: all 0.3s ease;  /* تأثير انتقالي ناعم */
+  font-size: 13px;  /* حجم الخط 13 بكسل */
+  line-height: 1.4;  /* المسافة بين السطور */
 }
 
+/* دي قواعد تفاصيل التحويل البنكي */
 .direct-bank-transfer {
-  background-color: skyblue;
+  background-color: skyblue;  /* خلفية زرقاء فاتح */
 }
 
-.cash-on-delivery-details {
-  background-color: lightgreen;
-}
-
-.paypal-details {
-  background-color: #003087;
-  color: white;
-}
-
+/* دي قواعد زرار إتمام الطلب في الآخر */
 .place-order-btn {
-  background-color: #1fad0f;
-  color: #fff;
-  padding: 15px;
-  border: none;
-  border-radius: 15px;
-  width: 100%;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+  background-color: #1fad0f;  /* خلفية خضراء */
+  color: #fff;  /* لون النص أبيض */
+  padding: 15px;  /* هوامش داخلية 15 بكسل */
+  border: none;  /* مفيش إطار */
+  border-radius: 15px;  /* زوايا مدورة 15 بكسل كبيرة */
+  width: 100%;  /* العرض 100% من المساحة المتاحة */
+  font-size: 16px;  /* حجم الخط 16 بكسل */
+  font-weight: bold;  /* خط سميك */
+  cursor: pointer;  /* شكل المؤشر يد لما يقف عليه */
+  margin-top: 25px;  /* مسافة 25 بكسل فوقه */
+  transition: background-color 0.3s ease;  /* تأثير انتقالي ناعم للون */
 }
 
+/* دي قواعد لما حد يحط الماوس على زرار إتمام الطلب */
 .place-order-btn:hover {
-  background-color: rgb(3, 110, 3);
+  background-color: rgb(3, 110, 3);  /* خلفية خضراء أغمق */
 }
 
+/* دي قواعد بتاعة الحقول اللي فيها خطأ */
 input.error,
 select.error,
 textarea.error {
-  border: 1px solid red !important;
-  background-color: rgba(255, 0, 0, 0.05);
+  border: 1px solid red !important;  /* إطار أحمر مهم */
+  background-color: rgba(255, 0, 0, 0.05);  /* خلفية حمراء خفيفة */
 }
 
+/* دي قواعد رسالة الخطأ */
 .error-message {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+  color: red;  /* لون أحمر */
+  font-size: 12px;  /* حجم الخط 12 بكسل */
+  margin-top: 5px;  /* مسافة 5 بكسل فوقها */
 }
 
+/* دي قواعد لما حد يضغط على أي حقل (الفوكس) */
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #1fad0f !important;
-  box-shadow: 0 0 5px rgba(31, 173, 15, 0.3) !important;
-  outline: none;
+  border-color: #1fad0f !important;  /* إطار أخضر مهم */
+  box-shadow: 0 0 5px rgba(31, 173, 15, 0.3) !important;  /* ضل أخضر خفيف مهم */
+  outline: none;  /* مفيش حدود تانية */
 }
 
+/* دي قواعد النجمة اللي بتدل على الحقول الإلزامية */
 label span {
-  color: red;
-  margin-left: 2px;
-}
-
-/* Mobile responsiveness 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  } */
-
-.order-summary {
-  position: relative;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.form-group-row {
-  flex-direction: column;
-}
-
-.form-group-row .form-group {
-  width: 100%;
+  color: red;  /* لون أحمر */
+  margin-left: 2px;  /* مسافة 2 بكسل على شمالها */
 }
