@@ -163,7 +163,7 @@
 
             /*  logged In User
             That we will use in home page*/
-            const loggedInUser = [
+            const loggedInUser = 
                 {
                     ID: 1,
                     firstName: 'Admin',
@@ -172,8 +172,8 @@
                     Phone: '011',
                     Email: 'admin@gmail',
                     Password: '123',
-                },
-            ];
+                }
+            ;
 
             // Save to localStorage under the name 'LoggedInUser'
             localStorage.setItem('LoggedInUser', JSON.stringify(loggedInUser));
