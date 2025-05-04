@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     CONFIRM_PASSWORD_INPUT,
   ];
 
+  // تحميل قائمة المستخدمين من localStorage
+  let savedUsers = JSON.parse(localStorage.getItem("usersList")) || [];
+
   /***********************
    *      Methods
    ***********************/
@@ -135,13 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
    * هنا بنضيف المستخدم الجديد لقائمة المستخدمين وبنخزنه
    */
   function createUser(userData) {
-    savedUsers.push(userData); // بنضيفه للقائمة
+    savedUsers.push(userData);
+
+    // بنحفظ قائمة المستخدمين في localStorage
+    localStorage.setItem("usersList", JSON.stringify(savedUsers));
+
+    // بنحدد أن المستخدم مسجل دخول
+    localStorage.setItem("currentUser", JSON.stringify(userData));
+    localStorage.setItem("isLoggedIn", "true");
 
     console.log("New user created:", userData);
     console.log("Current user list:", savedUsers);
-
-    // بنخزن بياناته في localStorage علشان نقدر نرجعله بعدين
-    localStorage.setItem("currentUser", JSON.stringify(userData));
 
     // بنوديه على الصفحة الرئيسية
     redirectToHomePage();
@@ -176,8 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
    * هنا بنظبط الدنيا لما المستخدم يضغط على زرار التسجيل
    */
   REGISTER_BUTTON.addEventListener("click", async (event) => {
-    event.preventDefault(); // بنمنع الإرسال التلقائي للفورم
-    clearAllErrors(); // بنبدأ بتنضيف أي رسائل خطأ قديمة
+    event.preventDefault(); 
+    clearAllErrors(); 
 
     // بنجيب القيم اللي المستخدم كتبها
     const FIRST_NAME = FIRST_NAME_INPUT.value.trim();
@@ -231,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isValid) {
       const NEW_USER = {
         username: USERNAME,
-        password: PASSWORD, // المفروض في الحقيقة الباسورد يتشفر
+        password: PASSWORD, 
         firstName: FIRST_NAME,
         lastName: LAST_NAME,
         registrationDate: new Date().toISOString(),
