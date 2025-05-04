@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EG zone</title>
+    <link rel="stylesheet" href="../CSS/mainStyle.css">
+    <link rel="stylesheet" href="../CSS/searchPageStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content"> 
+                <div class="search-container">
+                    <a href="homePage.html" class="logo">EG Zone</a>   
+                    <div class="search-bar">                       
+                        <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
+                        <button class="search-button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-layout">
+        <div class="sidebar">
+            <h3 class="filter-title">Categories</h3>
+            <div class="filter-options">
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="laptops">
+                    <span class="checkmark"></span>
+                  
+                    Laptops
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="phones">
+                    <span class="checkmark"></span>
+                    Phones
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="accessories">
+                    <span class="checkmark"></span>
+                    Accessories
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">Brands</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" name="brand" value="HP">
+                        <span class="checkmark"></span>
+                        HP
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="brand" value="Dell">
+                        <span class="checkmark"></span>
+                        Dell
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" name="brand" value="Lenovo">
+                        <span class="checkmark"></span>
+                        Lenovo
+                    </label>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="price-content">
+                    <div>
+                        <label class="min">Min:</label>
+                        <p class="minv" id="min-value">$100</p>
+                    </div>
+                    <div>
+                        <label class="max">Max:</label>
+                        <p class="maxv" id="max-value">$250</p>
+                    </div>
+                </div>
+                <div class="range-slider">
+                    <div class="range-fill" id="range-fill"></div>
+                    <input type="range" class="min-price" value="0" min="0" max="10000" step="10">
+                    <input type="range" class="max-price" value="10000" min="0" max="10000" step="10">
+                </div>
+            </div>
+
+            <button class="button" id="filter-go-button">GO</button>
+            <button class="Resetbutton" id="filter-reset-button">Reset</button>
+        </div>
+
+        <div class="main-content">
+            <div class="sortsection">
+                <label class="sort" for="sort">Sort by:</label>
+                <select id="sort" class="sort-select">
+                    <option value="relevance">Relevance</option>
+                    <option value="price-lowToHigh">Price: Low to High</option>
+                    <option value="price-highToLow">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+
+            <div class="products-grid"></div>
+            <div class="products-count"><h2>0 products found</h2></div>
+        </div>
+    </div>
+        
+        
+    <script src="../JS/searchPageScript.js"></script>
+    </div>
+</body>
+</html>
