@@ -554,35 +554,7 @@ body{
 
 
 /*  CART STYLES */
-.cart-toggle {
-  position: relative;
-  cursor: pointer;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  color: var(--color-primary-text);
-  font-family: var(--font-family);
-  width: fit-content;
-}
 
-.cart-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: var(--font-family);
-}
 
 .cart-sidebar {
   position: fixed;
