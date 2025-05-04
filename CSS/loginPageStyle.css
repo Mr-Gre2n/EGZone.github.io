@@ -136,6 +136,6 @@ button:hover {
 /*     error style     */
 /***********************/ 
 
-.incorrect input {
+.incorrect {
     border-color: red;
 }

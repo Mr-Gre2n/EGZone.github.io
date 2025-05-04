@@ -1,54 +1,39 @@
 const FORM = document.getElementById("login-form");
-const NAME_INPUT = document.getElementById("name-input");
-const PASSWORD_INPUT = document.getElementById("password-input");
+const USERNAME = document.getElementById("userName");
+const PASSWORD = document.getElementById("password");
 const ERROR_MESSAGE = document.getElementById("error-message");
+const BTN_LOGIN = document.getElementById("login-btn");
 
 
-let users = [
-    { id: 1, username: "John Doe", password: "password123" },
-];
+// let users = [
+//     { id: 1, username: "John Doe", password: "password123" },
+// ];
 
-localStorage.setItem("users", JSON.stringify(users));
+// localStorage.setItem("users", JSON.stringify(users));
 
-FORM.addEventListener("submit", function (e) {
-    let errors = [];
-    
-    errors = getLoginFormErrors(NAME_INPUT.value, PASSWORD_INPUT.value)
-    
-    if (errors.length > 0) {
-        e.preventDefault(); // Prevent form submission
-        ERROR_MESSAGE.innerHTML = errors.join(", ");
+BTN_LOGIN.addEventListener("click", function () {
+    if (USERNAME.value == "") {
+        alert('Please enter username');
+        return;
     }
-})
-
-function getLoginFormErrors(NAME_INPUT, PASSWORD_INPUT) {
-    let errors = [];
-
-    if (NAME_INPUT === "" || NAME_INPUT === null) {
-    errors.push("Name cannot be empty.");
-    NAME_INPUT.parentElement.classList.add("incorrect"); 
+    if (PASSWORD.value == "") {
+        alert('Please enter password');
+        return;
     }
 
-    if (PASSWORD_INPUT === "" || PASSWORD_INPUT === null) {
-    errors.push("Password cannot be empty.");
-    PASSWORD_INPUT.parentElement.classList.add("incorrect"); 
-    }
-
-    return errors;
-}
-
-
-function checkUserInLocalStorage(NAME_INPUT, PASSWORD_INPUT) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    
+    let user = ""
     // Loop through users to find a match
     for (let i = 0; i < users.length; i++) {
-        if (users[i].username === NAME_INPUT && users[i].password === PASSWORD_INPUT) {
-            return id; // User found with matching credentials
+        if (users[i].username == USERNAME.value && users[i].password == PASSWORD.value ) {
+            user =  users[i]; // User found with matching credentials
         }
     }
-    
-    return false; // No matching user found
-}
 
-checkUserInLocalStorage(NAME_INPUT.value, PASSWORD_INPUT.value)
+    // if (user) {
+        // localStorage.setItem("LoggedInUser", JSON.stringify(user));   
+        window.location.href = "../HTML/homePage.html" 
+    // }else{
+    //     alert('incorrcet information');
+    // }
+})

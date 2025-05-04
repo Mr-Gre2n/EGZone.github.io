@@ -18,10 +18,10 @@
         { id: 3, name: "Item 3", quantity: 4 }
     ];
     
-    let LoggedInUser =[
-        { id: 1, name: "John Doe", email:""}
-    ]
-    localStorage.setItem("LoggedInUser", JSON.stringify(LoggedInUser));
+    // let LoggedInUser =[
+    //     { id: 1, name: "John Doe", email:""}
+    // ]
+    // localStorage.setItem("LoggedInUser", JSON.stringify(LoggedInUser));
     /************************/
     /* Check logged in user */
     /************************/
@@ -90,7 +90,7 @@
                     });
                 }
         else {
-            // DROPDOWN_MENU.style.display = "none";
+            DROPDOWN_MENU.style.display = "none";
         }
     }
 
@@ -98,3 +98,9 @@
         localStorage.removeItem("LoggedInUser");
         location.reload();
     }
+
+
+    /************************/
+    /*         Events       */
+    /************************/
+    checkUser();
