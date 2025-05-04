@@ -6,9 +6,7 @@ const dots = document.querySelectorAll('.dot');
 const cartItemsContainer = document.getElementById('cartItems');
 const cartTotalElement = document.getElementById('cartTotal');
 const cartSidebar = document.getElementById('cartSidebar');
-const cartBadge = document.getElementById('cartBadge');
 const productsContainer = document.getElementById('productsContainer');
-const cartToggle = document.getElementById('cartToggle');
 
 /***********************
 *      Variables
@@ -176,7 +174,8 @@ function getProductsFromLocalStorage() {
 }
 
 function calculateDiscountedPrice(price, discount) {
-    return price - (price * (discount / 100));
+    return price - discount;
+
 }
 
 function navigateToProductPage(productId) {
@@ -404,25 +403,25 @@ function closeCart() {
     }
 }
 
-function toggleCart() {
-    if (cartSidebar) {
-        if (cartSidebar.classList.contains('open')) {
-            closeCart();
-        } else {
-            openCart();
-        }
-    }
-}
+// function toggleCart() {
+//     if (cartSidebar) {
+//         if (cartSidebar.classList.contains('open')) {
+//             closeCart();
+//         } else {
+//             openCart();
+//         }
+//     }
+// }
 
-function updateCartCount() {
-    if (!cartBadge) return;
+// function updateCartCount() {
+//     if (!cartBadge) return;
     
-    const cart = getCartFromLocalStorage();
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+//     const cart = getCartFromLocalStorage();
+//     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
     
-    cartBadge.textContent = itemCount;
-    cartBadge.style.display = itemCount > 0 ? 'flex' : 'none';
-}
+//     cartBadge.textContent = itemCount;
+//     cartBadge.style.display = itemCount > 0 ? 'flex' : 'none';
+// }
 
 /***********************
 *     Data Events
