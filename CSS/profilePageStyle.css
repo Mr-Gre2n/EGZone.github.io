@@ -1,0 +1,96 @@
+body{
+    display: flex;
+    max-width: 1200px;
+    padding: 20px;
+    /* background-color: rgb(245, 245, 245); */
+}
+
+/*********************
+* main profile style *
+**********************/
+aside{
+    background-color: var(--color-gray-200);
+    padding: 20px;
+    width: 200px;
+    border-radius:8px;
+}
+
+img{
+    width:200px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: cover ;
+}
+
+#sidebar-name{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#sidebar-email{
+    font-weight:lighter;
+    text-align: center;
+}
+
+.button {
+    font-size: 16px;
+    width: 200px;
+    padding:15px;
+    margin-bottom: 5px ;
+    margin-top: 5px;
+}
+
+/* .arrow:hover{
+    animation: forwards;
+    animation-timing-function: ease-out;
+} */
+
+/*******************
+ *   Account info  *
+********************/
+main{
+    flex: 1;
+    padding: 0 20px;
+}
+
+h1{
+    margin-bottom: 15px;
+}
+
+/* .actionButton{
+    display:none;
+} */
+
+/* the '*' character of required inputs */
+.required{
+    color:red;
+}
+
+/* optional of the telphone number */
+.Optional{
+    font-weight:lighter;
+}
+
+/* save button */
+#save{
+    border-radius: 40px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+/* #cancel{
+    background-color: transparent;
+    color: var(--color-secondary-text);
+    border-color: var(--color-secondary-text);
+    border: 1px solid #e0e0e0;
+}
+
+#cancel:hover{
+    background-color: #f8f9fa;
+    color: #34495e
+} */

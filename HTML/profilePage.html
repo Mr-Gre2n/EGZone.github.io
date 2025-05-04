@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your profile</title>
+    <link rel="stylesheet" href="../CSS/mainStyle.css">
+    <link rel="stylesheet" href="../CSS/profilePageStyle.css">
+</head>
+
+<body>
+    <aside>
+        <img src="../Materials/Images/Default_avatar_profile.png" alt="Profile Photo">
+        <p id="sidebar-name">Mark Cole</p>
+        <p id="sidebar-email">name@example.com</p>
+        <button class="button">Account info <span class="arrow">→</span></button>
+    </aside>
+    <main>
+        <h1>Account info</h1>
+        <!-- change info -->
+        <form>
+            <!-- name -->
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" required>
+            <label for="lastName">Last Name <span class="required">*</span></label>                
+            <input type="text" id="lastName" required>
+            
+            <!-- email -->
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" required>
+            
+            <!-- Phone number -->
+            <label for="phoneNum">Phone Number <span class="Optional">(Optional)</span></label>
+            <input type="tel" id="phoneNum">
+            
+            <!-- Save -->
+            <button type="submit" class="button" id="save">Save</button>
+        </form>
+    </main>
+    <script src="../JS/profilePageScript.js"></script>
+</body>
+
+</html>
