@@ -450,17 +450,17 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
     
     // Add event listener for closing cart when clicking outside
-    document.addEventListener('click', function(e) {
-        if (cartSidebar && 
-            cartSidebar.classList.contains('open') && 
-            !cartSidebar.contains(e.target) && 
-            cartToggle && 
-            e.target !== cartToggle && 
-            !cartToggle.contains(e.target) &&
-            !e.target.closest('.add-to-cart')) {
-            closeCart();
-        }
-    });
+    // document.addEventListener('click', function(e) {
+    //     if (cartSidebar && 
+    //         cartSidebar.classList.contains('open') && 
+    //         !cartSidebar.contains(e.target) && 
+    //         cartToggle && 
+    //         e.target !== cartToggle && 
+    //         !cartToggle.contains(e.target) &&
+    //         !e.target.closest('.add-to-cart')) {
+    //         // closeCart();
+    //     }
+    // });
     
     // Add escape key handler to close cart
     document.addEventListener('keydown', function(e) {
