@@ -1,0 +1,140 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-gray-100);
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+.team-container {
+    padding: 60px 20px;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--color-black);
+    position: relative;
+    display: inline-block;
+}
+
+.page-header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+.page-header p {
+    max-width: 600px;
+    margin: 20px auto 0;
+    color: var(--color-secondary-text);
+    font-size: 1.1rem;
+}
+
+/* Team Section */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.member-card {
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    background: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.member-photo {
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px 0 0 16px;
+    transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-photo img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    width: 60%;
+    padding: 30px;
+    position: relative;
+}
+
+
+.member-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 15px 0 5px;
+    color: var(--color-dark);
+}
+
+.contributions {
+    margin-top: 20px;
+}
+
+.contributions h3 {
+    font-size: 1rem;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.contributions h3::before {
+    margin-right: 8px;
+    color: var(--color-secondary-text);
+}
+
+.contribution-list {
+    list-style: none;
+}
+
+.contribution-list li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.contribution-list li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 10px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../CSS/mainStyle.css" />
+    <link rel="stylesheet" href="../CSS/loginPageStyle.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h3>Log in to EG Zone</h3>
+            <br />
+            <p id="error-messages"></p>
+            <div >
+                <div>
+                    <input id="userName"  type="text" placeholder="User name"/>
+                </div>
+                <div>
+                    <input id="password" type="password" placeholder="Password"/> 
+                        <div class="forgot-password">
+                            <p><a href="#">Forgot password?</a></p> 
+                        </div>    
+                        
+                </div>
+            <button  class="button login-btn" id="login-btn">Login</button>
+        <div class="sign-up-link">
+            <p> New user ? <a href="..\HTML\signUpPage.html">Sign up</a></p>
+        </div> 
+     </div>
+    </div> 
+    <script src="..\JS\loginPageScript.js"></script>
+</body>
+</html>
