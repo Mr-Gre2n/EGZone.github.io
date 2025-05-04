@@ -44,11 +44,12 @@
                     ID: 1,
                     Image: '/Materials/Images/watch.jpg',
                     Title: 'Product 1',
-                    Category: 'Category A',
+                    Category: 'Computer',
                     Brand: 'Brand A',
                     Price: 100,
                     Discount: 10,
                     Quantity: 50,
+                    isNew: true,
                     Status: 'in stock',
                     Description: 'Description of Product 1'
                 },
@@ -56,7 +57,7 @@
                     ID: 2,
                     Image: '/Materials/Images/watch.jpg',
                     Title: 'Product 2',
-                    Category: 'Category B',
+                    Category: 'Computer',
                     Brand: 'Brand B',
                     Price: 200,
                     Discount: 20,
@@ -68,7 +69,7 @@
                     ID: 3,
                     Image: '/Materials/Images/watch.jpg',
                     Title: 'Product 3',
-                    Category: 'Category C',
+                    Category: 'Smartphones',
                     Brand: 'Brand C',
                     Price: 150,
                     Discount: 15,
@@ -80,7 +81,7 @@
                     ID: 4,
                     Image: '/Materials/Images/watch.jpg',
                     Title: 'Product 4',
-                    Category: 'Category D',
+                    Category: 'Accessories',
                     Brand: 'Brand D',
                     Price: 250,
                     Discount: 25,
@@ -92,7 +93,7 @@
                     ID: 5,
                     Image: '/Materials/Images/watch.jpg',
                     Title: 'Product 5',
-                    Category: 'Category E',
+                    Category: 'Accessories',
                     Brand: 'Brand E',
                     Price: 300,
                     Discount: 30,
@@ -102,8 +103,40 @@
                 }
             ];
 
+                // Sample data for 5 products
+            const cart = [
+                {
+                    ID: 1,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 1',
+                    Category: 'Computer',
+                    Brand: 'Brand A',
+                    Price: 100,
+                    Discount: 10,
+                    Quantity: 5,
+                    isNew: true,
+                    Status: 'in stock',
+                    Description: 'Description of Product 1'
+                },
+            
+                {
+                    ID: 3,
+                    Image: '/Materials/Images/watch.jpg',
+                    Title: 'Product 3',
+                    Category: 'Smartphones',
+                    Brand: 'Brand C',
+                    Price: 150,
+                    Discount: 15,
+                    Quantity: 7,
+                    Status: 'in stock',
+                    Description: 'Description of Product 3'
+                },
+             
+            ];
+
             // Save to localStorage under the name 'Products'
             localStorage.setItem('Products', JSON.stringify(products));
+            localStorage.setItem('Cart', JSON.stringify(cart));
 
             console.log('5 product entries have been added to localStorage.');
         }
@@ -113,14 +146,11 @@
             const users = [
                 {
                     ID: 1,
-                    name: 'Admin',
+                    firstName: 'Admin',
+                    LastName: 'Admin',
                     Username: 'admin',
-                    Password: '123',
-                },
-                {
-                    ID: 2,
-                    name: 'User',
-                    Username: 'testuser',
+                    Phone: '011',
+                    Email: 'admin@gmail',
                     Password: '123',
                 },
             ];
@@ -136,8 +166,11 @@
             const loggedInUser = [
                 {
                     ID: 1,
-                    name: 'Admin',
+                    firstName: 'Admin',
+                    LastName: 'Admin',
                     Username: 'admin',
+                    Phone: '011',
+                    Email: 'admin@gmail',
                     Password: '123',
                 },
             ];
