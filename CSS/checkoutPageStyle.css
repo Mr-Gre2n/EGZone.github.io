@@ -11,9 +11,9 @@ body {
   background-color: #f5f5f5;  /* لون خلفية الصفحة رمادي فاتح */
   margin: 0;  /* مفيش هوامش برة */
   padding: 20px;  /* هوامش داخلية 20 بكسل */
-  display: flex;  /* هنستخدم نظام فلكس بوكس للتنسيق */
-  justify-content: center;  /* المحتوى هيكون في النص أفقيا */
-  align-items: flex-start;  /* المحتوى هيبدأ من فوق رأسيا */
+  /* display: flex; 
+  justify-content: center; 
+  align-items: flex-start;  */
 }
 
 /* دي الحاوية الرئيسية اللي هتشيل كل المحتوى */
