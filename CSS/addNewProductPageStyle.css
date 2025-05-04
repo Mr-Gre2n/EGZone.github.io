@@ -23,9 +23,9 @@
 /* ===================== */
 
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    padding: 20px 0px;
+    padding: 20px 0px; */
     background-color: var(--color-background)
 }
 
