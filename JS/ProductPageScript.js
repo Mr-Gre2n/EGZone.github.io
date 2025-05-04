@@ -1,5 +1,8 @@
-//                                           //read the product ID from URL
 
+//*********************************************************************************************************************/
+
+                                        //read the product ID from URL
+                                          
 const STRING_PARAMETERS = window.location.search;
 
 const URL_PARAMETERS = new URLSearchParams(STRING_PARAMETERS);
@@ -8,7 +11,7 @@ const PRODUCT_ID = URL_PARAMETERS.get('id');
 
 // console.log (PRODUCT_ID);
 // 404Page.html
-// //---------------------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------------//
 
 //                                           //access the products from local storage
 
@@ -19,6 +22,14 @@ const STRING_DATA = localStorage.getItem('Products');
 const PRODUCTS = JSON.parse(STRING_DATA);                                              
 
 // console.log(PRODUCTS);
+
+function ToErrorPage(PARAMETER) {
+  if (!PARAMETER) {
+    window.location.href = "404ErrorPage.html";
+  }
+}
+
+ToErrorPage(PRODUCTS);
 
 
 
@@ -34,9 +45,7 @@ for (let i = 0; i < PRODUCTS.length; i++) {
   }
 }
 
-//if (!TARGET_PRODUCT) {
-//  window.location.href = "404Page.html";
-//}
+ToErrorPage(TARGET_PRODUCT);
 
 // console.log(TARGET_PRODUCT);
 
@@ -60,30 +69,28 @@ for (let i = 0; i < PRODUCTS.length; i++) {
 
                                           //choose quantity
 
-//let MAX_QTY = TARGET_PRODUCT.Quantity;
-let MAX_QTY = 10;
+let MAX_QTY = TARGET_PRODUCT.Quantity;
 let MIN_QTY = 1;
 let SELECTED_QTY_STR = document.getElementById("product-qty");
 
 function increase() {
   let SELECTED_QTY_INT = parseInt(SELECTED_QTY_STR.value);
     if (SELECTED_QTY_INT <= MAX_QTY) {
-      SELECTED_QTY_STR.value = SELECTED_QTY_INT + 1;
+      SELECTED_QTY_INT = SELECTED_QTY_INT + 1;
     }
 }
 
 function decrease() {
   let SELECTED_QTY_INT = parseInt(SELECTED_QTY_STR.value);
-
     if (SELECTED_QTY_INT >= MIN_QTY) {
-      SELECTED_QTY_STR.value = SELECTED_QTY_INT - 1;
+      SELECTED_QTY_INT = SELECTED_QTY_INT - 1;
     }
 }
 
 document.getElementById("btnDecrease").addEventListener("click",decrease);
 document.getElementById("btnIncrease").addEventListener("click",increase);
 
-console.log(SELECTED_QTY_INT)
+//console.log(SELECTED_QTY_INT)
 
 //*****************************************************************************************************************************
 //*****************************************************************************************************************************
@@ -92,7 +99,7 @@ console.log(SELECTED_QTY_INT)
 var cart = [];
 
 
-function createCartInLocalStorage() {
+function creatCartInLocalStorage() {
     localStorage.setItem('Cart', JSON.stringify(cart));
 }
 
@@ -137,4 +144,4 @@ function check() {
 }
 
 
-document.querySelector(".add").addEventListener("click", check);
+document.getElementById("add").addEventListener("click", check);
