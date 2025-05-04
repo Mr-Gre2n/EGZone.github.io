@@ -111,16 +111,16 @@ document.addEventListener("DOMContentLoaded", function () {
                   <img src="${product.Image}" alt="${product.Title}" class="product-image">
                   ${product.isNew ? '<span class="new-badge">NEW</span>' : 
                     product.Discount > 0 && inStock ? 
-                    `<span class="discount-badge">SAVE $${((product.Price * product.Discount)/100).toFixed(2)}</span>` : ''}
+                    `<span class="discount-badge">SAVE $${product.Discount }</span>` : ''}
               </div>
               <div class="product-info">
                   <h3 class="product-title">${product.Title}</h3>
                   <div class="product-price">
                       ${product.Discount > 0 ? `
-                          <span class="current-price" data-discounted="true">$${discountPrice.toFixed(2)}</span>
-                          <span class="original-price">$${product.Price.toFixed(2)}</span>
+                          <span class="current-price" data-discounted="true">${product.Price-product.Discount}</span>
+                          <span class="original-price">$${product.Price}</span>
                       ` : `
-                          <span class="current-price">$${product.Price.toFixed(2)}</span>
+                          <span class="current-price">$${product.Price-product.Discount}</span>
                       `}
                   </div>
               </div>
