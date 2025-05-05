@@ -6,21 +6,28 @@
     /* Colors */
     --color-primary: #1ABA1A;
     --color-primary-hover: #169c16;
+    --color-background:  #f5f7fb;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-gray-50: #fafafa;
     --color-gray-100: #f5f5f5;
     --color-gray-200: #e0e0e0;
     --color-gray-300: #c0c0c0;
     --color-primary-text: #202020;
     --color-secondary-text: #3d3d3d;
+    --color-red: #db4534;
+    --color-red-hover: #bd3223;
 
     /* Fonts */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-size-base: 16px;
+    --font-size-vsm: 12px;
     --font-size-sm: 14px;
     --font-size-lg: 20px;
     --font-size-xlg: 24px;
     --line-height: 1.5;
+    /* shadows */
+    --page-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* ===================== */
