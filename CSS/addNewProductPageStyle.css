@@ -5,17 +5,7 @@
 :root {
     /* Colors */
     --color-tip-text: #7f8c8d;
-    --color-background:  #f5f7fb;
-    --color-gray-50: rgb(250, 250, 250);
-    --color-red: #db4534;
-    --color-red-hover: #bd3223;
     --color-red-50: rgba(231, 77, 60, 0.067);
-
-    /* Fonts */
-    --font-size-vsm: 12px;
-
-    /* shadows */
-    --page-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* ===================== */
@@ -224,9 +214,6 @@ because productId(input) is read-only field*/
 /* ===================== */
 
 .container input,.container select,.container textarea {
-    padding: 12px;
-    border-radius: 6px;
-    font-size: var(--font-size-sm);
     background-color: var(--color-gray-50);
 }
 
@@ -236,12 +223,8 @@ because productId(input) is read-only field*/
     background-color: var(--color-white);
 }
 
-.container label{
-    font-size: var(--font-size-sm);
-}
-
 .filled {
-    background-color: var(--color-white);
+    background-color: var(--color-white) !important;
 }
 
 .missing{
@@ -259,8 +242,6 @@ because productId(input) is read-only field*/
     width: 20px;
     margin-top: 8px;
 }
-
-
 /* ===================== */
 /*  Medias (responsive)  */
 /* ===================== */
