@@ -532,7 +532,7 @@ position: absolute;
     color: #ffffff;
     position: absolute;
     left: 660px;
-    top:190px;
+    top:170px;
 }
 
 
@@ -563,7 +563,7 @@ position: absolute;
   display: flex;
   align-items: center;
   position: absolute;
-  top: 190px;
+  top: 170px;
   right:20px;
   gap:5px;
 }
