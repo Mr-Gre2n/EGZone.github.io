@@ -81,7 +81,7 @@ a{
     display: flex;
     gap: 20px;
     padding: 10px 20px;
-    background-color: var(--color-gray-100);
+    background-color: var(--color-gray-50);
     
   }
   .sidebar {
@@ -455,13 +455,7 @@ position: absolute;
     background-color: #ccc;
 }
 
-[data-theme="blue"]:root {
-    /* Colors */
-    --color-primary: #388bff;
-    --color-primary-hover: #3180ee;
-}
-
-[data-theme="blue"] .Resetbutton
+[data-theme="dark-blue"] .Resetbutton
 {
     display: inline-block;
     padding: 10px 10px;
@@ -474,19 +468,20 @@ position: absolute;
     transition: all 0.3s ease;
     text-align: center;
     text-decoration: none;
+    color: #c7c7c7;
     margin-left: 20px;
 }
 
-[data-theme="blue"] .Resetbutton:hover {
+[data-theme="dark-blue"] .Resetbutton:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
-[data-theme="blue"] .button {
+[data-theme="dark-blue"] .button {
     display: inline-block;
     padding: 10px 17px;
     font-size: var(--font-size-base);
-    color: var(--color-white);
-    background-color:var(--color-primary);
+    color: var(--color-black);
+    background-color:var(--color-primary-hover);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -497,18 +492,13 @@ position: absolute;
     
 }
 
-[data-theme="blue"] .button:hover {
+[data-theme="dark-blue"] .button:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);}
 
-    [data-theme="blue"] .page-layout {
-        display: flex;
-        gap: 20px;
-        padding: 10px 20px;
-        background-color:rgb(187, 187, 187);
-      }
+
       /* badges */
-[data-theme="blue"] .discount-badge {
+[data-theme="dark-blue"] .discount-badge {
     position: absolute;
     top: 5px;
     left: 170px;
@@ -522,7 +512,7 @@ position: absolute;
 }
 
 
-[data-theme="blue"] .new-badge {
+[data-theme="dark-blue"] .new-badge {
     position: absolute;
     top: 5px;
     left: 192px;
@@ -537,9 +527,9 @@ position: absolute;
     /* isNew ده لو  */
 }
 /* ------------------------------------------------ */
-[data-theme="blue"] .products-count
+[data-theme="dark-blue"] .products-count
 {
-    color: #1f1e1e;
+    color: #ffffff;
     position: absolute;
     left: 660px;
     top:190px;
@@ -547,29 +537,28 @@ position: absolute;
 
 
 
-[data-theme="blue"] .sort-select {
+[data-theme="dark-blue"] .sort-select {
     padding: var(--space-sm) var(--space-md);
     cursor: pointer;
     width: 190px;
     /* color: var(--color-primary); */
     border: none;
-    background: rgb(236, 242, 255);
     margin-bottom: 20px;
     box-shadow: var(--shadow-md);
 }
-[data-theme="blue"] .sidebar
+[data-theme="dark-blue"] .sidebar
 {
-    background-color: var(--color-gray-100);
+    background-color:var(--color-gray-100);
 }
 
-[data-theme="blue"] .product{
+[data-theme="dark-blue"] .product{
     background: var(--color-gray-100);
     border-radius: 5%;
     overflow: hidden;   
     box-shadow: var(--shadow-lg);
 
 }
-[data-theme="blue"] .sortsection
+[data-theme="dark-blue"] .sortsection
 {
   display: flex;
   align-items: center;
@@ -582,20 +571,20 @@ position: absolute;
 
 
 
-[data-theme="blue"] .product-price .current-price[data-discounted="true"] {
-    color:var(--color-primary-hover); 
+[data-theme="dark-blue"] .product-price .current-price[data-discounted="true"] {
+    color:var(--color-primary); 
 }
-[data-theme="blue"] .original-price {
+[data-theme="dark-blue"] .original-price {
     font-size: 12px;
     text-decoration: line-through;
     color: rgb(29, 29, 29);
 
 }
 
-[data-theme="blue"] .out-of-stock-btn {
+[data-theme="dark-blue"] .out-of-stock-btn {
     padding: 10px;
-    background-color:rgb(226, 226, 226);
-    color: rgb(73, 76, 85);
+    background-color:rgb(121, 121, 121);
+    color: rgb(37, 37, 37);
     /* border: 1px solid rgb(179, 166, 235); */
     cursor:not-allowed; 
     font-size: 15px;
@@ -604,13 +593,15 @@ position: absolute;
     margin-left:25px;
     margin-bottom: 10px;
 }
-[data-theme="blue"] .add-to-cart-btn{
+[data-theme="dark-blue"] .add-to-cart-btn{
     width:200px;
     margin-left:25px;
     margin-bottom: 10px;
+    background-color: var(--color-primary-hover);
+    color: #000000;
   }
 
-[data-theme="blue"] .products-grid {
+[data-theme="dark-blue"] .products-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 15px;
