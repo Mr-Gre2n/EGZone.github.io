@@ -128,6 +128,11 @@ body {
     align-items: center;
     color: var(--color-secondary-text);
 }
+
+.btn-nav span{
+    color: var(--color-white);
+    pointer-events: none;
+}
 /* ===================== */
 /*      categories       */
 /* ===================== */
@@ -167,21 +172,20 @@ body {
 
 
 .dropdown {
+    display: none;
     position: absolute;
     right: 1.5rem;
-    top: 8%;
-    margin-top: 8px;
+    top: 55px;
     width: 200px;
     background-color: var(--color-white);
     box-shadow: var(--page-shadow);
     z-index: 100;
     border-radius: 8px;
-    overflow: hidden;
-    max-height: 0px;
     transition: all 0.3s ease;
 }
+
 .dropdown.open-menu {
-    max-height: 200px;
+    display: block;
 }
 
 .dropdown-content {
