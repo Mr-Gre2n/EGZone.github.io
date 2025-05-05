@@ -57,11 +57,35 @@ console.log(TARGET_PRODUCT);
 
  document.getElementById("title").innerHTML = TARGET_PRODUCT.Title;
 
- document.getElementById("price").innerHTML = TARGET_PRODUCT.Price;
+
+let price = TARGET_PRODUCT.Price;
+let discount = TARGET_PRODUCT.Discount;
+let priceElement = document.getElementById("price");
+
+if (discount > 0) {
+  let discountedPrice = price - (price * (discount / 100));
+  priceElement.innerHTML = `
+    <h2>
+      <span style="font-weight: bold; color: red;">$${discountedPrice.toFixed(2)}</span>
+      <span style="text-decoration: line-through; color: dark; margin-right: 20px; font-size: 15px ; font-weight: normal">$${price}</span>
+    </h2>
+  `;
+} else {
+  priceElement.innerHTML = `<h2><b>$${price}</b></h2>`;
+}
+
 
  document.getElementById("features").innerHTML = TARGET_PRODUCT.Description;
 
- document.getElementById("stock").innerHTML = TARGET_PRODUCT.Status;
+
+
+if(TARGET_PRODUCT.Status=='in stock'){
+  document.getElementById("stock").innerHTML = `✅${TARGET_PRODUCT.Status}`;
+}
+else{
+  document.getElementById("stock").innerHTML = `⛔${TARGET_PRODUCT.Status}`;
+}
+
 
  document.getElementById("selected-img").src = TARGET_PRODUCT.Image;
 
@@ -75,15 +99,17 @@ let SELECTED_QTY_STR = document.getElementById("product-qty");
 
 function increase() {
   let SELECTED_QTY_INT = parseInt(SELECTED_QTY_STR.value);
-    if (SELECTED_QTY_INT <= MAX_QTY) {
+    if (SELECTED_QTY_INT < MAX_QTY) {
       SELECTED_QTY_INT = SELECTED_QTY_INT + 1;
+      SELECTED_QTY_STR.value = SELECTED_QTY_INT;
     }
 }
 
 function decrease() {
   let SELECTED_QTY_INT = parseInt(SELECTED_QTY_STR.value);
-    if (SELECTED_QTY_INT >= MIN_QTY) {
+    if (SELECTED_QTY_INT > MIN_QTY) {
       SELECTED_QTY_INT = SELECTED_QTY_INT - 1;
+      SELECTED_QTY_STR.value = SELECTED_QTY_INT;
     }
 }
 

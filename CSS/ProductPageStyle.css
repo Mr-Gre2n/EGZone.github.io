@@ -28,7 +28,7 @@
 /* ===================== */ 
 
  body {
-    overflow: hidden;
+    
     margin: 10px;
 }
 
@@ -104,6 +104,11 @@
     align-items: start;
     flex-direction: column;
     justify-content: space-between
+}
+
+.price {
+    font-size: larger;
+    font-weight: bold;
 }
 
 
