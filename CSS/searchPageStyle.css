@@ -550,7 +550,7 @@ position: absolute;
 [data-theme="blue"] .sort-select {
     padding: var(--space-sm) var(--space-md);
     cursor: pointer;
-    width: 170px;
+    width: 190px;
     /* color: var(--color-primary); */
     border: none;
     background: rgb(236, 242, 255);
