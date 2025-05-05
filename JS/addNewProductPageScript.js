@@ -9,6 +9,7 @@ const PRO_BRAND = document.getElementById("productBrand");
 const PRO_PRICE = document.getElementById("productPrice");
 const PRO_DISCOUNT = document.getElementById("productDiscount");
 const PRO_QUANTITY = document.getElementById("productQuantity");
+const PRO_ISNEW = document.getElementById("chk-Isnew");
 const PRO_DESCRIPTION = document.getElementById("productDescription");
 const IN_STOCK = document.getElementById("inStock");
 const OUT_OF_STOCK = document.getElementById("outOfStock");
@@ -131,6 +132,7 @@ function saveProduct(index = null) {
     Quantity:  PRO_QUANTITY.value,
     Status:  PRO_QUANTITY.value > 0 ? "In Stock" : "Out of Stock",
     Description:  PRO_DESCRIPTION.value,
+    isNew:  PRO_ISNEW.checked,
   }
 
   if (index == null) {
@@ -190,6 +192,7 @@ function clearForm() {
   PRO_ID.value = "";
   PRO_DISCOUNT.value = "";
   PRO_DESCRIPTION.value = "";
+  PRO_ISNEW.checked = false;
   IMAGE_PREVIEW.src = DEFAULT_IMAGE_SRC;
   UPLOAD_TEXT.style.display = "block"; 
   proIndex = null
@@ -208,7 +211,7 @@ function clearForm() {
   BTN_ADD_PRODUCT.textContent = "Add Product";
   BTN_CLEAR_FORM.textContent = "Clear Form";
   // hide delete btn
-  BTN_DELETE_PRODUCT.style.display = "inline-block"; 
+  BTN_DELETE_PRODUCT.style.display = "none"; 
 
   // show outOfStock box
   updateStatus();
@@ -232,9 +235,6 @@ function clearForm() {
 }
 
 function layout(){
-
-  applyTheme();
-
   // Get ID parameter
   const ID = new URLSearchParams(window.location.search).get("id");
   // Read products from localStorage
@@ -281,6 +281,7 @@ function layout(){
   PRO_DISCOUNT.value = PRODUCT.Discount;
   PRO_QUANTITY.value = PRODUCT.Quantity;
   PRO_DESCRIPTION.value = PRODUCT.Description;
+  PRO_ISNEW.checked = PRODUCT.isNew;
   updateStatus();
 
   // hide PRO_TIP_ID and UPLOAD_TEXT
@@ -297,11 +298,6 @@ function show404Page(){
     window.location.href = '404ErrorPage.html';
 }
 
-function applyTheme() {
-  // localStorage.setItem("Theme", "blue");
-  let theme = localStorage.getItem("Theme");  
-  document.documentElement.setAttribute("data-theme", theme);
-}
 /***********************
 *     Data Events
 ***********************/

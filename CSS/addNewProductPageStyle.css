@@ -4,18 +4,8 @@
 
 :root {
     /* Colors */
-    --color-secondary-text: #7f8c8d;
-    --color-background:  #f5f7fb;
-    --color-gray-50: rgb(250, 250, 250);
-    --color-red: #db4534;
-    --color-red-hover: #bd3223;
+    --color-tip-text: #7f8c8d;
     --color-red-50: rgba(231, 77, 60, 0.067);
-
-    /* Fonts */
-    --font-size-vsm: 12px;
-
-    /* shadows */
-    --page-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* ===================== */
@@ -23,22 +13,20 @@
 /* ===================== */
 
 body {
-    /* display: flex;
-    justify-content: center;
-    padding: 20px 0px; */
     background-color: var(--color-background)
 }
 
 .container{
     display: flex;
+    justify-self: center;
     flex-direction: column;
     text-align: center;
     width: 100%;
     max-width: 800px;
     background-color: var(--color-white);
     border-radius: 10px;
-    margin: 0px 20px;
-    padding: 0px 20px;
+    margin: 30px 20px;
+    padding: 20px;
     box-shadow: var(--page-shadow);
 }
 
@@ -54,7 +42,7 @@ body {
 
 .header p{
     margin-top: -15px;
-    color: var(--color-secondary-text);
+    color: var(--color-tip-text);
 }
 
 .header h1{
@@ -86,7 +74,7 @@ body {
 }
 
 .form-tip{
-    color: var(--color-secondary-text);
+    color: var(--color-tip-text);
     font-size: var( --font-size-vsm);
     margin-top: 4px;
 }
@@ -125,14 +113,11 @@ because productId(input) is read-only field*/
     display: flex;
     flex-direction: column;
     height: 200px;
-    /* height: 250px; */
-    /* width: 250px; */
     background-color: var(--color-gray-100);
     border: 3px dashed var(--color-gray-200);
     border-radius: 10px;
     margin-top: 10px;
     align-items: center;
-    /* align-self: center; */
     justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -149,7 +134,7 @@ because productId(input) is read-only field*/
 }
 
 .price-input-group input {
-    padding-left: 25px;
+    padding-left: 25px !important;
 }
 
 .price-input-group::before {
@@ -158,7 +143,7 @@ because productId(input) is read-only field*/
     left: 12px;
     top: 45%;
     transform: translateY(-50%);
-    color: var(--color-secondary-text);
+    color: var(--color-tip-text);
     font-weight: 600;
 }
 
@@ -201,11 +186,12 @@ because productId(input) is read-only field*/
 .buttons .button{
     width: 150px;
     height: 44px;
+    font-weight: 600;
 }
 
 .btn-clear {
     background-color: transparent;
-    color: var(--color-secondary-text);
+    color: var(--color-tip-text);
     border: 1px solid #e0e0e0;
 }
 
@@ -223,33 +209,22 @@ because productId(input) is read-only field*/
     background-color: var(--color-red-hover);
 }
 
-button{
-    font-weight: 600;
-}
-
 /* ===================== */
 /*         Forms         */
 /* ===================== */
 
-input, select, textarea {
-    padding: 12px;
-    border-radius: 6px;
-    font-size: var(--font-size-sm);
+.container input,.container select,.container textarea {
     background-color: var(--color-gray-50);
 }
 
-input:focus, select:focus, textarea:focus {
+.container input:focus,.container select:focus,.container textarea:focus {
     outline: none;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.04);
     background-color: var(--color-white);
 }
 
-label{
-    font-size: var(--font-size-sm);
-}
-
 .filled {
-    background-color: var(--color-white);
+    background-color: var(--color-white) !important;
 }
 
 .missing{
@@ -257,6 +232,16 @@ label{
     background-color: var(--color-red-50);
 }
 
+
+/* is new chckbox */
+.checkbox-container{
+    display: flex;
+    align-items: center;
+}
+#chk-Isnew{
+    width: 20px;
+    margin-top: 8px;
+}
 /* ===================== */
 /*  Medias (responsive)  */
 /* ===================== */
@@ -272,8 +257,6 @@ label{
 /*       Themes          */
 /* ===================== */
 
-[data-theme="blue"]:root {
-    /* Colors */
-    --color-primary: #388bff;
-    --color-primary-hover: #3180ee;
+[data-theme="dark-blue"] .status-option{
+    color: var(--color-black);
 }
