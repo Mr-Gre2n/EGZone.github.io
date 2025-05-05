@@ -249,6 +249,18 @@ because productId(input) is read-only field*/
     background-color: var(--color-red-50);
 }
 
+
+/* is new chckbox */
+.checkbox-container{
+    display: flex;
+    align-items: center;
+}
+#chk-Isnew{
+    width: 20px;
+    margin-top: 8px;
+}
+
+
 /* ===================== */
 /*  Medias (responsive)  */
 /* ===================== */
