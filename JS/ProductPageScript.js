@@ -58,6 +58,8 @@ console.log(TARGET_PRODUCT);
  document.getElementById("title").innerHTML = TARGET_PRODUCT.Title;
 
 
+
+
 let price = TARGET_PRODUCT.Price;
 let discount = TARGET_PRODUCT.Discount;
 let priceElement = document.getElementById("price");
@@ -66,7 +68,7 @@ if (discount > 0) {
   let discountedPrice = price - (price * (discount / 100));
   priceElement.innerHTML = `
     <h2>
-      <span style="font-weight: bold; color: red;">$${discountedPrice.toFixed(2)}</span>
+      <span style="font-weight: bold; color: red;">$${discountedPrice}</span>
       <span style="text-decoration: line-through; color: dark; margin-right: 20px; font-size: 15px ; font-weight: normal">$${price}</span>
     </h2>
   `;
@@ -75,7 +77,11 @@ if (discount > 0) {
 }
 
 
+
+
  document.getElementById("features").innerHTML = TARGET_PRODUCT.Description;
+
+
 
 
 
@@ -85,6 +91,8 @@ if(TARGET_PRODUCT.Status=='in stock'){
 else{
   document.getElementById("stock").innerHTML = `⛔${TARGET_PRODUCT.Status}`;
 }
+
+
 
 
  document.getElementById("selected-img").src = TARGET_PRODUCT.Image;
