@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardMessage = document.getElementById('card-message');
     const cardPhoto = document.getElementById('card-photo');
     const cardCountryName = document.getElementById('card-country-name');
-    const cardCountryFlag = document.getElementById('card-country-flag');
-    
+
     // Rating elements
     const stars = document.querySelectorAll('.star');
     let currentRating = 0;
@@ -191,6 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
       cardPhone.textContent = phone.value || '+1 234 567 890';
       cardSubject.textContent = subject.value || 'Not specified';
       cardMessage.textContent = message.value || 'Your message will appear here...';
+      cardCountryName.textContent = country.value || 'US';
+
     }
     
     function resetCard() {
