@@ -38,7 +38,7 @@ body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     color: var(--color-primary-text);
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     margin: 0;
     padding: 0;
 }
@@ -82,23 +82,28 @@ body {
 
 input, textarea, select {
     width: 100%;
-    padding: 8px;
-    font-size: var(--font-size-base);
+    padding: 12px;
+    font-size: var(--font-size-sm);
     border: 1px solid var(--color-gray-200);
-    border-radius: 4px;
+    border-radius: 6px;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    color: var(--color-primary-text);
+    background-color: var( --color-white);
 }
 
 input:focus, textarea:focus, select:focus {
     border-color: var(--color-primary);
     outline: none;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.04);
+    background-color: var(--color-white);
 }
 
 label {
     display: block;
     margin: 10px 0px 5px 0px;
     font-weight: 500;
+    font-size: var(--font-size-sm);
 }
 
 
