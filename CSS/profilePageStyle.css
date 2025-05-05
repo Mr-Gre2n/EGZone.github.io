@@ -1,8 +1,19 @@
 body{
     display: flex;
-    max-width: 1200px;
+    flex-direction: column;
+}
+
+.profilePage{
+    display: flex;
+    flex-direction: row;
     padding: 20px;
-    /* background-color: rgb(245, 245, 245); */
+    justify-content: space-between;
+    /* width: 100%; */
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 10px;
+    height: 500px;
 }
 
 /*********************
@@ -45,11 +56,6 @@ img{
     margin-top: 5px;
 }
 
-/* .arrow:hover{
-    animation: forwards;
-    animation-timing-function: ease-out;
-} */
-
 /*******************
  *   Account info  *
 ********************/
@@ -61,10 +67,6 @@ main{
 h1{
     margin-bottom: 15px;
 }
-
-/* .actionButton{
-    display:none;
-} */
 
 /* the '*' character of required inputs */
 .required{
@@ -82,15 +84,3 @@ h1{
     width: 100px;
     margin-top: 10px;
 }
-
-/* #cancel{
-    background-color: transparent;
-    color: var(--color-secondary-text);
-    border-color: var(--color-secondary-text);
-    border: 1px solid #e0e0e0;
-}
-
-#cancel:hover{
-    background-color: #f8f9fa;
-    color: #34495e
-} */

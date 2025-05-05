@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<div class="profilePage">
     <aside>
         <img src="../Materials/Images/Default_avatar_profile.png" alt="Profile Photo">
         <p id="sidebar-name">Mark Cole</p>
@@ -19,25 +20,26 @@
     <main>
         <h1>Account info</h1>
         <!-- change info -->
-        <form>
+        <div class="changeInfo form">    
             <!-- name -->
             <label for="firstName">First Name <span class="required">*</span></label>
-            <input type="text" id="firstName" required>
-            <label for="lastName">Last Name <span class="required">*</span></label>                
-            <input type="text" id="lastName" required>
+            <input type="text" id="firstName" >
+            <label for="LastName">Last Name <span class="required">*</span></label>                
+            <input type="text" id="LastName" >
             
             <!-- email -->
-            <label for="email">Email Address <span class="required">*</span></label>
-            <input type="email" id="email" required>
+            <label for="Email">Email Address <span class="required">*</span></label>
+            <input type="email" id="Email" >
             
             <!-- Phone number -->
-            <label for="phoneNum">Phone Number <span class="Optional">(Optional)</span></label>
-            <input type="tel" id="phoneNum">
+            <label for="Phone">Phone Number <span class="Optional">(Optional)</span></label>
+            <input type="tel" id="Phone">
             
             <!-- Save -->
             <button type="submit" class="button" id="save">Save</button>
-        </form>
+        </div>
     </main>
+</div>
     <script src="../JS/profilePageScript.js"></script>
     <script src="../JS/mainScript.js"></script>
 
