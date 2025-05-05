@@ -276,8 +276,6 @@ because productId(input) is read-only field*/
 /*       Themes          */
 /* ===================== */
 
-[data-theme="blue"]:root {
-    /* Colors */
-    --color-primary: #388bff;
-    --color-primary-hover: #3180ee;
+[data-theme="dark-blue"] .status-option{
+    color: var(--color-black);
 }
