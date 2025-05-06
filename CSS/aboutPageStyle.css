@@ -95,7 +95,6 @@ justify-content: flex-end;
     background-color: var(--color-background);
 }
 .mission-img{
-    background: #2A7B9B;
     background: linear-gradient(90deg,var(--color-primary), rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(127, 221, 100, 1) 100%);max-width: 50%;
     display: flex;
     justify-content: center;
@@ -126,7 +125,7 @@ justify-content: flex-end;
 .mission-text p {
     margin-bottom: 1.5rem;
 }
-.button{
+.buttonAbout{
     display:inline-block ;
     /* padding: 0.5rem; */
     background-color: var(--color-primary);
@@ -138,7 +137,7 @@ justify-content: flex-end;
     box-shadow: 1px 2px 3px #666;
     transition: background-color 0.3s;
 }
-.button:hover {
+.buttonAbout:hover {
     background-color:var( --color-primary-hover);
 }
 .features{
@@ -241,7 +240,7 @@ justify-content: flex-end;
 .cards-container {
         display: flex;
         width: max-content;
-        animation: sliding-cards 20s linear infinite;
+        animation: sliding-cards 35s linear infinite;
 }
 .cards-container:hover {
     animation-play-state: paused;
@@ -310,7 +309,7 @@ justify-content: flex-end;
     width: 2px;
     top:0;
     bottom: 0;
-    left:50%;
+    left: 50%;
     margin-left: -1px;
 }
 .timeline-item{
@@ -329,7 +328,7 @@ justify-content: flex-end;
 }
 .timeline-content {
     padding: 1rem;
-    background-color:var(--color-gray-50);
+    background-color:var(--color-gray-100);
     border-radius: 8px;
     position: relative;
 }
@@ -344,11 +343,12 @@ justify-content: flex-end;
 }
 .view-all{
     display: flex;
+    color: var(--color-white);
     background-color: var(--color-primary);
     padding: 0.75rem 1.5rem;
     font-weight: bold;
     border-radius: 15px;
-    box-shadow: 1px 2px 3px #777;
+    box-shadow: 0px 1px 2px var(--color-gray-50);
     justify-content: flex-end;
     transition:  0.3s;
 }
@@ -407,6 +407,9 @@ justify-content: flex-end;
 .leader-card:hover img{
     transform: scale(1.1);
 }
+.team-member-bio,.team-member-social{
+    display: none;
+}
 /* 
 
 
@@ -450,11 +453,177 @@ media
             }
         }
 [data-theme="dark-blue"] .hero{
+    background-color: transparent;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../Materials/Banner/other.png);
     background-size: cover;
     background-position: center;
     text-align: center;
     justify-content: center;
-    
              }
+[data-theme="dark-blue"] .mission-text{
+    text-align: center;
+    border: 0;
+    background-color: var(--color-background);
+    line-height: 2;
+}
+[data-theme="dark-blue"] .mission-image{
+background-color: var(--color-background);
+}
+[data-theme="dark-blue"] .timeline-container::after{
+        display: none;
+}
+[data-theme="dark-blue"] .timeline-item:nth-child(odd){
+    left: 15%;
+}
+[data-theme="dark-blue"] .timeline-item:nth-child(even){
+    left: 35%;
+}
+[data-theme="dark-blue"] .view-all{
+    color: var(--color-black);
+}
+/* Team Section Styling */
+[data-theme="dark-blue"] .leadership {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #1a1a1a; /* خلفية داكنة */
+}
+
+[data-theme="dark-blue"] .leadership h2 {
+    color: var(--color-white);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+[data-theme="dark-blue"] .view-all:hover {
+    background-color: var(--color-primary-hover);
+}
+
+[data-theme="dark-blue"] .leadership h2{
+    color:var(--color-black)
+}
+[data-theme="dark-blue"] .leadership-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* تصميم بطاقات الفريق للوضع الداكن */
+[data-theme="dark-blue"] .leader-card {
+    position: relative;
+    filter: grayscale(100%);
+    overflow: hidden;
+    max-width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark-blue"] .leader-card:hover {
+    filter: grayscale(0);
+    transform: translateY(-10px);
+    z-index: 10;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* تصميم صورة عضو الفريق للوضع الداكن */
+[data-theme="dark-blue"] .leadership-card-image {
+    height: 70%;
+    overflow: hidden;
+}
+
+[data-theme="dark-blue"] .leadership-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+[data-theme="dark-blue"] .leader-card:hover .leadership-card-image img {
+    transform: scale(1.1);
+}
+
+/* تصميم معلومات عضو الفريق للوضع الداكن */
+[data-theme="dark-blue"] .leader-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: rgba(42, 42, 42, 0.9);
+    transition: transform 0.3s ease;
+    transform: translateY(70px);
+}
+
+[data-theme="dark-blue"] .leader-card:hover .leader-info {
+    transform: translateY(0);
+}
+
+[data-theme="dark-blue"] .leader-info h3,
+[data-theme="dark-blue"] .leader-info h4 {
+    margin: 0 0 0.5rem;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+[data-theme="dark-blue"] .team-member-role {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+[data-theme="dark-blue"] .team-member-bio {
+    color: #cccccc;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* تصميم أيقونات التواصل الاجتماعي للوضع الداكن */
+[data-theme="dark-blue"] .team-member-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+[data-theme="dark-blue"] .team-member-social a {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #444444;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark-blue"] .team-member-social a:hover {
+    background-color: var(--color-primary);
+    transform: scale(1.15);
+}
+[data-theme="dark-blue"] .team-member-social a img{
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+[data-theme="dark-blue"] .purpouse{
+    border: none;
+}
+[data-theme="dark-blue"] .hero{
+    border-radius: 0;
+}
+
+[data-theme="dark-blue"] .mission-img{
+    background: transparent;
+}

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const genderRadios = document.getElementsByName('gender');
     const checkBox = document.getElementById('checkBox');
     const img = document.getElementById('laptop');
-    const theme = document.documentElement.getAttribute('data-theme');
+    const themeContactus = document.documentElement.getAttribute('data-theme');
     
     // Error message elements
     const firstNameError = document.getElementById('firstNameError');
@@ -231,13 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-    function changePhotoTheme(theme){
-      if (theme === 'dark-blue'){
+    function changePhotoTheme(themeContactus){
+      if (themeContactus === 'dark-blue'){
         img.src='../Materials/Images/contactus-dark-theme.jpg';
       }else {
         img.src='../Materials/Images/laptop.avif'
       }
     }
-    changePhotoTheme(theme);
+    changePhotoTheme(themeContactus);
   });
   

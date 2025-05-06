@@ -2,6 +2,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             const cardsContainer = document.querySelector('.cards-container');
             const cards = document.querySelectorAll('.card');
+            // theme 
+            const img = document.getElementById('missionPhoto');
+            const themeAbout = document.documentElement.getAttribute('data-theme');
             
             // Clone cards to create infinite scrolling effect
             cards.forEach(card => {
@@ -36,5 +39,14 @@
             });
             window.addEventListener('scroll', checkScroll);
             checkScroll();
+            function changePhotoTheme(themeAbout){
+                if (themeAbout === 'dark-blue'){
+                  img.src='../Materials/Images/about-dark-theme.avif';
+                }else {
+                  img.src='../Materials/Images/mission.png'
+                }
+              }
+              changePhotoTheme(themeAbout);
         });
+        
     

@@ -355,4 +355,4 @@ if (!localStorage.getItem('Users')) {
     createUsersInLocalStorage();
 }
 
-applyTheme();
+// applyTheme();
