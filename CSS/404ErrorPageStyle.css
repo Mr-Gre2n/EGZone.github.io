@@ -1,6 +1,7 @@
 body { 
     text-align: center;
     overflow: hidden;
+    background-color: var(--color-white);
 }
 
 .headline{
