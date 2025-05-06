@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark-blue">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,44 +12,48 @@
         <img src="../Materials/Images/watch.jpg" alt="product img"  id="pro-img">    
      
         <div class="info">
-            <h1 id="pro-Title">product title</h1>
-            <div class="price">        
-                <h1 id="pro-discount">999$</h1>
-                <h1 id="pro-price">1000$</h1>
+            <div class="product-info"><h1 id="pro-Title">product title</h1>
+                <div class="price">        
+                    <h1 id="pro-discount">999$</h1>
+                    <h1 id="pro-price">1000$</h1>
+                </div>
+       
+                <p id="pro-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum suscipit tenetur eum veritatis sed rem velit, ratione quidem mollitia hic quas facere aut atque dicta sequi corporis a nulla ut.</p>
+                
+                <div class="shipping">FREE SHIPPING</div>
             </div>
-   
-            <p id="pro-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum suscipit tenetur eum veritatis sed rem velit, ratione quidem mollitia hic quas facere aut atque dicta sequi corporis a nulla ut.</p>
-            
-            <div class="shipping">FREE SHIPPING</div>
 
             <div class="divider"></div>
 
-            <div>
-                <div id="inStock" class="status-option In-Stock">In Stock</div>
-                <div id="outOfStock" class="status-option Out-of-Stock active">Out of Stock</div>
-            </div>        
-                        
-            <div class="qty" id="qty-container">
-                <div class="qty-txt"><b>Quantity</b></div>
-                <div class="change-qty" display="inline">
-                    <button id="btnDecrease" class="reduction"><b>-</b></button>
-                    <input type="text" value="1" class="product-qty" id="product-qty" readonly>
-                    <button id="btnIncrease" class="increasing"><b>+</b></button>
+            <div class="sale">
+                <div>
+                    <div id="inStock" class="status-option In-Stock">In Stock</div>
+                    <div id="outOfStock" class="status-option Out-of-Stock active">Out of Stock</div>
+                </div>        
+                            
+                <div class="qty" id="qty-container">
+                    <div class="qty-txt"><b>Quantity</b></div>
+                    <div class="change-qty" display="inline">
+                        <button id="btnDecrease" class="reduction"><b>-</b></button>
+                        <input type="text" value="1" class="product-qty" id="product-qty" readonly>
+                        <button id="btnIncrease" class="increasing"><b>+</b></button>
+                    </div>
                 </div>
-            </div>
-
-            <button class="add" id="btn-addProduct">ADD TO CART</button>            
+    
+                <button class="add" id="btn-addProduct">ADD TO CART</button>
+                <div class="checkout">
+                    <div>Guaranteed Safe Checkout</div>
+                    <div class="payment-methods">
+                        <img src="/Materials/logos/visa.svg" alt="visa" class="payment-method">
+                        <img src="/Materials/logos/mastercard.svg" alt="mastercard" class="payment-method">
+                        <img src="/Materials/logos/paypal.svg" alt="paypal" class="payment-method">
+                        <img src="/Materials/logos/bitcoin.svg" alt="bitcoin" class="payment-method">
+                    </div>
+                </div>
+            </div>            
 
             
-            <div class="checkout">
-                <div>Guaranteed Safe Checkout</div>
-                <div class="payment-methods">
-                    <img src="/Materials/logos/visa.svg" alt="visa" class="payment-method">
-                    <img src="/Materials/logos/mastercard.svg" alt="mastercard" class="payment-method">
-                    <img src="/Materials/logos/paypal.svg" alt="paypal" class="payment-method">
-                    <img src="/Materials/logos/bitcoin.svg" alt="bitcoin" class="payment-method">
-                </div>
-            </div>
+            
         </div>
     </div>
     <script src="/JS/ProductPageScript.js"></script>

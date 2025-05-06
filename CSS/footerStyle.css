@@ -3,7 +3,7 @@
 /* ===================== */
 
 .footer {
-    background-color: var(--color-gray-200); /* AliceBlue */
+    background-color: var(--color-background);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,6 +119,7 @@ footer li a:hover {
     margin-left: 0;
     padding-left: 0;
   }
+ 
 
 .text-contact-section {
     display: flex;
@@ -227,5 +228,54 @@ footer li a:hover {
 
 hr {
     border: 1px solid var(--color-secondary-text);
-    width: 100%;
+    width: 99.9999999%;
+    
+  }
+
+/*********************************************************************************************************************
+/* ===================== */
+/*       Themes          */
+/* ===================== */
+
+[data-theme="dark-blue"] .footer{
+    background-color: var(--color-gray-50);
+}
+
+[data-theme="dark-blue"] .contact-section {
+    flex-direction: column;
+}
+
+[data-theme="dark-blue"] .tel{
+    display: inline;
+}
+
+[data-theme="dark-blue"] .social-link img {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(0%) saturate(0%) hue-rotate(178deg) brightness(96%) contrast(91%);
+    transition: 0.3s ease;
+}
+
+[data-theme="dark-blue"].contact-img{
+    display: none;
+}
+
+
+[data-theme="dark-blue"] .copyright ,.payment {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+  
+  [data-theme="dark-blue"] .bottom {
+    height: auto;
+    display: block;
+    gap: 0;
+    font-size: medium;
+  }
+  
+  [data-theme="dark-blue"] .app-img img , .app-icon{
+    border-radius: 50%;
+  }
+
+  [data-theme="dark-blue"] li {
+    color: var( --color-secondary-text);
   }
