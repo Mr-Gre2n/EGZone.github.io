@@ -95,7 +95,6 @@ justify-content: flex-end;
     background-color: var(--color-background);
 }
 .mission-img{
-    background: #2A7B9B;
     background: linear-gradient(90deg,var(--color-primary), rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(127, 221, 100, 1) 100%);max-width: 50%;
     display: flex;
     justify-content: center;
@@ -623,4 +622,8 @@ background-color: var(--color-background);
 }
 [data-theme="dark-blue"] .hero{
     border-radius: 0;
+}
+
+[data-theme="dark-blue"] .mission-img{
+    background: transparent;
 }
