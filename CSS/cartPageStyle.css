@@ -30,10 +30,12 @@ h1{
 /* Cart Item Product */
 .cart-item{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     /* align-items: center; */
     flex-direction: row;
-    padding: 10px;
+    background-color:green;
+
+    /* padding: 10px;
     border-radius: 8px;
     background-color: var(--color-gray-100);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -48,13 +50,19 @@ h1{
     gap: 10px;
     flex-wrap: wrap;
     flex-grow: 1;
-    flex-basis: 100%;
+    flex-basis: 100%; */
+    width: 100%;
 }
 .cart-item:hover{
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-
+.productDetails{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    margin: 10px;
+}
 /* Product image */
 .cart-item img{
     height: 100%;
@@ -117,17 +125,20 @@ h1{
 }
 
 /* Remove Item button */
-.cart-item .removeButton{
-    top:10px;
+.removeButton{
+    /* top:10px;
     right: 10px;
     position:absolute ;
-    background-color: rgb(248, 100, 100);
+    background-color: rgb(248, 100, 100); */
     /* margin: 10px; */
-    width: 32px;
+    /* width: 32px;
     height: 32px;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: all 0.1s ease; */
+    height: 10px;
+    margin: 10px;
+    color: rgb(248, 100, 100);
 }
 .cart-item .removeButton:hover{
     background-color: rgb(230, 3, 3);
@@ -140,9 +151,8 @@ h1{
     Total Summary
 *********************/
 #totalSum{
-    /* position: absolute; */
-    bottom:0px;
-    right:0px;
+    align-self: flex-end;
+   
     margin: 20px;
     border-radius: 8px;
     border: 1px solid var(--color-primary);
@@ -150,8 +160,8 @@ h1{
     background-color: var(--color-gray-100);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 250px;
-    height:auto;
-    position: fixed;
+    height:fit-content;
+    /* position: fixed; */
     /* font-size: var(--font-size-base); */
 }
 
@@ -165,9 +175,9 @@ h1{
 }
 
 .price{
-    position:absolute;
+    /* position:absolute;
     right: 20px;
-    font-weight: bold;
+    font-weight: bold; */
 }
 
 #checkout{
@@ -179,4 +189,16 @@ h1{
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
+}
+
+.page-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#cartList{
+    width: 100%;
+    /* background-color: violet; */
+    padding: 0px 20px;
+    margin-bottom: 10px;
 }
