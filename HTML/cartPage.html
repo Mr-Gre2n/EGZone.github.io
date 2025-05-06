@@ -10,19 +10,14 @@
 </head>
 
 <body>
-    <main>
+    
         <h1>Shopping Cart</h1>
-        <div id="cart">
-            <div id="cartList">
-
-                <!-- if the cart is empty this will appear -->
-                <div id="emptyCart" class="hidden">
-                    <h1 class="empty">Your cart is empty</h1>
-                    <button class="button empty" id="continueShopping">Continue Shopping</button>
-                </div>
-                <div class="cart-item">
+    <div class="page-container">
+        <div id="cartList">
+            <div class="cart-item">
+                <div class="productDetails">
                     <img src="../Materials/Images/watch.jpg" alt="Product Image" class="productImage" id="product-image">
-                    <div class="productDetails">
+                    <div>
                         <!-- product Name -->
                         <h3 class="product-title" id="product-title">Product Title</h3>
                         
@@ -40,12 +35,59 @@
                         <!-- says that if it in stock or not -->
                         <p class="in-stock" id="in-stock">In stock</p>
                     </div>
+                </div>
 
-                    <!-- Remove Item button -->
-                    <div class="removeButton">
-                        <button class="button removeButton" id="remove-item-button"></button>
+                <button class="button removeButton" id="remove-item-button"></button>
+            </div>
+            <div class="cart-item">
+                <div class="productDetails">
+                    <img src="../Materials/Images/watch.jpg" alt="Product Image" class="productImage" id="product-image">
+                    <div>
+                        <!-- product Name -->
+                        <h3 class="product-title" id="product-title">Product Title</h3>
+                        
+                        <!-- Price -->
+                        <p class="product-price">$<span id="product-price">100.00</span></p>
+                        
+                        <!-- changing quantity the user need of this product -->
+                        <div class="quantity">
+                            <!-- <input type="number" min="1" class="quantityInput"> -->
+                            <button class="decrement" id="decrement"><em>-</em></button>
+                            <p class="product-quantity" id="product-quantity">1</p>
+                            <button class="increment" id="increment"><em>+</em></button>
+                        </div>
+
+                        <!-- says that if it in stock or not -->
+                        <p class="in-stock" id="in-stock">In stock</p>
                     </div>
                 </div>
+
+                <button class="button removeButton" id="remove-item-button"></button>
+            </div>
+            <div class="cart-item">
+                <div class="productDetails">
+                    <img src="../Materials/Images/watch.jpg" alt="Product Image" class="productImage" id="product-image">
+                    <div>
+                        <!-- product Name -->
+                        <h3 class="product-title" id="product-title">Product Title</h3>
+                        
+                        <!-- Price -->
+                        <p class="product-price">$<span id="product-price">100.00</span></p>
+                        
+                        <!-- changing quantity the user need of this product -->
+                        <div class="quantity">
+                            <!-- <input type="number" min="1" class="quantityInput"> -->
+                            <button class="decrement" id="decrement"><em>-</em></button>
+                            <p class="product-quantity" id="product-quantity">1</p>
+                            <button class="increment" id="increment"><em>+</em></button>
+                        </div>
+
+                        <!-- says that if it in stock or not -->
+                        <p class="in-stock" id="in-stock">In stock</p>
+                    </div>
+                </div>
+
+                <button class="button removeButton" id="remove-item-button">X</button>
             </div>
         </div>
         <!-- totall summary -->
@@ -58,10 +100,10 @@
             <p><span class="total-Order">Order Total: </span><span class="price"><span class="dollar-sign">$</span><span id="total">0.00</span></span></p>
             <button class="button" id="checkout">Checkout</button>
         </div>
-    </main>
+    </div>
+
     <script src="../JS/cartPage.js"></script>
     <script src="../JS/mainScript.js"></script>
-
 </body>
 
 </html>
