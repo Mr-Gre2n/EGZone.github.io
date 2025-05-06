@@ -17,45 +17,48 @@
         <div class="divider"></div>
 
         <section>
-            <form>
-                <div class="form-header">Basic Information</div>
+            <form class="form-section">
+                <!-- Basic Information -->
+                <div class="form-wrapper">
+                    <div class="form-header">Basic Information</div>
 
-                <div class="divider"></div>
+                    <div class="divider"></div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="productId">Product ID</label>
-                        <input type="text" id="productId" placeholder="Auto-generated" readonly>
-                        <div id="productTipId" class="form-tip">ID will be auto-generated on submission</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productId">Product ID</label>
+                            <input type="text" id="productId" placeholder="Auto-generated" readonly>
+                            <div id="productTipId" class="form-tip">ID will be auto-generated on submission</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productTitle" class="required">Title</label>
+                            <input type="text" id="productTitle" placeholder="Enter product title" required>
+                            <div class="error-tip">The product title must be provided </div>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="productTitle" class="required">Title</label>
-                        <input type="text" id="productTitle" placeholder="Enter product title" required>
-                        <div class="error-tip">The product title must be provided </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productCategory" class="required">Category</label>
+                            <select id="productCategory" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="smartphone">Smartphone</option>
+                                <option value="computer">Computer</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                            <div class="error-tip">The product category must be provided </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productBrand" class="required">Brand</label>
+                            <input type="text" id="productBrand" placeholder="Enter brand name" required>
+                            <div class="error-tip">The product brand name must be provided </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="productCategory" class="required">Category</label>
-                        <select id="productCategory" required>
-                            <option value="" disabled selected>Select a category</option>
-                            <option value="smartphone">Smartphone</option>
-                            <option value="computer">Computer</option>
-                            <option value="accessories">Accessories</option>
-                        </select>
-                        <div class="error-tip">The product category must be provided </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productBrand" class="required">Brand</label>
-                        <input type="text" id="productBrand" placeholder="Enter brand name" required>
-                        <div class="error-tip">The product brand name must be provided </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
+                <!-- Product Image -->
+                <div class="form-group form-wrapper">
                     <label class="required">Product Image</label>            
                     <div class="image-preview" id="imageUploadBox">
                         <img id="imagePreview" src="placeholder.png" >
@@ -66,53 +69,55 @@
                     <div class="form-tip">Recommended size: 600 x 600 pixels, Max: 2MB</div>
                     <div class="error-tip">At least one Image should be provided </div>
                 </div>
-                
-                <div class="form-header">Pricing & Inventory</div>
+                <!-- Pricing & Inventory -->
+                <div class="form-wrapper">
+                    <div class="form-header">Pricing & Inventory</div>
 
-                <div class="divider"></div>
+                    <div class="divider"></div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="productPrice" class="required">Price</label>
-                        <div class="price-input-group">
-                            <input type="number" id="productPrice" step="1" min="0" placeholder="0.00" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productPrice" class="required">Price</label>
+                            <div class="price-input-group">
+                                <input type="number" id="productPrice" step="1" min="0" placeholder="0.00" required>
+                            </div>
+                            <div class="error-tip">The product price must be provided </div>
                         </div>
-                        <div class="error-tip">The product price must be provided </div>
+                        
+                        <div class="form-group">
+                            <label for="productDiscount">Discount</label>
+                            <div class="price-input-group">
+                                <input type="number" id="productDiscount" step="1" min="0" placeholder="0.00">
+                            </div>
+                            <div class="form-tip">Leave empty for no discount</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productQuantity" class="required">Quantity</label>
+                            <input type="number" id="productQuantity" min="0" placeholder="Enter available quantity" required>
+                            <div class="error-tip">The product quantity must be provided </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Status</label>
+                            <div id="inStock" class="status-option In-Stock">In Stock</div>
+                            <div id="outOfStock" class="status-option Out-of-Stock active">Out of Stock</div>
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="productDiscount">Discount</label>
-                        <div class="price-input-group">
-                            <input type="number" id="productDiscount" step="1" min="0" placeholder="0.00">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="chk-Isnew">
+
+                            <label for="chk-Isnew">Is Product New</label>
                         </div>
-                        <div class="form-tip">Leave empty for no discount</div>
+                        <div class="form-tip">check if the product is new to the store</div>
                     </div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="productQuantity" class="required">Quantity</label>
-                        <input type="number" id="productQuantity" min="0" placeholder="Enter available quantity" required>
-                        <div class="error-tip">The product quantity must be provided </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Status</label>
-                        <div id="inStock" class="status-option In-Stock">In Stock</div>
-                        <div id="outOfStock" class="status-option Out-of-Stock active">Out of Stock</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="chk-Isnew">
-
-                        <label for="chk-Isnew">Is Product New</label>
-                    </div>
-                    <div class="form-tip">check if the product is new to the store</div>
-                </div>
-
-                <div class="form-group">
+                <!-- Description -->
+                <div class="form-group form-wrapper">
                     <label for="productDescription">Description</label>
                     <textarea id="productDescription" rows="6" placeholder="Enter product description, features, and other details..."></textarea>
                     <div class="form-tip">Provide a detailed description to help customers understand your product better</div>

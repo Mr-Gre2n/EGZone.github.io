@@ -242,6 +242,158 @@ because productId(input) is read-only field*/
     width: 20px;
     margin-top: 8px;
 }
+
+/* ===================== */
+/*    Dark-blue Theme    */
+/* ===================== */
+    /* BASE STYLES  */
+[data-theme="dark-blue"] .container {
+    gap: 30px;
+    max-width: 1000px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+[data-theme="dark-blue"] .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+}
+
+[data-theme="dark-blue"] .form-wrapper .divider{
+    display: none;
+}
+
+    /* Header Section  */
+[data-theme="dark-blue"] .header {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+[data-theme="dark-blue"] .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+[data-theme="dark-blue"] .header h1 {
+    font-size: calc(var(--font-size-xlg) + 10px);
+    color: var(--color-primary);
+}
+
+    /* Form Section */
+[data-theme="dark-blue"] .form-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+[data-theme="dark-blue"] .form-wrapper{
+    background-color: rgba(25, 118, 210, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    border-left: 3px solid var(--color-primary);
+    transition: all 0.3s ease;
+    width: calc(100% - 40px);
+    height: fit-content;
+}
+
+[data-theme="dark-blue"] .form-wrapper:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark-blue"] .form-header{
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: 20px;
+}
+
+[data-theme="dark-blue"] .form-header::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+[data-theme="dark-blue"] .price-input-group::before {
+    color: var(--color-primary);
+}
+
+    /* Image upload */
+[data-theme="dark-blue"] .image-preview {
+    height: 200px;
+    background: linear-gradient(135deg, var(--color-gray-50), var(--color-gray-100));
+    border: 2px dashed var(--color-primary);
+    margin-bottom: 20px;
+}
+
+[data-theme="dark-blue"] .image-preview:hover {
+    border-color: #64b5f6;
+    background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-50));
+}
+
+[data-theme="dark-blue"] .image-preview img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+    /* status-option */
+[data-theme="dark-blue"] .status-option {
+    display: none;
+    border-radius: 20px;
+    color: var(--color-black);
+}
+
+[data-theme="dark-blue"] .In-Stock {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+}
+
+[data-theme="dark-blue"] .Out-of-Stock {
+    background: linear-gradient(90deg, #e53935, #ef5350);
+}
+
+[data-theme="dark-blue"] .active {
+    display: inline-block;
+}
+
+#productDescription{
+    height: 150px;
+}
+
+
+    /* BUTTONS */
+[data-theme="dark-blue"] .buttons {
+    grid-column: 1 / -1;
+}
+
+    /* Forms */
+[data-theme="dark-blue"] input,
+[data-theme="dark-blue"] select,
+[data-theme="dark-blue"] textarea { 
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark-blue"] input:focus,
+[data-theme="dark-blue"] select:focus,
+[data-theme="dark-blue"] textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
 /* ===================== */
 /*  Medias (responsive)  */
 /* ===================== */
@@ -250,13 +402,8 @@ because productId(input) is read-only field*/
     .form-row{
         flex-wrap: wrap;
     }
-}
-
-
-/* ===================== */
-/*       Themes          */
-/* ===================== */
-
-[data-theme="dark-blue"] .status-option{
-    color: var(--color-black);
+    [data-theme="dark-blue"] .form-section{
+        /* display: grid; */
+        grid-template-columns: none;
+    }
 }
