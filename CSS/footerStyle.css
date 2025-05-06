@@ -278,3 +278,7 @@ hr {
   [data-theme="dark-blue"] li {
     color: var( --color-secondary-text);
   }
+
+  [data-theme="dark-blue"] .contact-section,.download , .top-hr , .social-media{
+    display: none;
+  }
