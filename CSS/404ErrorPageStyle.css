@@ -29,3 +29,15 @@ body {
     padding: 10px 20px;
     font-weight: 500;
 }
+
+[data-theme="dark-blue"] .image{
+    display: none;
+}
+
+[data-theme="dark-blue"] .content {
+    margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 170px);
+    transform: translateY(-50%);       
+}
