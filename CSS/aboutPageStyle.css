@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
-    border: #777;
+    border: var(--color-gray-300);
     border-radius: 20px;
     background-image: url(../Materials/Images/hero.png);
     background-size: cover;
@@ -22,12 +22,12 @@
 }
 .hero-text p {
     font-size: 1.5rem;
-    color:#555;
+    color:var(--color-secondary-text);
     margin-bottom: 1rem;
 }
 .hero-text small{
     font-size: 0.9rem;
-    color:#777;
+    color: var(--color-gray-300);
 }
 .hero-img{
 width: 100%;
@@ -92,7 +92,7 @@ justify-content: flex-end;
 .mission{
     margin: 0 auto 2rem;
     display: flex;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
 }
 .mission-img{
     background: #2A7B9B;
@@ -113,7 +113,7 @@ justify-content: flex-end;
 .mission-text{
     max-width: 50%;
     margin: 10px 10px 10px 5px;
-    background-color: #f0f0f0;
+    background-color:var(--color-gray-50);
     padding: 3rem;
     flex: 1;
     border:3px solid #d7d7d7 ;
@@ -167,15 +167,15 @@ justify-content: flex-end;
 }
 .first-feature:hover{
     transform: translatey(-10px);
-    background-color: rgb(249, 249, 249);
+    background-color:var(--color-gray-50)
 }
 .second-feature:hover{
     transform: translatey(-10px);
-    background-color: rgb(249, 249, 249);
+    background-color:var(--color-gray-50)
 }
 .third-feature:hover{
     transform: translatey(-10px);
-    background-color: rgb(249, 249, 249);
+    background-color:var(--color-gray-50)
 }
 .feature-icon{
     background-color: var(--color-primary);
@@ -190,7 +190,7 @@ justify-content: flex-end;
     margin: 0 auto 1rem;
 }
 .vision{
-    background-color: #f9f9f9;
+    background-color: var(--color-gray-50);
     padding: 2rem;
 }
 .vision-text h2{
@@ -213,7 +213,7 @@ justify-content: flex-end;
     overflow: hidden;
     padding: 2rem 0;
     margin: 2rem 0 0 ;
-    background-color:#f0f0f0 ;
+    background-color:var(--color-gray-200) ;
 }
 .card {
     flex: 0 0 250px;
@@ -329,7 +329,7 @@ justify-content: flex-end;
 }
 .timeline-content {
     padding: 1rem;
-    background-color: #f0f0f0;
+    background-color:var(--color-gray-50);
     border-radius: 8px;
     position: relative;
 }
@@ -449,3 +449,6 @@ media
                 justify-content: center;
             }
         }
+[data-theme="dark-blue"] .hero{
+    background-image: url(../Materials/Banner/other.png);
+             }
