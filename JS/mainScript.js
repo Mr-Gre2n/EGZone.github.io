@@ -315,6 +315,10 @@ function createUsersInLocalStorage() {
     console.log('loggedInUser entrie have been added to localStorage.');
 }
 
+function applyTheme() {
+    let theme = localStorage.getItem("Theme");  
+    document.documentElement.setAttribute("data-theme", theme);
+}
 /***********************
 *        Events
 ***********************/
@@ -350,3 +354,5 @@ if (!localStorage.getItem('Products')) {
 if (!localStorage.getItem('Users')) {
     createUsersInLocalStorage();
 }
+
+applyTheme();
