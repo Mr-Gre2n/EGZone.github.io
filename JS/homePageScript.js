@@ -53,13 +53,35 @@ const categories = [
 ***********************/
 // === Slider Methods ===
 function showSlide(index) {
+    // Get current theme
+    const isDarkBlueTheme = document.documentElement.getAttribute('data-theme') === 'dark-blue';
+    
     slides.forEach((slide, i) => {
         slide.classList.remove('active');
         dots[i].classList.remove('active');
     });
+    
     slides[index].classList.add('active');
     dots[index].classList.add('active');
     currentSlide = index;
+    
+    // If it's dark-blue theme, update the image sources directly
+    if (isDarkBlueTheme) {
+        updateSlideImagesForDarkTheme();
+    }
+}
+
+function updateSlideImagesForDarkTheme() {
+    // Apply dark theme images to slides based on their index
+    slides.forEach((slide, index) => {
+        if (index === 0) {
+            slide.src = "../Materials/Banner/ad11.png";
+        } else if (index === 1) {
+            slide.src = "../Materials/Banner/ad22.png";
+        } else if (index === 2) {
+            slide.src = "../Materials/Banner/ad33.png";
+        }
+    });
 }
 
 function nextSlide() {
@@ -89,7 +111,7 @@ function setupCategories() {
             </div>
             <div class="category-items">
                 ${category.items.map(item => `
-                    <div class="item" onclick="navigateToProductPage('${item.name.toLowerCase()}')">
+                    <div class="item" onclick="navigateToProductPage('${item.name.toLowerCase().replace(/\s+/g, '')}')">
                         <img src="${item.image}" alt="${item.name}">
                         <p>${item.name}</p>
                     </div>
@@ -98,7 +120,7 @@ function setupCategories() {
         `;
 
         card.querySelector('h3').addEventListener('click', function() {
-            navigateToSearchPage(category.title.toLowerCase());
+            navigateToSearchPage(category.title.toLowerCase().replace(/\s+/g, ''));
         });
 
         section.appendChild(card);
@@ -109,14 +131,15 @@ function setupCategoryNavigation() {
     const categoryItems = document.querySelectorAll('.categories-grid .category-item');
     categoryItems.forEach(item => {
         item.addEventListener('click', function() {
-            const categoryText = this.textContent.trim().toLowerCase();
+            const categoryText = this.textContent.trim().toLowerCase().replace(/\s+/g, '');
             navigateToSearchPage(categoryText);
         });
     });
 }
 
 function navigateToSearchPage(category) {
-    window.location.href = `searchPage.html?category=${encodeURIComponent(category)}`;
+    const cleanCategory = category.trim().replace(/\s+/g, '');
+    window.location.href = `searchPage.html?category=${encodeURIComponent(cleanCategory)}`;
 }
 
 // === Products Methods ===
@@ -175,11 +198,12 @@ function getProductsFromLocalStorage() {
 
 function calculateDiscountedPrice(price, discount) {
     return price - discount;
-
 }
 
 function navigateToProductPage(productId) {
-    window.location.href = `productPage.html?id=${productId}`;
+    
+    const cleanProductId = productId.replace(/\s+/g, '');
+    window.location.href = `productPage.html?id=${cleanProductId}`;
 }
 
 function navigateToAddProductPage(productId = null) {
@@ -193,10 +217,11 @@ function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.className = 'product-card';
     productCard.dataset.productId = product.ID;
+    productCard.style.cursor = 'pointer';
 
     let badgeHtml = '';
     if (product.Discount > 0) {
-        badgeHtml = `<div class="product-badge badge-sale">SAVE ${product.Discount}%</div>`;
+        badgeHtml = `<div class="product-badge badge-sale">SAVE $${product.Discount}</div>`;
     }
     if (product.Status === 'out of stock') {
         badgeHtml = `<div class="product-badge badge-out">OUT OF STOCK</div>`;
@@ -221,7 +246,7 @@ function createProductCard(product) {
             ${editIconHtml}
         </div>
         <div class="product-info">
-            <span class="product-category" onclick="navigateToSearchPage('${product.Category.toLowerCase()}')">${product.Category}</span>
+            <span class="product-category">${product.Category}</span>
             <h3 class="product-title">${product.Title}</h3>
             <div class="product-price">
                 <span class="current-price">$${discountedPrice.toFixed(2)}</span>
@@ -256,8 +281,7 @@ function displayProducts() {
         }
 
         productCard.addEventListener('click', function(e) {
-            if (!e.target.closest('.product-category') &&
-                !e.target.closest('.edit-icon') &&
+            if (!e.target.closest('.edit-icon') &&
                 !e.target.closest('.add-to-cart')) {
                 navigateToProductPage(product.ID);
             }
@@ -271,15 +295,10 @@ function displayProducts() {
             });
         }
 
-        const categoryElement = productCard.querySelector('.product-category');
-        if (categoryElement) {
-            categoryElement.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        }
-
         productsContainer.appendChild(productCard);
     });
+    
+    setupHotSalesNavigation();
 }
 
 // === Cart Methods ===
@@ -299,6 +318,12 @@ function addToCart(productId) {
     
     let cart = getCartFromLocalStorage();
     const existingItem = cart.find(item => item.ID === productId);
+    
+    const currentQuantity = existingItem ? existingItem.quantity : 0;
+    if (currentQuantity >= product.Quantity) {
+        alert(`Sorry, only ${product.Quantity} items available in stock.`);
+        return;
+    }
     
     if (existingItem) {
         existingItem.quantity += 1;
@@ -328,6 +353,16 @@ function updateCartItemQuantity(productId, change) {
     let cart = getCartFromLocalStorage();
     const item = cart.find(p => p.ID === productId);
     if (!item) return;
+    
+    // Get the current product information to check available quantity
+    const products = getProductsFromLocalStorage();
+    const product = products.find(p => p.ID === productId);
+    
+    // Check if increasing would exceed available quantity
+    if (change > 0 && item.quantity + change > product.Quantity) {
+        alert(`Sorry, only ${product.Quantity} items available in stock.`);
+        return;
+    }
     
     item.quantity += change;
     if (item.quantity <= 0) {
@@ -403,25 +438,50 @@ function closeCart() {
     }
 }
 
-// function toggleCart() {
-//     if (cartSidebar) {
-//         if (cartSidebar.classList.contains('open')) {
-//             closeCart();
-//         } else {
-//             openCart();
-//         }
-//     }
-// }
+function updateCartCount() {
+    const cartBadge = document.querySelector('.cart-badge');
+    if (!cartBadge) return;
+    
+    const cart = getCartFromLocalStorage();
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    cartBadge.textContent = itemCount;
+    cartBadge.style.display = itemCount > 0 ? 'flex' : 'none';
+}
 
-// function updateCartCount() {
-//     if (!cartBadge) return;
+// === Theme Methods ===
+function checkAndApplyTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark-blue') {
+        updateSlideImagesForDarkTheme();
+    }
+}
+
+function setupHotSalesNavigation() {
+    const hotSalesProducts = document.querySelectorAll('.hot-sales-section .product-card');
+    if (!hotSalesProducts.length) return;
     
-//     const cart = getCartFromLocalStorage();
-//     const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    hotSalesProducts.forEach(product => {
+        product.style.cursor = 'pointer';
+        const productId = product.dataset.productId;
+        
     
-//     cartBadge.textContent = itemCount;
-//     cartBadge.style.display = itemCount > 0 ? 'flex' : 'none';
-// }
+        product.addEventListener('click', function(e) {
+        
+            if (!e.target.closest('.add-to-cart') && !e.target.closest('.edit-icon')) {
+                navigateToProductPage(productId);
+            }
+        });
+        
+        const addToCartBtn = product.querySelector('.add-to-cart');
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                addToCart(parseInt(productId));
+            });
+        }
+    });
+}
 
 /***********************
 *     Data Events
@@ -444,22 +504,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup category navigation if relevant elements exist
     setupCategoryNavigation();
     
+    // Setup Hot Sales products navigation
+    setupHotSalesNavigation();
+    
     // Initialize cart
     displayCart();
     updateCartCount();
-    
-    // Add event listener for closing cart when clicking outside
-    // document.addEventListener('click', function(e) {
-    //     if (cartSidebar && 
-    //         cartSidebar.classList.contains('open') && 
-    //         !cartSidebar.contains(e.target) && 
-    //         cartToggle && 
-    //         e.target !== cartToggle && 
-    //         !cartToggle.contains(e.target) &&
-    //         !e.target.closest('.add-to-cart')) {
-    //         // closeCart();
-    //     }
-    // });
     
     // Add escape key handler to close cart
     document.addEventListener('keydown', function(e) {
@@ -468,8 +518,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Slider click events
-    slides.forEach(slide => {
-        slide.addEventListener('click', nextSlide);
+    // Fix the banner slider navigation
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', function() {
+            // Go to next slide when clicked
+            let nextIndex = (index + 1) % slides.length;
+            goToSlide(nextIndex);
+        });
     });
+    
+    // Check and apply current theme
+    checkAndApplyTheme();
+    
+    // Add mutation observer to detect theme changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'data-theme') {
+                checkAndApplyTheme();
+            }
+        });
+    });
+    
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+    });
+    
+
+    showSlide(currentSlide);
 });
