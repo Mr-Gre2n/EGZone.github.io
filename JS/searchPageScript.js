@@ -1,3 +1,4 @@
+// localstorage.clear();
 document.addEventListener("DOMContentLoaded", function () {
   if (!localStorage.getItem("Cart")) {
     localStorage.setItem("Cart", JSON.stringify([]));
@@ -19,18 +20,31 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
+  
+  //filter products by URL parameters
+  let filteredProductsByURL = products;
+  
+  // Title parameter from URL
+  const titleParam = getParameterByName('Title') || getParameterByName('title');
+  console.log("Title parameter:", titleParam);
+  
+  if (titleParam) {
+    filteredProductsByURL = filteredProductsByURL.filter(product => 
+      product.Title.toLowerCase().includes(titleParam.toLowerCase())
+    );
+    console.log("Filtered products by title:", filteredProductsByURL);
+  }
 
-  // category parameter from URL
+  // Category parameter from URL
   const categoryParam = getParameterByName('Category') || getParameterByName('category');
   console.log("Category parameter:", categoryParam);
 
-  // Filter products by URL
-  let filteredProductsByURL = products;
+  // Further filter products by category if parameter exists
   if (categoryParam) {
-    filteredProductsByURL = products.filter(product => 
-        product.Category.toLowerCase() === categoryParam.toLowerCase()
+    filteredProductsByURL = filteredProductsByURL.filter(product => 
+      product.Category.toLowerCase() === categoryParam.toLowerCase()
     );
-    console.log("Filtered products:", filteredProductsByURL);
+    console.log("Filtered products by category:", filteredProductsByURL);
   }
 
   // DOM Elements
@@ -409,6 +423,4 @@ document.addEventListener("DOMContentLoaded", function () {
     updateRangeFill();
     displayProducts(products);
   }
-
-  
 });
