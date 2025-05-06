@@ -342,9 +342,6 @@ fetch('../HTML/footer.html')
 .then(res => res.text())
 .then(data => {
     FOOTER_PLACEHOLDER.innerHTML = data;
-    const script = document.createElement('script');
-    script.src = '../JS/footerScript.js';
-    document.body.appendChild(script);
 });
 
 if (!localStorage.getItem('Products')) {
