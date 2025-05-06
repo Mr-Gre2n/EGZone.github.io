@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submitBtn');
     const genderRadios = document.getElementsByName('gender');
     const checkBox = document.getElementById('checkBox');
+    const img = document.getElementById('laptop');
+    const theme = document.documentElement.getAttribute('data-theme');
     
     // Error message elements
     const firstNameError = document.getElementById('firstNameError');
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
       cardPhone.textContent = phone.value || '+1 234 567 890';
       cardSubject.textContent = subject.value || 'Not specified';
       cardMessage.textContent = message.value || 'Your message will appear here...';
-      cardCountryName.textContent = country.value || 'US';
+      cardCountryName.textContent = country.value || 'EG';
 
     }
     
@@ -200,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
       cardPhone.textContent = '+1 234 567 890';
       cardSubject.textContent = 'Not specified';
       cardMessage.textContent = 'Your message will appear here...';
-      cardCountryName.textContent = '';
+      cardCountryName.textContent = 'EG';
       updateGenderImage('male');
     }
     
@@ -229,4 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+    function changePhotoTheme(theme){
+      if (theme === 'dark-blue'){
+        img.src='../Materials/Images/contactus-dark-theme.jpg';
+      }else {
+        img.src='../Materials/Images/laptop.avif'
+      }
+    }
+    changePhotoTheme(theme);
   });
+  

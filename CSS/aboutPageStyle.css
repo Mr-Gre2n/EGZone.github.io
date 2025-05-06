@@ -450,5 +450,11 @@ media
             }
         }
 [data-theme="dark-blue"] .hero{
-    background-image: url(../Materials/Banner/other.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../Materials/Banner/other.png);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    justify-content: center;
+    
              }

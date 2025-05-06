@@ -107,7 +107,7 @@ h1:after{
   }
   .address-info p {
     margin-bottom: .3rem;
-    color: #555;
+    color: var(--color-secondary-text);
   }
   .address-info a {
     color: var(--color-primary);
@@ -118,7 +118,7 @@ h1:after{
     gap: 1rem;
     margin-top: 1.5rem;
   }
-  .social-link {
+  .social-media-link {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -130,14 +130,14 @@ h1:after{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
   }
-  .social-link img {
+  .social-media-link img {
     max-width: 2.5rem;
     max-height: 2.5rem;
     border-radius: 50%;
   }
-  .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  .social-media-link:hover {
+    transform: translateY(-3px) !important ;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15) !important; 
   }
   .id-card-container {
     perspective: 1000px;
@@ -285,7 +285,7 @@ h1:after{
     justify-content: center;
   }
   .modal-content {
-    background-color: white;
+    background-color: var(--color-white);
     width: 80%;
     max-width: 600px;
     max-height: 80vh;
@@ -334,4 +334,22 @@ h1:after{
     .info-container {
       margin-top: 30px;
     }
+  .location{
+    filter: grayscale(100%);
+    border-radius:10px 10px 0 0 ;
+    transition: all ease 0.3s;
+  }
+  .location:hover{
+    filter: grayscale(0);
+    width: 100%;
+  }
+  }
+  [data-theme="dark-blue"] #laptop{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
+  [data-theme="dark-blue"] .card-front{
+    background: linear-gradient(90deg, #0575e6 40%, #021b79 100%);
+  }
+  [data-theme="dark-blue"] .card-back{
+    background: linear-gradient(90deg, #021b79 40%, #0575e6 100%);
   }
