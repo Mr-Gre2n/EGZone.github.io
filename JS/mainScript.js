@@ -26,7 +26,7 @@ function loadCSS(href) {
 
 
 function createProductsInLocalStorage() {
-    // Sample data for 5 products
+    // Sample data for 15 products
     const products = [
         {
             ID: 1,
@@ -272,11 +272,12 @@ function createProductsInLocalStorage() {
     localStorage.setItem('Products', JSON.stringify(products));
     localStorage.setItem('Cart', JSON.stringify(cart));
 
-    console.log('5 product entries have been added to localStorage.');
+    console.log('15 product entries have been added to localStorage.');
+    console.log('5 product entries have been added to cart localStorage.');
 }
 
 function createUsersInLocalStorage() {
-    // Sample data for 2 users
+    // Sample data for 1 user
     const users = [
         {
             ID: 1,
@@ -292,7 +293,7 @@ function createUsersInLocalStorage() {
     // Save to localStorage under the name 'Users'
     localStorage.setItem('Users', JSON.stringify(users));
 
-    console.log('2 Users entries have been added to localStorage.');
+    console.log('1 User entries have been added to localStorage.');
 
 
     /*  logged In User
@@ -306,8 +307,7 @@ function createUsersInLocalStorage() {
             Phone: '011',
             Email: 'admin@gmail',
             Password: '123',
-        }
-    ;
+        };
 
     // Save to localStorage under the name 'LoggedInUser'
     localStorage.setItem('LoggedInUser', JSON.stringify(loggedInUser));
@@ -342,9 +342,6 @@ fetch('../HTML/footer.html')
 .then(res => res.text())
 .then(data => {
     FOOTER_PLACEHOLDER.innerHTML = data;
-    const script = document.createElement('script');
-    script.src = '../JS/footerScript.js';
-    document.body.appendChild(script);
 });
 
 if (!localStorage.getItem('Products')) {
