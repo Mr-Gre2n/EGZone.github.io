@@ -408,6 +408,9 @@ justify-content: flex-end;
 .leader-card:hover img{
     transform: scale(1.1);
 }
+.team-member-bio,.team-member-social{
+    display: none;
+}
 /* 
 
 
@@ -451,6 +454,7 @@ media
             }
         }
 [data-theme="dark-blue"] .hero{
+    background-color: transparent;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../Materials/Banner/other.png);
     background-size: cover;
@@ -499,6 +503,9 @@ background-color: var(--color-background);
     background-color: var(--color-primary-hover);
 }
 
+[data-theme="dark-blue"] .leadership h2{
+    color:var(--color-black)
+}
 [data-theme="dark-blue"] .leadership-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
