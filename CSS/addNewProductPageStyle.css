@@ -251,7 +251,6 @@ because productId(input) is read-only field*/
     gap: 30px;
     max-width: 1000px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 }
 
@@ -309,13 +308,15 @@ because productId(input) is read-only field*/
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark-blue"] .form-header{
+[data-theme="dark-blue"] .form-header,
+[data-theme="dark-blue"] .form-group.form-wrapper label{
     color: var(--color-primary);
     font-size: var(--font-size-lg);
     margin-bottom: 20px;
 }
 
-[data-theme="dark-blue"] .form-header::before {
+[data-theme="dark-blue"] .form-header::before ,
+[data-theme="dark-blue"] .form-group.form-wrapper label::before{
     content: '';
     display: inline-block;
     width: 8px;
