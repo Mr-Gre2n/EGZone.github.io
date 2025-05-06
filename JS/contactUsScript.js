@@ -229,9 +229,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-    function check (checkBox){
-      if(checkBox === false){
-
-      }
-    }
   });
