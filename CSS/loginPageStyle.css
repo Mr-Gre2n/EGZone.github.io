@@ -136,6 +136,20 @@ button:hover {
 /*     error style     */
 /***********************/ 
 
-.incorrect {
+.error {
     border-color: red;
+}
+
+.error-message{
+    display: flex ;
+    justify-content: center;
+    color: red;
+}
+
+.eye-btn{
+    display: inline;
+    margin-left: -1.5%;
+    vertical-align: middle;
+    width: 1%;
+    height: 1%;
 }
