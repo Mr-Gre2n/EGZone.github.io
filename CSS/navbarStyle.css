@@ -205,6 +205,10 @@ body {
 
 }
 
+.theme-links {
+    display: none;
+}
+
 /* =====================*/
 /*     dropdown menu    */
 /* =====================*/
@@ -256,248 +260,88 @@ body {
 .dropdown button:active {
     transform: scale(0.98);
 }
- /* -------------------------------- */
- /* EgZone Online Store - Navbar Component */
 
-[data-theme="dark-blue"] .navbar {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.categories-dropdown{
+    display: none;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-logo img {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .navbar-logo h1 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--secondary-color);
-  }
-  
-  .navbar-logo span {
-    color: var(--primary-color);
-  }
-  
-  .navbar-menu {
-    display: flex;
-  }
-  
-  .navbar-menu li {
-    margin-left: 20px;
-  }
-  
-  .navbar-menu a {
-    color: var(--secondary-color);
-    font-weight: 500;
-    padding: 5px 0;
-    position: relative;
-  }
-  
-  .navbar-menu a:hover {
-    color: var(--primary-color);
-  }
-  
-  .navbar-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-  }
-  
-  .navbar-menu a:hover::after {
-    width: 100%;
-  }
-  
-  .navbar-menu a.active {
-    color: var(--primary-color);
-  }
-  
-  .navbar-menu a.active::after {
-    width: 100%;
-  }
-  
-  .navbar-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-actions a {
-    margin-left: 15px;
-    color: var(--secondary-color);
-    font-size: 20px;
-  }
-  
-  .navbar-actions a:hover {
-    color: var(--primary-color);
-  }
-  
-  .cart-icon {
-    position: relative;
-  }
-  
-  .cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 12px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .mobile-menu-toggle {
+/****************************/ 
+/*      Dark-blue Theme     */
+/****************************/
+
+[data-theme="dark-blue"] .categories{
     display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: var(--secondary-color);
-    cursor: pointer;
-  }
-  
-  .search-container {
-    position: relative;
-    margin-left: 15px;
-  }
-  
-  .search-input {
-    padding: 8px 15px;
-    padding-right: 40px;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    font-size: 14px;
+}
+
+[data-theme="dark-blue"] .top-nav{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+[data-theme="dark-blue"] .theme-links{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+[data-theme="dark-blue"] .search-bar{
+    width: 500px;
+    border-radius: 30px;
+}
+
+[data-theme="dark-blue"] .search-bar-input{
+    width: 400px;
+}
+
+[data-theme="dark-blue"] .dropdown {
+    position: absolute;
+    right: 3rem;
+    top: 75px;
     width: 200px;
-    transition: width 0.3s ease;
-  }
-  
-  .search-input:focus {
-    width: 250px;
-    outline: none;
-    border-color: var(--primary-color);
-  }
-  
-  .search-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--light-text);
-    cursor: pointer;
-  }
-  
-  .search-btn:hover {
-    color: var(--primary-color);
-  }
-  
-  /* Dropdown Menu */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    min-width: 200px;
-    display: none;
+    background-color: var(--color-white);
+    box-shadow: var(--page-shadow);
     z-index: 100;
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-  
-  .dropdown-menu li {
-    margin: 0;
-  }
-  
-  .dropdown-menu a {
-    display: block;
-    padding: 10px 15px;
-    color: var(--secondary-color);
-  }
-  
-  .dropdown-menu a:hover {
-    background-color: var(--light-background);
-  }
-  
-  /* Mobile Menu */
-  @media only screen and (max-width: 768px) {
-    .navbar-menu {
-      display: none;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-    
-    .navbar-menu.active {
-      display: block;
-    }
-    
-    .navbar-menu li {
-      margin: 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-    
-    .navbar-menu a {
-      display: block;
-      padding: 15px;
-    }
-    
-    .navbar-menu a::after {
-      display: none;
-    }
-    
-    .mobile-menu-toggle {
-      display: block;
-    }
-    
-    .search-container {
-      display: none;
-    }
-    
-    .dropdown-menu {
-      position: static;
-      box-shadow: none;
-      display: none;
-      padding-left: 20px;
-    }
-    
-    .dropdown.active .dropdown-menu {
-      display: block;
-    }
-  }
-  
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark-blue"] .logo-icon{
+    display: none;
+}
+
+[data-theme="dark-blue"] .logo-text{
+    color: var(--color-primary);
+}
+
+[data-theme="dark-blue"] .categories-dropdown {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 70px;
+    left: 11%;
+    background-color: var(--color-white);
+    box-shadow: var(--page-shadow);
+    z-index: 1;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+[data-theme="dark-blue"] .categories-dropdown ul{
+    list-style: none;
+}
+
+[data-theme="dark-blue"] .categories-dropdown li{
+    padding: 5px 0;
+    gap: 10px;
+}
+
+[data-theme="dark-blue"] .category.theme-link-btn{
+    color: var(--color-primary-text);
+}
+
+[data-theme="dark-blue"] .theme-link-btn:hover .categories-dropdown {
+    display: flex;
+}
