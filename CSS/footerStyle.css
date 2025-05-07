@@ -282,6 +282,6 @@ hr {
   [data-theme="dark-blue"] .contact-section, [data-theme="dark-blue"] .download{
     display: none;
   }
-  [data-theme="dark-blue"].social-media{
+  [data-theme="dark-blue"] .social-media{
     display: none;
   }
