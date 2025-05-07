@@ -8,24 +8,24 @@ let productID =0;
 let productDiscount = 0;
 let productQuantity = 0;
 const cartItemsContainer = document.getElementById("cartList");
-const cart = window.localStorage.getItem("Cart");
-cart = JSON.parse(cart);
+const cart = JSON.parse(localStorage.getItem("Cart"));
+console.log(cart);
 const cartSubTotalPrice = document.getElementById("subTotal");
 const discuont = document.getElementById("discuont");
 const cartTotalPrice = document.getElementById("total");
-const checkoutButton = document.getElementByIdr("checkout");
+const checkoutButton = document.getElementById("checkout");
 
 // functions
 
 function cartItemsLocalStorage(){
     if(cart){
         for(let i=0; i<cart.length;i++){ //cart.forEach(Products => 
-            cart[i] = document.createElement("div");
-            cart[i].classList.add("cart-item");
-            cart[i].setAttribute("data-product-id", Products.ID);
+            let product  = document.createElement("div");
+            product.classList.add("cart-item");
+            product.setAttribute("data-product-id", cart[i].ID);
 
             // Create the HTML structure for the cart item
-            cart[i].innerHTML = ` 
+            product.innerHTML = ` 
                 <div class="productDetails">
                     <img src="${cart[i].Image}" alt="Product Image" class="productImage">
                     <div>
@@ -38,7 +38,7 @@ function cartItemsLocalStorage(){
                         <!-- changing quantity the user need of this product -->
                         <div class="quantity">
                             <button class="decrement" data-product-id="${cart[i].ID}"><em>-</em></button>
-                            <p class="product-quantity" id="product-quantity" data-product-id="${cart[i].ID}">${cart[i].quantity}</p>
+                            <p class="product-quantity" id="product-quantity" data-product-id="${cart[i].ID}">${cart[i].Quantity}</p>
                             <button class="increment" data-product-id="${cart[i].ID}"><em>+</em></button>
                         </div>
 
@@ -47,18 +47,18 @@ function cartItemsLocalStorage(){
                     </div>
                 </div>
 
-                <button class="button removeButton" data-product-id="${cart[i].ID}">X</button> //id="remove-item-button"
+                <button class="button removeButton" data-product-id="${cart[i].ID}">X</button>
             `;
             if(cart[i].Quantity >= 1){
-                let inStockText = document.querySelector(`.status-option[data-product-id="${cart[i].ID}"]`);
-                inStockText.classList.add("In-Stock");
+                // let inStockText = document.querySelector(`.status-option[data-product-id="${cart[i].ID}"]`);
+                // inStockText.classList.add("In-Stock");
             } else{
-                let inStockText = document.querySelector(`.status-option[data-product-id="${cart[i].ID}"]`);
-                inStockText.classList.add("Out-of-Stock");
+                // let inStockText = document.querySelector(`.status-option[data-product-id="${cart[i].ID}"]`);
+                // inStockText.classList.add("Out-of-Stock");
             }
 
             // Append the cart item to the container
-            cartItemsContainer.appendChild(cartItem);
+            cartItemsContainer.appendChild(product);
         };
         totalPrice();
     }
@@ -164,7 +164,7 @@ function subTotalPrice(){
     if(cart){
         cart = JSON.parse(cart);
         for(let i=0; i<cart.length ; i++){
-            subTotal += cart[i].Price * cart[i].quantity;
+            subTotal += cart[i].Price * cart[i].Quantity;
         }
         // update the subtotal value in the page
         cartSubTotalPrice.innerHTML = `${subTotal.toFixed(2)}`;
@@ -185,10 +185,10 @@ function discuontCalc(){
         for(let i=0; i<cart.length ; i++){
             discuontValue += cart[i].Discuont * cart[i].quantity;
         }
-        discuont.innerHTML = `${discuontValue.toFixed(2)}`;
+        // discuont.innerHTML = `${discuontValue.toFixed(2)}`;
         return discuontValue;
     } else{
-        discuont.innerHTML = `0.00`;
+        // discuont.innerText = `0.00`;
         return 0;
     }
     
