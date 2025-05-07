@@ -6,6 +6,7 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="../CSS/mainStyle.css" />
     <link rel="stylesheet" href="../CSS/loginPageStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
     <div class="container">
@@ -16,18 +17,15 @@
             <div >
                 <div>
                     <input id="userName"  type="text" placeholder="User name"/>
-                    <!-- <span class ="error-message field-error" id="userNameError" >INVALID USER NAME</span> -->
                 </div>
-                <div>
-                    <input id="password" type="password" placeholder="Password"/> 
-                    <img class="eye-btn" src=
-                    "https://media.geeksforgeeks.org/wp-content/uploads/20210917145551/eye.png"
-                                        id="togglePassword">
-                    <!-- <span class ="error-message field-error" id="PasswordError" >INVALID PASSWORD</span> -->
-                        <div class="forgot-password">
-                            <p><a href="#">Forgot password?</a></p> 
-                        </div>    
-                        
+                <div class="input-group">
+                    <div class="password-field">
+                        <input id="password" type="password" placeholder="Password"/> 
+                        <span class="password-toggle" id="togglePassword"><i class="fas fa-eye-slash"></i></span>
+                    </div>
+                    <div class="forgot-password">
+                        <p><a href="#">Forgot password?</a></p> 
+                    </div>    
                 </div>
             <button  class="button login-btn" id="login-btn">Login</button>
         <div class="sign-up-link">

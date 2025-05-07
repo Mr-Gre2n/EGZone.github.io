@@ -9,7 +9,7 @@ const SIGN_OUT_BTN = document.getElementById("sign-out-btn");
 const PROFILE_BTN = document.getElementById("profile-btn");
 const USER_DROPDOWN = document.getElementById("user-btn");
 const SEARCH_INPUT = document.getElementById("search-bar-input");
-
+const THEME_BTN = document.getElementById("theme-icon");
 /***********************
 *      Variables
 ***********************/
@@ -59,6 +59,7 @@ function updateCartCountDisplay() {
 // function to sign out the user and remove their data from local storage
 function signOutUser() {
     localStorage.removeItem("LoggedInUser");
+    localStorage.setItem("isLoggedIn", "false");
     location.reload();
 }
 
@@ -73,12 +74,12 @@ function handleSearch(event) {
     }
 }
 
+
 /************************/
 /*         Events       */
 /************************/
 checkUser();
 updateCartCountDisplay();
-
 
 LOGIN_BTN.addEventListener("click", function (e) {
     e.preventDefault();
@@ -98,10 +99,22 @@ document.addEventListener("click", function (e) {
 
 SIGN_OUT_BTN.addEventListener("click", signOutUser);
 
-
 PROFILE_BTN.addEventListener("click", function () {
     window.location.href = "../HTML/profilePage.html";
 });
 
-
 SEARCH_INPUT.addEventListener("keydown", handleSearch);
+
+THEME_BTN.addEventListener("click", function () {
+    if(THEME_BTN.classList.contains("fa-sun")){
+        THEME_BTN.classList.remove("fa-sun");
+        THEME_BTN.classList.add("fa-moon");
+        localStorage.setItem("Theme", "dark-blue");
+        document.documentElement.setAttribute("data-theme", "dark-blue");
+    }else{
+        THEME_BTN.classList.remove("fa-moon");
+        THEME_BTN.classList.add("fa-sun");
+        localStorage.setItem("Theme", "light-blue");
+        document.documentElement.setAttribute("data-theme", "light-blue");
+    }
+})

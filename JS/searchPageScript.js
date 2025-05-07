@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
   
-  //filter products by URL parameters
+  // Get filtered products by URL parameters
   let filteredProductsByURL = products;
   
   // Title parameter from URL
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("search-input") || { value: '', addEventListener: () => {} };
   const searchButton = document.querySelector(".search-button") || { addEventListener: () => {} };
   const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
-  const brandCheckboxes = document.querySelectorAll('input[name="brand"]');
   const sortSelect = document.getElementById("sort");
   const productsCount = document.querySelector(".products-count h2");
   const filterGoButton = document.getElementById("filter-go-button");
@@ -84,6 +83,32 @@ document.addEventListener("DOMContentLoaded", function () {
   if (sortSelect) {
     sortSelect.addEventListener("change", applyFilters);
   }
+function generateBrandFilters(products) {
+  const brandOptionsContainer = document.querySelector('.filter-group .filter-options');
+  if (!brandOptionsContainer) return;
+  
+  // unique brands 
+  const brands = [...new Set(products.map(product => product.Brand))];
+  
+  brandOptionsContainer.innerHTML = '';
+  
+  //checkbox
+  brands.forEach(brand => {
+      const label = document.createElement('label');
+      label.className = 'filter-option';
+      
+      label.innerHTML = `
+          <input type="checkbox" name="brand" value="${brand}">
+          <span class="checkmark"></span>
+          ${brand}
+      `;
+      
+      brandOptionsContainer.appendChild(label);
+  });
+}
+
+generateBrandFilters(products);
+
 
   // Initialize price range slider
   function initRangeSlider() {
@@ -177,6 +202,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         </a>
+
+       
         <div class="quantity-controls ${!inStock || !cartItem ? 'hidden' : ''}" data-product-id="${product.ID}">
             <button class="quantity-btn minus-btn">-</button>
             <span class="quantity-display">${cartItem ? cartItem.quantity : 1}</span>
@@ -275,12 +302,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if (productIndex !== -1) {
         const newQuantity = cart[productIndex].quantity + change;
+        const productTitle = cart[productIndex].title;
         
         if (newQuantity < 1) {
             cart.splice(productIndex, 1);
             toggleQuantityControls(productId, false);
+            localStorage.setItem("Cart", JSON.stringify(cart));
+            
+            // "product removed" 
+            showCartNotification(productTitle, 0, maxQuantity, false, true);
+            return;
         } else if (newQuantity > maxQuantity) {
-            showCartNotification(cart[productIndex].title, newQuantity - 1, maxQuantity, true);
+            showCartNotification(productTitle, newQuantity - 1, maxQuantity, true);
             return;
         } else {
             cart[productIndex].quantity = newQuantity;
@@ -302,18 +335,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         
-        showCartNotification(cart[productIndex]?.title || '', cart[productIndex]?.quantity || 0, maxQuantity);
+        showCartNotification(productTitle, cart[productIndex]?.quantity || 0, maxQuantity);
     }
-  }
+}
 
-  function showCartNotification(productName, quantity = 1, maxQuantity = 1, isError = false) {
+// Modified showCartNotification function
+function showCartNotification(productName, quantity = 1, maxQuantity = 1, isError = false, isRemoved = false) {
     const notification = document.createElement("div");
     notification.className = `cart-notification ${isError ? 'error' : ''}`;
     
-    if (isError) {
-      notification.textContent = `Maximum quantity reached for ${productName}`;
+    if (isRemoved) {
+        notification.textContent = `${productName} removed from cart`;
     } else {
-      notification.textContent = `${quantity} of ${productName} added to cart`;
+        notification.textContent = `${quantity} of ${productName} in cart`;
     }
 
     document.body.appendChild(notification);
@@ -322,9 +356,9 @@ document.addEventListener("DOMContentLoaded", function () {
         notification.classList.add("fade-out");
         setTimeout(() => notification.remove(), 300);
     }, 3000);
-  }
+}
 
-  function applyFilters() {
+ function applyFilters() {
     let filteredProducts = [...products];
 
     // Search filter 
@@ -349,9 +383,8 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
-    // Brand filter
-    const selectedBrands = Array.from(brandCheckboxes)
-      .filter((checkbox) => checkbox.checked)
+    // Brand filter - fixed version
+    const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked'))
       .map((checkbox) => checkbox.value);
 
     if (selectedBrands.length > 0) {
@@ -366,7 +399,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const maxPrice = parseInt(maxPriceInput.value) || 10000;
   
       filteredProducts = filteredProducts.filter((product) => {
-        // Calculate discounted price correctly
         const discountedPrice = calculateDiscountedPrice(product);
         return discountedPrice >= minPrice && discountedPrice <= maxPrice;
       });
@@ -399,15 +431,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     displayProducts(filteredProducts);
-  }
+}
 
-  function resetFilters() {
+// Also update the resetFilters function
+function resetFilters() {
     if (searchInput) {
       searchInput.value = "";
     }
     
     categoryCheckboxes.forEach((checkbox) => (checkbox.checked = false));
-    brandCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+    document.querySelectorAll('input[name="brand"]').forEach((checkbox) => (checkbox.checked = false));
     
     if (minPriceInput && maxPriceInput && minValue && maxValue) {
       minPriceInput.value = "0";
@@ -422,5 +455,4 @@ document.addEventListener("DOMContentLoaded", function () {
     
     updateRangeFill();
     displayProducts(products);
-  }
-});
+}});

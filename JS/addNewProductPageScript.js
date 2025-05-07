@@ -130,7 +130,7 @@ function saveProduct(index = null) {
     Price: Number(PRO_PRICE.value),
     Discount:  Number(PRO_DISCOUNT.value),
     Quantity:  Number(PRO_QUANTITY.value),
-    Status:  PRO_QUANTITY.value > 0 ? "In Stock" : "Out of Stock",
+    Status:  PRO_QUANTITY.value > 0 ? "in stock" : "out of stock",
     Description:  PRO_DESCRIPTION.value,
     isNew:  PRO_ISNEW.checked,
   }

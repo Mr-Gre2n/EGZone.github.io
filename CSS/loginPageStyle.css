@@ -94,6 +94,25 @@ button:hover {
     width: 100%;
 }
 
+/* Password toggle icon */
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    right: 37%;
+    top : 54.5% ; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color-primary-text);
+}
+
+.password-toggle:hover {
+    color: var(--color-primary);
+}
+
+#password {
+    padding-right: 35px;
+}
+
 .forgot-password {
     padding: 10px;
     text-align: right;
@@ -146,10 +165,3 @@ button:hover {
     color: red;
 }
 
-.eye-btn{
-    display: inline;
-    margin-left: -1.5%;
-    vertical-align: middle;
-    width: 1%;
-    height: 1%;
-}
