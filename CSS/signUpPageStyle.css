@@ -1,10 +1,3 @@
-/* نبدأ بتصفير كل حاجة ونظبط الأساسيات للخطوط والحجم والحواف */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family:var(--font-family);
-}
 
 /* نخلي الصفحة في النص وندّيها خلفية هادية */
 body {
@@ -175,22 +168,38 @@ input.invalid {
   margin-bottom: 10px;
   display: block;
 }
-[data-theme="dark-blue"] .container{
-  width: 1200px;
-  display: grid;
+
+[data-theme="dark-blue"] body{
   background-image: url(../Materials/Images/background\ for\ signup2.jpg);
-  background-position: center;
-  background-size: cover;
+  background-repeat: repeat;
 }
+
+[data-theme="dark-blue"] .container{
+  width: 900px;
+  display: grid;
+  margin: 50px 50px;
+}
+
 [data-theme="dark-blue"] .image-section img{
   border-radius: 10px;
 }
+
 [data-theme="dark-blue"] .buttonSignUpDiv{
   display: flex;
   justify-content: center;
 }
+
 [data-theme="dark-blue"] .buttonSignUpDiv button{
   width: 450px;
   height: 45px;
   font-size: 1rem;
+  color: var(--color-black);
+}
+
+[data-theme="dark-blue"] .login-link p{
+  color: var(--color-primary);
+}
+
+[data-theme="dark-blue"] .login-link a{
+  color: var(--color-black);
 }
