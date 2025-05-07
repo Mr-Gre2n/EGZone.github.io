@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const REGISTER_BUTTON = FORM.querySelector("button");
   const PASSWORD_TOGGLES = document.querySelectorAll(".password-toggle");
+  const imgsingup = document.getElementById('iconic');
+  const theme = document.documentElement.getAttribute('data-theme');
 
   /***********************
    *      Variables
@@ -278,4 +280,12 @@ document.addEventListener("DOMContentLoaded", () => {
       togglePasswordVisibility(passwordInput, eyeIcon);
     });
   });
+  function changePhotoTheme(theme){
+    if (theme === 'dark-blue'){
+      iconic.src='../Materials/Banner/signUp2.jpg';
+    }else {
+      iconic.src='../Materials/Images/sidePhoto.jpg'
+    }
+  }
+  changePhotoTheme(theme);
 });

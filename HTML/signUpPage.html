@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark-blue">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register Page</title>
     <link rel="stylesheet" href="../CSS/signUpPageStyle.css" />
-    <link rel="stylesheet" href="CSS/mainStyle.css" />
+    <link rel="stylesheet" href="../CSS/mainStyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <div class="image-section">
-        <img src="../Materials/Images/sidePhoto.jpg" alt="Register Illustration" />
+        <img src="../Materials/Images/sidePhoto.jpg" alt="Register Illustration" id="iconic"/>
       </div>
       <div class="form-section">
         <h3>Register</h3>
@@ -40,14 +40,15 @@
               ><i class="fas fa-eye-slash"></i
             ></span>
           </div>
-
-          <button>REGISTER</button>
-        </div>
+          <div class="buttonSignUpDiv">
+            <button class="buttonSignUp">REGISTER</button>
+          </div>
         <div class="login-link">
           <p>Already user? <a href="..\HTML\loginPage.html">Login</a></p>
         </div>
       </div>
     </div>
     <script src="../JS/signUpPageScript.js"></script>
+    <!-- <script src="../JS/mainScript.js"></script> -->
   </body>
 </html>
