@@ -3,18 +3,29 @@ body{
     flex-direction: column;
 }
 
+/* dark mode */
+[data-theme="dark-blue"] body{
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
 .profilePage{
     display: flex;
     flex-direction: row;
     padding: 20px;
     justify-content: space-between;
-    /* width: 100%; */
-    background-color: var(--color-white);
+    background-color: var(--color-background);
+    color: var(--color-white);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 10px;
     height: 500px;
 }
+
+[data-theme="dark-blue"] .profilePage{
+    color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}   
 
 /*********************
 * main profile style *
