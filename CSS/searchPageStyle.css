@@ -209,11 +209,18 @@ font-weight: 600;
     margin-top: 45px;
 }
 
+.product-link {
+    flex: 1;
+    display: block;
+}
 .product{
     background: var(--color-white);
     border-radius: var(--border-radius-sm);
     overflow: hidden;   
  box-shadow: var(--shadow-sm);
+ display: flex;
+    flex-direction: column;
+    height: 100%;
 
 }
 
@@ -455,6 +462,9 @@ position: absolute;
     background-color: #ccc;
 }
 
+/* dark theme */
+
+/* buttons */
 [data-theme="dark-blue"] .Resetbutton
 {
     display: inline-block;
@@ -496,6 +506,30 @@ position: absolute;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);}
 
+    [data-theme="dark-blue"] .out-of-stock-btn,
+[data-theme="dark-blue"] .add-to-cart-btn {
+
+    width: 80%; 
+    margin-left: 25px; 
+    margin-bottom: 15px;
+}
+
+
+[data-theme="dark-blue"] .out-of-stock-btn {
+    background-color:rgb(121, 121, 121);
+    color: rgb(37, 37, 37);
+    cursor:not-allowed; 
+    font-size: 15px;
+    font-weight: bold;
+
+}
+[data-theme="dark-blue"] .add-to-cart-btn{
+    width:200px;
+    background-color: var(--color-primary-hover);
+    color: #000000;
+  }
+
+/* ------------------------------------------ */
 
       /* badges */
 [data-theme="dark-blue"] .discount-badge {
@@ -527,12 +561,13 @@ position: absolute;
     /* isNew ده لو  */
 }
 /* ------------------------------------------------ */
+
 [data-theme="dark-blue"] .products-count
 {
     color: #ffffff;
     position: absolute;
     left: 660px;
-    top:170px;
+    top:130px;
 }
 
 
@@ -563,7 +598,7 @@ position: absolute;
   display: flex;
   align-items: center;
   position: absolute;
-  top: 170px;
+  top: 130px;
   right:20px;
   gap:5px;
 }
@@ -581,29 +616,18 @@ position: absolute;
 
 }
 
-[data-theme="dark-blue"] .out-of-stock-btn {
-    padding: 10px;
-    background-color:rgb(121, 121, 121);
-    color: rgb(37, 37, 37);
-    /* border: 1px solid rgb(179, 166, 235); */
-    cursor:not-allowed; 
-    font-size: 15px;
-    font-weight: bold;
-    width:200px;
-    margin-left:25px;
-    margin-bottom: 10px;
-}
-[data-theme="dark-blue"] .add-to-cart-btn{
-    width:200px;
-    margin-left:25px;
-    margin-bottom: 10px;
-    background-color: var(--color-primary-hover);
-    color: #000000;
-  }
 
 [data-theme="dark-blue"] .products-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 55px;
+}
+[data-theme="dark-blue"] .quantity-controls
+{
+    margin-bottom: 22px;
+}
+[data-theme="dark-blue"] .quantity-btn
+{
+    border-radius: 0px;
 }
