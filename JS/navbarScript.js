@@ -23,7 +23,7 @@ function checkUser() {
     const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"));
     
     if (LoggedInUser) {
-        USERNAME.innerText = LoggedInUser.username;
+        USERNAME.innerText = LoggedInUser.firstName;
         return true;
     }else{ 
         USERNAME.innerText = "Login";
