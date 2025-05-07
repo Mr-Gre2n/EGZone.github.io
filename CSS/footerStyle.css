@@ -279,6 +279,6 @@ hr {
     color: var( --color-secondary-text);
   }
 
-  [data-theme="dark-blue"] .contact-section,.download , .top-hr , .social-media{
+  [data-theme="dark-blue"] .contact-section, [data-theme="dark-blue"] .download ,[data-theme="dark-blue"].social-media{
     display: none;
   }
