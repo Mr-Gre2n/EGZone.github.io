@@ -65,14 +65,14 @@ function showSlide(index) {
     dots[index].classList.add('active');
     currentSlide = index;
     
-    // If it's dark-blue theme, update the image sources directly
+    // If it's dark-blue theme, update the images
     if (isDarkBlueTheme) {
         updateSlideImagesForDarkTheme();
     }
 }
 
 function updateSlideImagesForDarkTheme() {
-    // Apply dark theme images to slides based on their index
+    // Apply dark theme images 
     slides.forEach((slide, index) => {
         if (index === 0) {
             slide.src = "../Materials/Banner/ad11.png";
@@ -119,10 +119,6 @@ function setupCategories() {
             </div>
         `;
 
-        card.querySelector('h3').addEventListener('click', function() {
-            navigateToSearchPage(category.title.toLowerCase().replace(/\s+/g, ''));
-        });
-
         section.appendChild(card);
     });
 }
@@ -143,49 +139,6 @@ function navigateToSearchPage(category) {
 }
 
 // === Products Methods ===
-function createProductsInLocalStorage() {
-    const products = [
-        {
-            ID: 1,
-            Image: '../Materials/Images/product8.jpg',
-            Title: 'Product 1',
-            Category: 'Category A',
-            Brand: 'Brand A',
-            Price: 100,
-            Discount: 10,
-            Quantity: 50,
-            Status: 'in stock',
-            Description: 'Description of Product 1'
-        },
-        {
-            ID: 2,
-            Image: '/Materials/Images/watch.jpg',
-            Title: 'Product 2',
-            Category: 'Category B',
-            Brand: 'Brand B',
-            Price: 200,
-            Discount: 20,
-            Quantity: 0,
-            Status: 'out of stock',
-            Description: 'Description of Product 2'
-        },
-        {
-            ID: 3,
-            Image: '/Materials/Images/watch.jpg',
-            Title: 'Product 3',
-            Category: 'Category C',
-            Brand: 'Brand C',
-            Price: 150,
-            Discount: 15,
-            Quantity: 70,
-            Status: 'in stock',
-            Description: 'Description of Product 3'
-        }
-    ];
-
-    localStorage.setItem('Products', JSON.stringify(products));
-    console.log('Products saved to localStorage.');
-}
 
 function isUserLoggedIn() {
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
