@@ -58,7 +58,6 @@ BTN_LOGIN.addEventListener("click", function (e) {
     }
     else{
         localStorage.setItem('LoggedInUser', JSON.stringify(user));
-        localStorage.setItem("isLoggedIn", "true");
         window.location.href = "../HTML/homePage.html" 
     }
 
