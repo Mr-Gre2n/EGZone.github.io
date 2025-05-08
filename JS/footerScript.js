@@ -1,32 +1,16 @@
 /***********************
-*      Variables
-***********************/
-
-/*********************************************************************************************************************/
-
-/***********************
 *      Methods
 ***********************/
 
 function checkIfLoggedInUser(){
-    
-    const loggedInUser = localStorage.getItem('LoggedInUser');
-    if (!loggedInUser) 
+    const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+    if (!loggedInUser || loggedInUser.length === 0) {
+      document.getElementById("add-product-link").style.display = "none";
       return;
-
-    try {
-      
-      const userData = JSON.parse(loggedInUser);
-      if (!userData || Object.keys(userData).length === 0)
-        return;
-  
+    }else{
       document.getElementById("login-link").style.display = "none";
       document.getElementById("sign-up-link").style.display = "none";
     }
-    catch (error) {
-      console.error('Error parsing user data:', error);
-    }
   }
 
-  //function check execution
-  window.addEventListener('DOMContentLoaded', checkIfLoggedInUser);
+checkIfLoggedInUser();
