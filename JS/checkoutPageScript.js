@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ***********************/
   // التحقق إذا كان في منتجات في ال localStorage
   function checkProductsInLocalStorage() {
-    const products = localStorage.getItem("products"); // حاول يجيب المنتجات من ال localStorage
+    const products = localStorage.getItem("Products"); // حاول يجيب المنتجات من ال localStorage
     if (products) {
       console.log("Products found in localStorage:", JSON.parse(products)); // لو لقى منتجات، بيطبعهم
       return JSON.parse(products); // بيرجع المنتجات اللي في ال localStorage
