@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const genderRadios = document.getElementsByName('gender');
     const checkBox = document.getElementById('checkBox');
     const img = document.getElementById('laptop');
-    const themeContactus = document.documentElement.getAttribute('data-theme');
+    const themeContactus = localStorage.getItem('Theme');;
     
     // Error message elements
     const firstNameError = document.getElementById('firstNameError');

@@ -4,7 +4,7 @@
             const cards = document.querySelectorAll('.card');
             // theme 
             const img = document.getElementById('missionPhoto');
-            const themeAbout = document.documentElement.getAttribute('data-theme');
+            const themeAbout = localStorage.getItem('Theme');
             
             // Clone cards to create infinite scrolling effect
             cards.forEach(card => {
