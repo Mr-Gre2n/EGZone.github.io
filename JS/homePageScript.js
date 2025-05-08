@@ -142,7 +142,7 @@ function navigateToSearchPage(category) {
 
 function isUserLoggedIn() {
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-    return loggedInUser && loggedInUser.length > 0;
+    return loggedInUser;
 }
 
 function getProductsFromLocalStorage() {
