@@ -9,7 +9,8 @@ const SIGN_OUT_BTN = document.getElementById("sign-out-btn");
 const PROFILE_BTN = document.getElementById("profile-btn");
 const USER_DROPDOWN = document.getElementById("user-btn");
 const SEARCH_INPUT = document.getElementById("search-bar-input");
-const THEME_BTN = document.getElementById("theme-icon");
+const THEME_BTN = document.getElementById("theme-btn");
+const THEME_ICON = document.getElementById("theme-icon");
 /***********************
 *      Variables
 ***********************/
@@ -82,12 +83,12 @@ function handleTheme(changeTheme = false) {
         const newTheme = isDark ? "light" : "dark-blue";
         localStorage.setItem("Theme", newTheme);
         document.documentElement.setAttribute("data-theme", newTheme);
-        THEME_BTN.classList.toggle("fa-sun", newTheme === "light");
-        THEME_BTN.classList.toggle("fa-moon", newTheme === "dark-blue");
+        THEME_ICON.classList.toggle("fa-sun", newTheme === "light");
+        THEME_ICON.classList.toggle("fa-moon", newTheme === "dark-blue");
     } else {
         document.documentElement.setAttribute("data-theme", currentTheme);
-        THEME_BTN.classList.toggle("fa-sun", currentTheme === "light");
-        THEME_BTN.classList.toggle("fa-moon", currentTheme === "dark-blue");
+        THEME_ICON.classList.toggle("fa-sun", currentTheme === "light");
+        THEME_ICON.classList.toggle("fa-moon", currentTheme === "dark-blue");
     }
 }
 
