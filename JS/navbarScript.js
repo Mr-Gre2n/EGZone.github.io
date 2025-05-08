@@ -74,6 +74,22 @@ function handleSearch(event) {
     }
 }
 
+function handleTheme(changeTheme = false) {
+    const currentTheme = localStorage.getItem("Theme") || "light";
+    const isDark = currentTheme === "dark-blue";
+
+    if (changeTheme) {
+        const newTheme = isDark ? "light" : "dark-blue";
+        localStorage.setItem("Theme", newTheme);
+        document.documentElement.setAttribute("data-theme", newTheme);
+        THEME_BTN.classList.toggle("fa-sun", newTheme === "light");
+        THEME_BTN.classList.toggle("fa-moon", newTheme === "dark-blue");
+    } else {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        THEME_BTN.classList.toggle("fa-sun", currentTheme === "light");
+        THEME_BTN.classList.toggle("fa-moon", currentTheme === "dark-blue");
+    }
+}
 
 /************************/
 /*         Events       */
@@ -106,18 +122,10 @@ PROFILE_BTN.addEventListener("click", function () {
 SEARCH_INPUT.addEventListener("keydown", handleSearch);
 
 THEME_BTN.addEventListener("click", function () {
-    if(THEME_BTN.classList.contains("fa-sun")){
-        THEME_BTN.classList.remove("fa-sun");
-        THEME_BTN.classList.add("fa-moon");
-        localStorage.setItem("Theme", "dark-blue");
-        document.documentElement.setAttribute("data-theme", "dark-blue");
-    }else{
-        THEME_BTN.classList.remove("fa-moon");
-        THEME_BTN.classList.add("fa-sun");
-        localStorage.setItem("Theme", "light-blue");
-        document.documentElement.setAttribute("data-theme", "light-blue");
-    }
+    handleTheme(true);
 })
+
+handleTheme(false);
 
 if(TITLE){
     SEARCH_INPUT.value = TITLE;
