@@ -33,6 +33,7 @@
 
 .social-link {
     align-items: end;
+    cursor: pointer;
 }
 
 .youtube-icon {
@@ -129,6 +130,7 @@ footer li a:hover {
     transform: translate(0,-20px);
     color: var(--color-primary);
     transition: 0.3 ease;
+    cursor: pointer;
 }
 
 .tel:hover{
@@ -157,6 +159,7 @@ footer li a:hover {
     padding: 10px;
     border-radius: 5px;
     transition: 0.3 ease;
+    cursor: pointer;
 }
 
 .download-link:hover {
