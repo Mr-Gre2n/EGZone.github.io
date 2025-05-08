@@ -17,5 +17,9 @@
             <a href="/HTML/homePage.html" class="button link_404">Back to Home</a>
         </div>
     </section>
+    <script>
+        const currentTheme = localStorage.getItem("Theme") || "light";
+        document.documentElement.setAttribute("data-theme", currentTheme);
+    </script>
 </body>
 </html>

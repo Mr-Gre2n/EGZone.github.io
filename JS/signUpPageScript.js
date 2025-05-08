@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const REGISTER_BUTTON = FORM.querySelector("button");
   const PASSWORD_TOGGLES = document.querySelectorAll(".password-toggle");
   const imgsingup = document.getElementById('iconic');
-  const theme = document.documentElement.getAttribute('data-theme');
+  const currentTheme = localStorage.getItem("Theme") || "light";
 
   /***********************
    *      Variables
@@ -269,6 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /***********************
    *     UI Events
    ***********************/
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
   /**
    * هنا أول ما المستخدم يبدأ يكتب في أي خانة بنشيل رسالة الخطأ اللي كانت بتظهرله
    */
@@ -301,5 +303,5 @@ document.addEventListener("DOMContentLoaded", () => {
       iconic.src='../Materials/Images/sidePhoto.jpg'
     }
   }
-  changePhotoTheme(theme);
+  changePhotoTheme(currentTheme);
 });

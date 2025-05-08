@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (loggedInUser) {
         window.location.href = "../HTML/homePage.html";
     }
+    const currentTheme = localStorage.getItem("Theme") || "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
 });
 
 BTN_LOGIN.addEventListener("click", function (e) {
