@@ -27,7 +27,7 @@ const categories = [
         ]
     },
     {
-        title: "SMARTPHONES",
+        title: "SMARTPHONE",
         image: "../Materials/smartphones.jpg",
         items: [
             { name: "Android", image: "../Materials/Images/product5.jpg" },
@@ -107,11 +107,11 @@ function setupCategories() {
         card.innerHTML = `
             <h3>${category.title}</h3>
             <div class="category-header">
-                <img src="${category.image}" alt="${category.title}" />
+                <img src="${category.image}" alt="${category.title}" onclick="navigateToSearchPage('${category.title}')"/>
             </div>
             <div class="category-items">
                 ${category.items.map(item => `
-                    <div class="item" onclick="navigateToProductPage('${item.name.toLowerCase().replace(/\s+/g, '')}')">
+                    <div class="item" onclick="navigateToSearchPage('${category.title}')">
                         <img src="${item.image}" alt="${item.name}">
                         <p>${item.name}</p>
                     </div>
@@ -142,7 +142,7 @@ function navigateToSearchPage(category) {
 
 function isUserLoggedIn() {
     const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
-    return loggedInUser && loggedInUser.length > 0;
+    return loggedInUser;
 }
 
 function getProductsFromLocalStorage() {
@@ -272,19 +272,19 @@ function addToCart(productId) {
     let cart = getCartFromLocalStorage();
     const existingItem = cart.find(item => item.ID === productId);
     
-    const currentQuantity = existingItem ? existingItem.quantity : 0;
+    const currentQuantity = existingItem ? existingItem.Quantity : 0;
     if (currentQuantity >= product.Quantity) {
         alert(`Sorry, only ${product.Quantity} items available in stock.`);
         return;
     }
     
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.Quantity += 1;
     } else {
+        product.Quantity = 1;
         // Create a copy of the product and add quantity property
         const cartItem = {
             ...product,
-            quantity: 1
         };
         cart.push(cartItem);
     }
@@ -312,13 +312,13 @@ function updateCartItemQuantity(productId, change) {
     const product = products.find(p => p.ID === productId);
     
     // Check if increasing would exceed available quantity
-    if (change > 0 && item.quantity + change > product.Quantity) {
+    if (change > 0 && item.Quantity + change > product.Quantity) {
         alert(`Sorry, only ${product.Quantity} items available in stock.`);
         return;
     }
     
-    item.quantity += change;
-    if (item.quantity <= 0) {
+    item.Quantity += change;
+    if (item.Quantity <= 0) {
         cart = cart.filter(p => p.ID !== productId);
     }
     
@@ -344,7 +344,7 @@ function displayCart() {
     
     cart.forEach(item => {
         const discountedPrice = calculateDiscountedPrice(item.Price, item.Discount);
-        const itemTotal = discountedPrice * item.quantity;
+        const itemTotal = discountedPrice * item.Quantity;
         total += itemTotal;
         
         const cartItem = document.createElement('div');
@@ -361,7 +361,7 @@ function displayCart() {
                 <div class="cart-item-actions">
                     <div class="quantity-control">
                         <button class="quantity-btn minus" onclick="updateCartItemQuantity(${item.ID}, -1)">-</button>
-                        <span class="quantity">${item.quantity}</span>
+                        <span class="quantity">${item.Quantity}</span>
                         <button class="quantity-btn plus" onclick="updateCartItemQuantity(${item.ID}, 1)">+</button>
                     </div>
                     <button class="remove-btn" onclick="removeFromCart(${item.ID})">
@@ -396,7 +396,7 @@ function updateCartCount() {
     if (!cartBadge) return;
     
     const cart = getCartFromLocalStorage();
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const itemCount = cart.reduce((total, item) => total + item.Quantity, 0);
     
     cartBadge.textContent = itemCount;
     cartBadge.style.display = itemCount > 0 ? 'flex' : 'none';
@@ -426,11 +426,11 @@ function setupHotSalesNavigation() {
             }
         });
         
-        const addToCartBtn = product.querySelector('.add-to-cart');
-        if (addToCartBtn) {
-            addToCartBtn.addEventListener('click', function(e) {
+        const productcategory = product.querySelector('.product-category');
+        if (productcategory) {
+            productcategory.addEventListener('click', function(e) {
                 e.stopPropagation(); 
-                addToCart(parseInt(productId));
+                navigateToSearchPage(productcategory.textContent.trim());
             });
         }
     });
