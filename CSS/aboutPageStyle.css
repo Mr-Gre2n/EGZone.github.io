@@ -240,7 +240,7 @@ justify-content: flex-end;
 .cards-container {
         display: flex;
         width: max-content;
-        animation: sliding-cards 35s linear infinite;
+        animation: sliding-cards 40s linear infinite;
 }
 .cards-container:hover {
     animation-play-state: paused;
