@@ -13,7 +13,8 @@ const THEME_BTN = document.getElementById("theme-icon");
 /***********************
 *      Variables
 ***********************/
-
+// Get TITLE
+const TITLE = new URLSearchParams(window.location.search).get("title");
 /*************************/
 /*        Methods        */
 /*************************/
@@ -59,7 +60,6 @@ function updateCartCountDisplay() {
 // function to sign out the user and remove their data from local storage
 function signOutUser() {
     localStorage.removeItem("LoggedInUser");
-    localStorage.setItem("isLoggedIn", "false");
     location.reload();
 }
 
@@ -118,3 +118,7 @@ THEME_BTN.addEventListener("click", function () {
         document.documentElement.setAttribute("data-theme", "light-blue");
     }
 })
+
+if(TITLE){
+    SEARCH_INPUT.value = TITLE;
+}
