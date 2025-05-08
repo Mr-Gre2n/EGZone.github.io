@@ -488,6 +488,9 @@ background-color: var(--color-background);
     margin: 3rem auto;
     padding: 2rem;
     background-color: #1a1a1a; /* خلفية داكنة */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px  rgba(255, 255, 255, 0.1);
+    /* margin: 50px auto; */
 }
 
 [data-theme="dark-blue"] .leadership h2 {
@@ -626,4 +629,11 @@ background-color: var(--color-background);
 
 [data-theme="dark-blue"] .mission-img{
     background: transparent;
+}
+[data-theme="dark-blue"] .timelineAndLeadership, .mission,.timeline{
+    background-image: url(../Materials/Images/background\ for\ signup2.jpg);
+    background-size: cover;
+}
+[data-theme="dark-blue"] .timeline-content, .mission-text{
+    background-color: rgba(30, 30, 30, 0.6);
 }

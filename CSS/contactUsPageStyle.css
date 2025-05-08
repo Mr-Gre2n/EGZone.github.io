@@ -361,3 +361,9 @@ h1:after{
   [data-theme="dark-blue"] .card-back{
     background: linear-gradient(90deg, #021b79 40%, #0575e6 100%);
   }
+  [data-theme="dark-blue"] body{
+      background-image:url(../Materials/Images/background\ for\ signup2.jpg) ;
+  }
+  [data-theme="dark-blue"] .pageContainer{
+    background-color: rgba(30, 30, 30,0.55);
+  }
