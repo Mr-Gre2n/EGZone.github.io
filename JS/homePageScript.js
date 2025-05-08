@@ -27,7 +27,7 @@ const categories = [
         ]
     },
     {
-        title: "SMARTPHONES",
+        title: "SMARTPHONE",
         image: "../Materials/smartphones.jpg",
         items: [
             { name: "Android", image: "../Materials/Images/product5.jpg" },
@@ -107,11 +107,11 @@ function setupCategories() {
         card.innerHTML = `
             <h3>${category.title}</h3>
             <div class="category-header">
-                <img src="${category.image}" alt="${category.title}" />
+                <img src="${category.image}" alt="${category.title}" onclick="navigateToProductPage('${category.title}')"/>
             </div>
             <div class="category-items">
                 ${category.items.map(item => `
-                    <div class="item" onclick="navigateToProductPage('${item.name.toLowerCase().replace(/\s+/g, '')}')">
+                    <div class="item" onclick="navigateToProductPage('${category.title}')">
                         <img src="${item.image}" alt="${item.name}">
                         <p>${item.name}</p>
                     </div>
@@ -156,7 +156,7 @@ function calculateDiscountedPrice(price, discount) {
 function navigateToProductPage(productId) {
     
     const cleanProductId = productId.replace(/\s+/g, '');
-    window.location.href = `productPage.html?id=${cleanProductId}`;
+    window.location.href = `searchPage.html?category=${cleanProductId}`;
 }
 
 function navigateToAddProductPage(productId = null) {
