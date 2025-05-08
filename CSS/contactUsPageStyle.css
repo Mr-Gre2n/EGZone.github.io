@@ -60,6 +60,7 @@ h1:after{
     content: " *";
     color: #e32;
   }
+
   /* ===================================== */
   /* labels&forms&button in mainStyle.css */
   /* =================================== */
@@ -366,4 +367,7 @@ h1:after{
   }
   [data-theme="dark-blue"] .pageContainer{
     background-color: rgba(30, 30, 30,0.55);
+  }
+  [data-theme="dark-blue"] .info-container{
+    background-color: rgba(30, 30, 30,0.6);
   }
