@@ -178,12 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
    *     Data Events
    ***********************/
   // check if the user is already logged in
-document.addEventListener("DOMContentLoaded", function () {
   const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+  console.log(loggedInUser);
   if (loggedInUser) {
       window.location.href = "../HTML/homePage.html";
   }
-});
 
   /**
    * هنا بنظبط الدنيا لما المستخدم يضغط على زرار التسجيل
