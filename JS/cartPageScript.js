@@ -32,8 +32,11 @@ function cartItemsLocalStorage(){
                         <h3 class="product-title">${cart[i].Title}</h3>
                         
                         <!-- Price -->
-                        <p class="product-price">$${cart[i].Price - cart[i].Discount}</p>
-                        
+                        <div class="price-container">
+                            <p class="product-price">$${cart[i].Price - cart[i].Discount}</p>
+                            <p class="product-discount">$${cart[i].Price}</p>
+                        </div>
+
                         <!-- changing quantity the user need of this product -->
                         <div class="quantity">
                             <button class="decrement" data-product-id="${cart[i].ID}"><em>-</em></button>
@@ -51,8 +54,29 @@ function cartItemsLocalStorage(){
 
             // Append the cart item to the container
             cartItemsContainer.appendChild(product);
+
+            if(cart[i].Discount == "" || cart[i].Discount == 0){
+                product.querySelector(".product-discount").style.display = "none";
+                product.querySelector(".product-price").classList.add("only");
+            }
         };
     }
+    
+    document.querySelectorAll(".increment").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const productID = btn.getAttribute("data-product-id");
+            const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
+            increment(productID,productQuantity);
+        });
+    });
+
+    document.querySelectorAll(".decrement").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const productID = btn.getAttribute("data-product-id");
+            const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
+            decrement(productID,productQuantity);
+        });
+    });
 }
 cartItemsLocalStorage();
 
@@ -63,23 +87,23 @@ cartItemsContainer.addEventListener("click", (e) =>{
         e.target.parentElement.remove();
         // remove the item from local storage
         const productID = document.querySelector(".removeButton[data-product-id='${productID}']");
-        console.log(productID);
+        // console.log(productID);
         removeItem(productID);
     }
     // check if the user click on the increment or decrement button  
     // increment and decrement the quantity of the product
-    if(e.target.classList.contains("increment")){
-        // increment the quantity of the product
-        const productID = e.target.getAttribute("data-product-id");
-        const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
-        increment(productID,productQuantity);
-    }
-    if(e.target.classList.contains("decrement")){
-        // decrement the quantity of the product
-        const productID = e.target.getAttribute("data-product-id");
-        const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
-        decrement(productID,productQuantity);
-    }
+    // if(e.target.classList.contains("increment")){
+    //     // increment the quantity of the product
+    //     const productID = e.target.getAttribute("data-product-id");
+    //     const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
+    //     increment(productID,productQuantity);
+    // }
+    // if(e.target.classList.contains("decrement")){
+    //     // decrement the quantity of the product
+    //     const productID = e.target.getAttribute("data-product-id");
+    //     const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
+    //     decrement(productID,productQuantity);
+    // }
 });
 
 // increment and decrement the quantity of the product
@@ -126,7 +150,7 @@ function decrement(productID,productQuantity){
     if(productQuantity > 1){
         productQuantity--;
         // update the quantity in local storage
-
+        console.log(productQuantity);
         cart[productIndex].Quantity = productQuantity;
         window.localStorage.setItem("Cart", JSON.stringify(cart));
     }
@@ -159,7 +183,7 @@ function subTotalPrice(){
         }
         // update the subtotal value in the page
         cartSubTotalPrice.innerText = subTotal.toFixed(2);
-        console.log("subtotal: ",subTotal);
+        // console.log("subtotal: ",subTotal);
         return subTotal;
     } else{
         cartSubTotalPrice.innerText = `0.00`;
@@ -179,7 +203,7 @@ function discountCalc(){
             }   
         }
     }
-    console.log("Discount:",discountValue);
+    // console.log("Discount:",discountValue);
     if(discountValue>0){
         discount.innerText = discountValue.toFixed(2);
         return discountValue;
@@ -192,7 +216,7 @@ function discountCalc(){
 function totalPrice(){
     // Calculate total price
     orderTotal = subTotalPrice() - discountCalc();
-    console.log("Total: ",orderTotal);
+    // console.log("Total: ",orderTotal);
     cartTotalPrice.innerText = orderTotal.toFixed(2);
 }
 totalPrice();

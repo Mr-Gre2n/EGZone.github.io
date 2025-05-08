@@ -34,7 +34,7 @@ h1{
     background-color:var(--color-gray-200);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    height: 240px;
+    /* height: 240px; */
     width: 100%;
 }
 .cart-item:hover{
@@ -65,8 +65,20 @@ h1{
 }
 
 .cart-item .product-price{
-    font-size: var(--font-size-base);
-    color: var(--color-gray-600);
+    color: red;
+    font-size:var(--font-size-xlg); 
+}
+
+.cart-item .product-discount{
+    color: var(--color-secondary-text);
+    font-size: var(--font-size-lg); 
+    text-decoration: line-through;
+}
+
+.cart-item .product-price.only{ 
+    color: var(--color-primary-text);
+    font-size: var(--font-size-xlg); 
+    text-decoration: none;
 }
 
 .cart-item .price{
@@ -155,6 +167,13 @@ h1{
     position:absolute;
     right: 40px;
     font-weight: bold;
+}
+
+.price-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 #checkout{
