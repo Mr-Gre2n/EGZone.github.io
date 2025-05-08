@@ -263,7 +263,7 @@
     align-self: center;
     width: 790px;    
     height: 370px;   
-    object-fit: cover;  
+    object-fit: contain;  
     border-radius: 16px;
     margin: auto;
 }
