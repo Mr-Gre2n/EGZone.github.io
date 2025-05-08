@@ -881,6 +881,12 @@ margin-right: 5px;
     content: none !important;
   }
 
+  /* hot sale */
+  [data-theme="dark-blue"] .add-to-cart,
+  [data-theme="dark-blue"] .product-badge {
+    color: var(--color-black);
+  }
+
   /* responsive */
   @media (max-width: 768px) {
   [data-theme="dark-blue"] .categories-grid {
