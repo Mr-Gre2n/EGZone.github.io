@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // تحميل قائمة المستخدمين من localStorage
-  let savedUsers = JSON.parse(localStorage.getItem("usersList")) || [];
+  let savedUsers = JSON.parse(localStorage.getItem("Users")) || [];
 
   /***********************
    *      Methods
@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
    * هنا بنشوف هل اسم المستخدم موجود قبل كده ولا لأ (علشان ميكونش مكرر)
    */
   async function checkUsernameUniqueness(username) {
-    await new Promise((resolve) => setTimeout(resolve, 500)); // بنأخر النتيجة شوية ويكأن في ضغط على السيرفر وكده (يحسبها حركة)
+    // await new Promise((resolve) => setTimeout(resolve, 500)); // بنأخر النتيجة شوية ويكأن في ضغط على السيرفر وكده (يحسبها حركة)
 
     // بنشوف هل الاسم موجود في اللي اتسجلوا قبل كده
     const USER_EXISTS = savedUsers.some(
-      (user) => user.username.toLowerCase() === username.toLowerCase()
+      (user) => user.Username.toLowerCase() === username.toLowerCase()
     );
 
     if (USER_EXISTS) {
@@ -146,11 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("Users", JSON.stringify(savedUsers));
 
     // بنحدد أن المستخدم مسجل دخول
-    localStorage.setItem("currentUser", JSON.stringify(userData));
-    localStorage.setItem("isLoggedIn", "true");
-
-    console.log("New user created:", userData);
-    console.log("Current user list:", savedUsers);
+    localStorage.setItem("LoggedInUser", JSON.stringify(userData));
 
     // بنوديه على الصفحة الرئيسية
     redirectToHomePage();
@@ -181,6 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
   /***********************
    *     Data Events
    ***********************/
+  // check if the user is already logged in
+document.addEventListener("DOMContentLoaded", function () {
+  const loggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+  if (loggedInUser) {
+      window.location.href = "../HTML/homePage.html";
+  }
+});
+
   /**
    * هنا بنظبط الدنيا لما المستخدم يضغط على زرار التسجيل
    */
@@ -236,14 +240,25 @@ document.addEventListener("DOMContentLoaded", () => {
       removeError(CONFIRM_PASSWORD_INPUT);
     }
 
+    let maxID = 0; // Default value if no products exist
+    if (savedUsers.length > 0) {
+      for (let i = 0; i < savedUsers.length; i++) {
+        if (savedUsers[i].ID > maxID) {
+          maxID = savedUsers[i].ID;
+        }
+      }
+    }
+
     // لو كل حاجة تمام بنسجل المستخدم
     if (isValid) {
       const NEW_USER = {
-        username: USERNAME,
-        password: PASSWORD, 
+        ID: maxID + 1,
         firstName: FIRST_NAME,
-        lastName: LAST_NAME,
-        registrationDate: new Date().toISOString(),
+        LastName: LAST_NAME,
+        Username: USERNAME,
+        Password: PASSWORD, 
+        Phone: '',
+        Email: '',
       };
 
       createUser(NEW_USER);
