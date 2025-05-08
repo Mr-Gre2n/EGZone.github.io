@@ -107,11 +107,11 @@ function setupCategories() {
         card.innerHTML = `
             <h3>${category.title}</h3>
             <div class="category-header">
-                <img src="${category.image}" alt="${category.title}" onclick="navigateToProductPage('${category.title}')"/>
+                <img src="${category.image}" alt="${category.title}" onclick="navigateToSearchPage('${category.title}')"/>
             </div>
             <div class="category-items">
                 ${category.items.map(item => `
-                    <div class="item" onclick="navigateToProductPage('${category.title}')">
+                    <div class="item" onclick="navigateToSearchPage('${category.title}')">
                         <img src="${item.image}" alt="${item.name}">
                         <p>${item.name}</p>
                     </div>
@@ -156,7 +156,7 @@ function calculateDiscountedPrice(price, discount) {
 function navigateToProductPage(productId) {
     
     const cleanProductId = productId.replace(/\s+/g, '');
-    window.location.href = `searchPage.html?category=${cleanProductId}`;
+    window.location.href = `productPage.html?id=${cleanProductId}`;
 }
 
 function navigateToAddProductPage(productId = null) {
@@ -426,13 +426,13 @@ function setupHotSalesNavigation() {
             }
         });
         
-        // const addToCartBtn = product.querySelector('.add-to-cart');
-        // if (addToCartBtn) {
-        //     addToCartBtn.addEventListener('click', function(e) {
-        //         e.stopPropagation(); 
-        //         addToCart(parseInt(productId));
-        //     });
-        // }
+        const productcategory = product.querySelector('.product-category');
+        if (productcategory) {
+            productcategory.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                navigateToSearchPage(productcategory.textContent.trim());
+            });
+        }
     });
 }
 
