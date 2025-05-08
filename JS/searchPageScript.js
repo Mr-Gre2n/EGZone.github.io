@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Title parameter from URL
   const titleParam = getParameterByName('Title') || getParameterByName('title');
-  console.log("Title parameter:", titleParam);
+  // console.log("Title parameter:", titleParam);
   
   if (titleParam) {
     filteredProductsByURL = filteredProductsByURL.filter(product => 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Category parameter from URL
   const categoryParam = getParameterByName('Category') || getParameterByName('category');
-  console.log("Category parameter:", categoryParam);
+  // console.log("Category parameter:", categoryParam);
 
   // Further filter products by category if parameter exists
   if (categoryParam) {
@@ -102,7 +102,9 @@ function generateBrandFilters(products) {
           <span class="checkmark"></span>
           ${brand}
       `;
-      
+      // if (brandOptionsContainer.children.length > 7) {
+      //   return;
+      // }
       brandOptionsContainer.appendChild(label);
   });
 }
@@ -179,7 +181,7 @@ generateBrandFilters(products);
     const discountedPrice = calculateDiscountedPrice(product);
     const inStock = product.Status === "in stock";
     const cart = JSON.parse(localStorage.getItem("Cart")) || [];
-    const cartItem = cart.find(item => item.id === product.ID);
+    const cartItem = cart.find(item => item.ID === product.ID);
     const availableQuantity = product.Quantity;
 
     productElement.innerHTML = `
@@ -206,8 +208,8 @@ generateBrandFilters(products);
        
         <div class="quantity-controls ${!inStock || !cartItem ? 'hidden' : ''}" data-product-id="${product.ID}">
             <button class="quantity-btn minus-btn">-</button>
-            <span class="quantity-display">${cartItem ? cartItem.quantity : 1}</span>
-            <button class="quantity-btn plus-btn" ${cartItem && cartItem.quantity >= availableQuantity ? 'disabled' : ''}>+</button>
+            <span class="quantity-display">${cartItem ? cartItem.Quantity : 1}</span>
+            <button class="quantity-btn plus-btn" ${cartItem && cartItem.Quantity >= availableQuantity ? 'disabled' : ''}>+</button>
         </div>
         <button class="addbutton ${!inStock ? 'out-of-stock-btn' : cartItem ? 'hidden' : 'add-to-cart-btn'}" 
                 ${!inStock || availableQuantity <= 0 ? 'disabled' : ''} 
@@ -249,23 +251,28 @@ generateBrandFilters(products);
     const discountedPrice = calculateDiscountedPrice(product);
 
     if (existingItem) {
-        if (existingItem.quantity < product.Quantity) {
-            existingItem.quantity += 1;
+        if (existingItem.Quantity < product.Quantity) {
+            existingItem.Quantity += 1;
         } else {
-            showCartNotification(product.Title, existingItem.quantity, product.Quantity, true);
+            showCartNotification(product.Title, existingItem.Quantity, product.Quantity, true);
             return;
         }
+
+        
     } else {
         if (product.Quantity > 0) {
             cart.push({
-                id: product.ID,
-                title: product.Title,
-                price: product.Price,
-                discount: product.Discount,
-                discountedPrice: discountedPrice,
-                image: product.Image,
-                quantity: 1,
-                maxQuantity: product.Quantity
+                ID:  product.ID,
+                Image:  product.Image,
+                Title:  product.Title,
+                Category:  product.Category,
+                Brand: product.Brand,
+                Price: product.Price,
+                Discount: product.Discount,
+                Quantity: 1,
+                isNew: product.isNew,
+                Status: product.Status,
+                Description: product.Description,
             });
         } else {
             showCartNotification(product.Title, 0, product.Quantity, true);
@@ -274,7 +281,7 @@ generateBrandFilters(products);
     }
 
     localStorage.setItem("Cart", JSON.stringify(cart));
-    showCartNotification(product.Title, existingItem?.quantity || 1, product.Quantity);
+    showCartNotification(product.Title, existingItem?.Quantity || 1, product.Quantity);
     toggleQuantityControls(product.ID, true);
   }
 
@@ -298,11 +305,11 @@ generateBrandFilters(products);
 
   function updateQuantity(productId, change, maxQuantity) {
     const cart = JSON.parse(localStorage.getItem("Cart")) || [];
-    const productIndex = cart.findIndex(item => item.id === productId);
+    const productIndex = cart.findIndex(item => item.ID === productId);
     
     if (productIndex !== -1) {
-        const newQuantity = cart[productIndex].quantity + change;
-        const productTitle = cart[productIndex].title;
+        const newQuantity = cart[productIndex].Quantity + change;
+        const productTitle = cart[productIndex].Title;
         
         if (newQuantity < 1) {
             cart.splice(productIndex, 1);
@@ -316,7 +323,7 @@ generateBrandFilters(products);
             showCartNotification(productTitle, newQuantity - 1, maxQuantity, true);
             return;
         } else {
-            cart[productIndex].quantity = newQuantity;
+            cart[productIndex].Quantity = newQuantity;
         }
         
         localStorage.setItem("Cart", JSON.stringify(cart));
@@ -327,15 +334,15 @@ generateBrandFilters(products);
             const plusBtn = productElement.querySelector('.plus-btn');
             
             if (quantityDisplay) {
-                quantityDisplay.textContent = cart[productIndex]?.quantity || '1';
+                quantityDisplay.textContent = cart[productIndex]?.Quantity || '1';
             }
             
             if (plusBtn) {
-                plusBtn.disabled = cart[productIndex]?.quantity >= maxQuantity;
+                plusBtn.disabled = cart[productIndex]?.Quantity >= maxQuantity;
             }
         }
         
-        showCartNotification(productTitle, cart[productIndex]?.quantity || 0, maxQuantity);
+        showCartNotification(productTitle, cart[productIndex]?.Quantity || 0, maxQuantity);
     }
 }
 
