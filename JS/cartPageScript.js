@@ -77,37 +77,18 @@ function cartItemsLocalStorage(){
             decrement(productID,productQuantity);
         });
     });
+    
+    document.querySelectorAll(".removeButton").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const productID = btn.getAttribute("data-product-id");
+            removeItem(productID);
+            btn.parentElement.remove();
+        });
+    });
 }
 cartItemsLocalStorage();
 
-cartItemsContainer.addEventListener("click", (e) =>{
-    //Remove Item from cart
-    if(e.target.classList.contains("removeButton")){
-        //remove the item from page
-        e.target.parentElement.remove();
-        // remove the item from local storage
-        const productID = document.querySelector(".removeButton[data-product-id='${productID}']");
-        // console.log(productID);
-        removeItem(productID);
-    }
-    // check if the user click on the increment or decrement button  
-    // increment and decrement the quantity of the product
-    // if(e.target.classList.contains("increment")){
-    //     // increment the quantity of the product
-    //     const productID = e.target.getAttribute("data-product-id");
-    //     const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
-    //     increment(productID,productQuantity);
-    // }
-    // if(e.target.classList.contains("decrement")){
-    //     // decrement the quantity of the product
-    //     const productID = e.target.getAttribute("data-product-id");
-    //     const productQuantity = parseInt(document.querySelector(`.product-quantity[data-product-id="${productID}"]`).innerHTML);
-    //     decrement(productID,productQuantity);
-    // }
-});
-
 // increment and decrement the quantity of the product
-
 function increment(productID,productQuantity){
 let productIndex;
     for(let i=0; i<products.length;i++){
