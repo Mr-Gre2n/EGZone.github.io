@@ -85,6 +85,7 @@ function handleTheme(changeTheme = false) {
         document.documentElement.setAttribute("data-theme", newTheme);
         THEME_ICON.classList.toggle("fa-sun", newTheme === "light");
         THEME_ICON.classList.toggle("fa-moon", newTheme === "dark-blue");
+        window.location.reload();
     } else {
         document.documentElement.setAttribute("data-theme", currentTheme);
         THEME_ICON.classList.toggle("fa-sun", currentTheme === "light");
