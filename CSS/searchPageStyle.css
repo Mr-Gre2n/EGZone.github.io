@@ -529,7 +529,7 @@ position: absolute;
 [data-theme="dark-blue"] .add-to-cart-btn{
     width:200px;
     background-color: var(--color-primary-hover);
-    color: #000000;
+    color: var(--color-black);
   }
 
 /* ------------------------------------------ */
