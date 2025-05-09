@@ -29,8 +29,22 @@
         <div class="form-group">
           <label for="country">Country / Region <span>*</span></label>
           <select id="country" required>
-            <option value="EG">Egypt</option>
+              <option value="EG">Egypt (EG)</option>
+              <option value="US">United States (US)</option>
+              <option value="UK">United Kingdom (UK)</option>
+              <option value="CA">Canada (CA)</option>
+              <option value="AU">Australia (AU)</option>
+              <option value="DE">Germany (DE)</option>
+              <option value="FR">France (FR)</option>
+              <option value="JP">Japan (JP)</option>
+              <option value="CN">China (CN)</option>
+              <option value="IN">India (IN)</option>
+              <option value="BR">Brazil (BR)</option>
           </select>
+        </div>
+        <div class="form-group">
+          <label for="town-city">Town / City <span>*</span></label>
+          <input type="text" id="town-city" required />
         </div>
         <div class="form-group">
           <label for="street-address">Street Address <span>*</span></label>
@@ -42,22 +56,6 @@
           />
         </div>
         <div class="form-group">
-          <label for="apartment">Apartment, suite, unit, etc. (Optional)</label>
-          <input type="text" id="apartment" />
-        </div>
-        <div class="form-group">
-          <label for="town-city">Town / City <span>*</span></label>
-          <input type="text" id="town-city" required />
-        </div>
-        <div class="form-group">
-          <label for="state">State / County <span>*</span></label>
-          <select id="state" required>
-            <option value="Cairo">Cairo</option>
-            <option value="Helwan">Helwan</option>
-            <option value="Giza">Giza</option>
-          </select>
-        </div>
-        <div class="form-group">
           <label for="phone">Phone Number <span>*</span></label>
           <input type="tel" id="phone" required />
         </div>
@@ -65,17 +63,12 @@
           <label for="email">Email Address <span>*</span></label>
           <input type="email" id="email" required />
         </div>
-        <div class="form-group">
-          <label>
-            <a href="..\HTML\signUpPage.html">Create an account?</a>
-          </label>
-        </div>
         <h2>ADDITIONAL INFORMATION</h2>
         <div class="form-group">
           <label for="order-notes">Order Notes (Optional)</label>
           <textarea
             id="order-notes"
-            placeholder="Notes about your order, e.g. special note for delivery"
+            placeholder="Notes about your order, e.g. special note for delivery" rows="9"
           ></textarea>
         </div>
       </div>
@@ -86,15 +79,17 @@
           <p>PRODUCT</p>
           <p>SUB TOTAL</p>
         </div>
-
-        <div class="order-item">
-          <p>Sample Product x 1</p>
-          <p class="price">$50.00</p>
+        
+        <div id="items-container">
+          <!-- <div class="order-item">
+            <p>Sample Product x 1</p>
+            <p class="price">$50.00</p>
+          </div> -->
         </div>
 
         <div class="order-total">
           <p>ORDER TOTAL</p>
-          <p class="price">$50.00</p>
+          <p id="order-total">$50.00</p>
         </div>
         <div class="payment-methods">
           <label class="payment-option">
@@ -111,7 +106,7 @@
               class="payment-logo"
             />
           </label>
-          <div class="direct-bank-transfer payment-details">
+          <div class="direct-bank-transfer-details payment-details"> 
             <p>
               Make your payment directly into our bank account. Please use your
               Order ID as the payment reference. Your order will not be shipped
@@ -133,6 +128,12 @@
             />
           </label>
 
+          <div class="cash-on-delivery-details payment-details"> 
+            <p>
+              Pay with cash upon delivery. Please have the exact amount ready.
+            </p>
+          </div>
+
           <label class="payment-option">
             <input type="radio" name="payment-method" value="paypal" />
             PayPal
@@ -141,9 +142,15 @@
               alt="PayPal"
               class="payment-logo"
             />
-          </label>
+          </label> 
+          <div class="paypal-details payment-details"> 
+            <p>
+              You will be redirected to PayPal to complete your payment securely.
+            </p>
+          </div>
+
         </div>
-        <button class="place-order-btn">PLACE ORDER</button>
+        <button class="button place-order-btn">PLACE ORDER</button>
       </div>
     </div>
     <script src="../JS/checkoutPageScript.js"></script>
