@@ -170,12 +170,8 @@ button:hover {
 }
 
 [data-theme="dark-blue"] .container{
-  width: 900px;
   display: grid;
   margin: 50px 50px;
   background-color: rgba(30, 30, 30,0.55);
   box-shadow: 2px 2px 10px  rgba(255, 255, 255, 0.1);
-}
-[data-theme="dark-blue"] .password-toggle{
-    right: 24.5%;
-}
+}   
