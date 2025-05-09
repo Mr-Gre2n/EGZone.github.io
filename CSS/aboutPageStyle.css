@@ -589,7 +589,7 @@ background-color: var(--color-background);
 }
 
 /* تصميم أيقونات التواصل الاجتماعي للوضع الداكن */
-[data-theme="dark-blue"] .team-member-social {
+[data-theme="dark-blue"] .team-member-social, .team-member-bio {
     display: flex;
     justify-content: center;
     gap: 1rem;
