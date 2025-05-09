@@ -1,10 +1,3 @@
-body {
-  font-family:var(--font-family);
-  background-color: var(--color-background);
-  margin: 0;
-  padding: 20px;
-}
-
 .container {
   display: flex;
   width: 100%;
@@ -19,18 +12,18 @@ body {
   background-color: var(--color-white);
   padding: 30px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--page-shadow);
+  height: fit-content;
 }
 
 .order-summary {
-  position: sticky;
   top: 20px;
   flex: 0.8;
-  background-color: var(--color-gray-100);
+  background-color: var(--color-gray-50);
   padding: 25px;
   height: fit-content;
   border-radius: 5px;
-  box-shadow:  0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--page-shadow);
 }
 
 h1 {
@@ -39,25 +32,13 @@ h1 {
   color: var(--color-secondary-text);
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: var(--color-secondary-text);
-}
-
-h3 {
-  font-size: 16px;
-  margin-bottom: 15px;
-  color: var(--color-gray-300);
-}
-
 .form-group {
   margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   margin-bottom: 8px;
   font-weight: 500;
 }
@@ -67,32 +48,6 @@ h3 {
   margin-left: 2px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--color-secondary-text);
-  border-radius: 5px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1.5;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-gray-300);
-  box-shadow: var(--page-shadow);
-}
-
-.form-group textarea::placeholder {
-  color: var(--color-gray-300);
-  font-style: italic;
-}
 
 .form-group-row {
   display: flex;
@@ -104,7 +59,7 @@ h3 {
   flex: 1;
   margin-bottom: 0;
 }
-
+/* Order */
 .order-header p {
   color: var(--color-black);
   font-weight: 600;
@@ -118,116 +73,32 @@ h3 {
 .order-total p {
   color: var(--color-black);;
   font-weight: 700;
+  font-size: var(--font-size-base);
+  margin: 0;
 }
 
 .order-item,
-.order-header,
-.order-discount,
 .order-total {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
-  padding-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .order-total {
   border-bottom: none;
-}
-
-.order-item p,
-.order-header p,
-.order-discount p,
-.order-total p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.confirmation-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.confirmation-box {
-  background-color: var(--color-gray-50);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.confirmation-box h2 {
-  margin-bottom: 20px;
-  color: var(--color-primary);
-}
-
-.confirmation-box p {
-  margin-bottom: 15px;
-}
-
-.confirmation-box div {
-  margin-bottom: 20px;
-}
-
-.confirmation-box button {
-  background-color:var(--color-primary);;
-  color: var(--color-white);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.cash-on-delivery-details {
-  background-image:linear-gradient(90deg, rgba(42, 123, 155, 1) 40%, rgba(87, 199, 133, 1) 100%);
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.paypal-details {
-  background: linear-gradient(90deg,#021b79  40%, #0575e6 100%);;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.character-counter {
-  font-size: 12px;
-  color: var(--color-gray-300);
-  text-align: right;
-  margin-top: 5px;
-}
-
-.price {
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.order-total {
-  font-size: 18px;
-  margin-top: 20px;
-  border-top: 1px solid var(--color-white);
+  margin-top: 20px;  
+  border-top: 1px solid var(--color-gray-300);
   padding-top: 15px;
 }
+
+/* payment */
 
 .payment-methods {
   margin-top: 25px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .payment-option {
@@ -240,7 +111,7 @@ h3 {
 }
 
 .payment-option:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--color-gray-200);
 }
 
 .payment-methods input[type="radio"] {
@@ -258,35 +129,34 @@ h3 {
 }
 
 .payment-details {
+  display: none;
   margin-bottom: 15px;
   border-radius: 5px;
   padding: 12px;
-  overflow: hidden;
   transition: all 0.3s ease;
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
 }
 
-.direct-bank-transfer {
-  background-image: linear-gradient(90deg, #c02425 30%, #f0cb35 100%);;
+.direct-bank-transfer-details {
+  display: block;
+  background-image: linear-gradient(90deg, #c02425 30%, #f0cb35 100%);
 }
+
+.cash-on-delivery-details {
+  background-image:linear-gradient(90deg, rgba(42, 123, 155, 1) 40%, rgba(87, 199, 133, 1) 100%);
+}
+
+.paypal-details {
+  background: linear-gradient(90deg,#021b79  40%, #0575e6 100%);;
+}
+
 
 .place-order-btn {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: 15px;
-  border: none;
-  border-radius: 15px;
+  height: 45px;
   width: 100%;
-  font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
   margin-top: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.place-order-btn:hover {
-  background-color: var(--color-primary-hover);
 }
 
 input.error,
@@ -298,15 +168,15 @@ textarea.error {
 
 .error-message {
   color: red;
-  font-size: 12px;
+  font-size: var(--font-size-sm);
   margin-top: 5px;
 }
 
-label span {
-  color: red;
-  margin-left: 2px;
-}
-
+/* theme */
 [data-theme="dark-blue"] body {
   background-image: url(../Materials/Images/background\ for\ signup2.jpg);
+}
+
+[data-theme="dark-blue"] .payment-details{
+  color: var(--color-black);
 }

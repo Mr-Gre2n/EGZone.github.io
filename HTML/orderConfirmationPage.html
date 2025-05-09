@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="../CSS/mainStyle.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--color-background);
+            margin: 0;
+        }
+
+        .confirmation-box {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--page-shadow);
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .confirmation-box h1 {
+            color: var(--color-primary);
+            margin: 0; 
+            font-size: calc(var(--font-size-xlg) + 20px);
+        }
+
+        .confirmation-box p {
+            font-size: var(--font-size-xlg);
+            color: var(--color-primary-text);
+            font-weight: 400;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-box .details {
+            font-size: var(--font-size-base);
+            color: var(--color-secondary-text);
+            margin-bottom: 30px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <h1>Thank You!</h1>
+        <p>Your order has been successfully placed.</p>
+        <div class="details">
+            A confirmation email has been sent to your inbox.<br>
+            You will receive tracking details once your order ships.
+        </div>
+        <a class="button" href="/">Back to Home</a>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentTheme = localStorage.getItem("Theme") || "light";
+            document.documentElement.setAttribute("data-theme", currentTheme);
+        });
+    </script>
+</body>
+</html>
