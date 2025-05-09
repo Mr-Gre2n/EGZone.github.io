@@ -886,6 +886,11 @@ margin-right: 5px;
   [data-theme="dark-blue"] .product-badge {
     color: var(--color-black);
   }
+  
+  /* cart */
+  [data-theme="dark-blue"] .checkout-btn {
+    color: var(--color-black);
+  }
 
   /* responsive */
   @media (max-width: 768px) {
