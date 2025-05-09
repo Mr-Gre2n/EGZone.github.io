@@ -48,7 +48,7 @@ BTN_LOGIN.addEventListener("click", function (e) {
     let isFound = false;
 
     for (let i = 0; i < users.length; i++) {
-        if (users[i].Username == USERNAME.value && users[i].Password == PASSWORD.value ) {
+        if (users[i].username== USERNAME.value && users[i].password == PASSWORD.value ) {
             user =  users[i]; 
             isFound = true;
             break;
