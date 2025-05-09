@@ -58,5 +58,5 @@ save_btn.addEventListener('click',function() {
 });
 
 function show404Page() {
-    window.location.href = '404ErrorPage.html';
+    window.location.href = '../HTML/404ErrorPage.html';
 }

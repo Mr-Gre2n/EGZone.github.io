@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateGenderImage(gender) {
       // Update card photo based on gender selection
-      const maleImage = '../Materials/images/man.png';
-      const femaleImage = '../Materials/images/woman.png';
+      const maleImage = '../Materials/Images/man.png';
+      const femaleImage = '../Materials/Images/woman.png';
       
       cardPhoto.innerHTML = `<img src="${gender === 'male' ? maleImage : femaleImage}" alt="${gender} icon">`;
     }
