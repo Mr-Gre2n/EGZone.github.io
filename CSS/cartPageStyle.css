@@ -89,7 +89,6 @@ h1{
 /* increment and decrement product quantity buttons */
 .cart-item .quantity {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 16px;
@@ -97,32 +96,25 @@ h1{
 
     border-radius: 30px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    padding: 5px 15px;
+    margin: 10px;
 }
 
 .cart-item .quantity .increment,.decrement{
+    width: 32px;
+    height: 32px;
     background-color: var(--color-gray-200);
-    background-size:50%;
     color: var(--color-black);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
-.cart-item .quantity .decrement:hover{
+.cart-item .quantity .decrement:hover,.increment:hover{
     cursor: pointer;
-    /* border-right: 5px solid rgpa(0, 0, 0, 0.1); */
-}
-
-.cart-item .quantity .increment:hover{
-    cursor: pointer;
-    /* border-left: 5px solid rgpa(0, 0, 0, 0.1); */
-}
-
-/* in stock item */
-.cart-item .In-Stock{
-    color: #1aba1a;
-}
-/* out of stock item */
-.cart-item .Out-of-Stock{
-    color: var(--color-red)
+    background-color: #d0d0d0;
 }
 
 /* Remove Item button */
