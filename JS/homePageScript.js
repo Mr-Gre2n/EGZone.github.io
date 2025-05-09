@@ -156,7 +156,7 @@ function calculateDiscountedPrice(price, discount) {
 function navigateToProductPage(productId) {
     
     const cleanProductId = productId.replace(/\s+/g, '');
-    window.location.href = `productPage.html?id=${cleanProductId}`;
+    window.location.href = `ProductPage.html?id=${cleanProductId}`;
 }
 
 function navigateToAddProductPage(productId = null) {
