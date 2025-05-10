@@ -244,11 +244,12 @@ h1:after{
   }
   .flip-hint {
     text-align: center;
-    color: #666;
+    color: var(--color-gray-300);
     font-size: 12px;
     margin: 20px auto;
     padding: 20px auto;
     font-style: italic;
+    transform: translatey(20px);
   }
   .laptop img{
     margin-top: 2rem;

@@ -158,11 +158,12 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (isValid) {
         // Form is valid, you can submit or process data here
-        alert('Form submitted successfully!');
+        // alert('Form submitted successfully!');
         form.reset();
         resetCard();
         setRating(0);
         currentRating = 0;
+        window.location.href='../HTML/workApplicationConfirmation.html'
       }
     }
     
