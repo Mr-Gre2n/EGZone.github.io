@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Title parameter from URL
   const titleParam = getParameterByName('Title') || getParameterByName('title');
-  // console.log("Title parameter:", titleParam);
   
   if (titleParam) {
     filteredProductsByURL = filteredProductsByURL.filter(product => 
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Category parameter from URL
   const categoryParam = getParameterByName('Category') || getParameterByName('category');
-  // console.log("Category parameter:", categoryParam);
 
   // Further filter products by category if parameter exists
   if (categoryParam) {
@@ -68,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initRangeSlider();
 
   // Event listeners
-  searchButton.addEventListener("click", applyFilters);
-  searchInput.addEventListener("keyup", function (e) {
-    if (e.key === "Enter") applyFilters();
-  });
+  // searchButton.addEventListener("click", applyFilters);
+  // searchInput.addEventListener("keyup", function (e) {
+  //   if (e.key === "Enter") applyFilters();
+  // });
   
   if (filterGoButton) {
     filterGoButton.addEventListener("click", applyFilters);
@@ -170,6 +168,7 @@ generateBrandFilters(products);
   }
 
   function calculateDiscountedPrice(product) {
+    // not by percentage
     return product.Price - product.Discount;
   }
 
@@ -368,17 +367,6 @@ function showCartNotification(productName, quantity = 1, maxQuantity = 1, isErro
  function applyFilters() {
     let filteredProducts = [...products];
 
-    // Search filter 
-    if (searchInput && searchInput.value) {
-      const searchTerm = searchInput.value.toLowerCase();
-      filteredProducts = filteredProducts.filter(
-        (product) =>
-          product.Title.toLowerCase().includes(searchTerm) ||
-          product.Category.toLowerCase().includes(searchTerm) ||
-          product.Description.toLowerCase().includes(searchTerm)
-      );
-    }
-
     // Category filter
     const selectedCategories = Array.from(categoryCheckboxes)
       .filter((checkbox) => checkbox.checked)
@@ -390,7 +378,7 @@ function showCartNotification(productName, quantity = 1, maxQuantity = 1, isErro
       );
     }
 
-    // Brand filter - fixed version
+    // Brand filter
     const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked'))
       .map((checkbox) => checkbox.value);
 
