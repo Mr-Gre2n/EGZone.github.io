@@ -319,7 +319,6 @@ body {
     color: var(--color-black) !important;
 }
 
-
 [data-theme="dark-blue"] .cart-count {
     color: var(--color-black) !important;
 }
@@ -330,36 +329,4 @@ body {
 
 [data-theme="dark-blue"] .logo-text{
     color: var(--color-primary);
-}
-
-[data-theme="dark-blue"] .categories-dropdown {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    position: absolute;
-    top: 70px;
-    left: 11%;
-    background-color: var(--color-white);
-    box-shadow: var(--page-shadow);
-    z-index: 1;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    padding: 10px;
-}
-
-[data-theme="dark-blue"] .categories-dropdown ul{
-    list-style: none;
-}
-
-[data-theme="dark-blue"] .categories-dropdown li{
-    padding: 5px 0;
-    gap: 10px;
-}
-
-[data-theme="dark-blue"] .category.theme-link-btn{
-    color: var(--color-primary-text);
-}
-
-[data-theme="dark-blue"] .theme-link-btn:hover .categories-dropdown {
-    display: flex;
 }
