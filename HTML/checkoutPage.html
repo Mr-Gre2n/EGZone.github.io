@@ -29,17 +29,17 @@
         <div class="form-group">
           <label for="country">Country / Region <span>*</span></label>
           <select id="country" required>
-              <option value="EG">Egypt (EG)</option>
-              <option value="US">United States (US)</option>
-              <option value="UK">United Kingdom (UK)</option>
-              <option value="CA">Canada (CA)</option>
-              <option value="AU">Australia (AU)</option>
-              <option value="DE">Germany (DE)</option>
-              <option value="FR">France (FR)</option>
-              <option value="JP">Japan (JP)</option>
-              <option value="CN">China (CN)</option>
-              <option value="IN">India (IN)</option>
-              <option value="BR">Brazil (BR)</option>
+            <option value="EG">Egypt (EG)</option>
+            <option value="US">United States (US)</option>
+            <option value="UK">United Kingdom (UK)</option>
+            <option value="CA">Canada (CA)</option>
+            <option value="AU">Australia (AU)</option>
+            <option value="DE">Germany (DE)</option>
+            <option value="FR">France (FR)</option>
+            <option value="JP">Japan (JP)</option>
+            <option value="CN">China (CN)</option>
+            <option value="IN">India (IN)</option>
+            <option value="BR">Brazil (BR)</option>
           </select>
         </div>
         <div class="form-group">
@@ -68,7 +68,8 @@
           <label for="order-notes">Order Notes (Optional)</label>
           <textarea
             id="order-notes"
-            placeholder="Notes about your order, e.g. special note for delivery" rows="9"
+            placeholder="Notes about your order, e.g. special note for delivery"
+            rows="9"
           ></textarea>
         </div>
       </div>
@@ -79,7 +80,7 @@
           <p>PRODUCT</p>
           <p>SUB TOTAL</p>
         </div>
-        
+
         <div id="items-container">
           <!-- <div class="order-item">
             <p>Sample Product x 1</p>
@@ -89,7 +90,7 @@
 
         <div class="order-total">
           <p>ORDER TOTAL</p>
-          <p id="order-total">$50.00</p>
+          <p id="order-total">$0</p>
         </div>
         <div class="payment-methods">
           <label class="payment-option">
@@ -106,7 +107,7 @@
               class="payment-logo"
             />
           </label>
-          <div class="direct-bank-transfer-details payment-details"> 
+          <div class="direct-bank-transfer-details payment-details">
             <p>
               Make your payment directly into our bank account. Please use your
               Order ID as the payment reference. Your order will not be shipped
@@ -128,7 +129,7 @@
             />
           </label>
 
-          <div class="cash-on-delivery-details payment-details"> 
+          <div class="cash-on-delivery-details payment-details">
             <p>
               Pay with cash upon delivery. Please have the exact amount ready.
             </p>
@@ -142,19 +143,18 @@
               alt="PayPal"
               class="payment-logo"
             />
-          </label> 
-          <div class="paypal-details payment-details"> 
+          </label>
+          <div class="paypal-details payment-details">
             <p>
-              You will be redirected to PayPal to complete your payment securely.
+              You will be redirected to PayPal to complete your payment
+              securely.
             </p>
           </div>
-
         </div>
         <button class="button place-order-btn">PLACE ORDER</button>
       </div>
     </div>
     <script src="../JS/checkoutPageScript.js"></script>
     <script src="../JS/mainScript.js"></script>
-
   </body>
 </html>
